@@ -1,0 +1,24 @@
+* {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    color: #444444;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e99f4c;
+}
+
+.container {
+    padding: 20px;
+}
+
