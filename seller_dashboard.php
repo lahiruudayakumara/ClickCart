@@ -84,7 +84,7 @@
     	</div>
 
     	<div class="mainContent">
-    		<button placeholder="Add New">Add New</button>
+    		<button placeholder="Add New"><a href="add_product.php">Add New</a></button>
     		<div style="display:flex; flex-wrap: wrap; margin-top: 10px;">
     			<div class="sProduct">
     				<img src="./images/watch.png">
