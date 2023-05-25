@@ -1,7 +1,9 @@
 #footer {
-  color: black;
+  margin-top: auto;
   height: auto;
-  position: relative;
+  left: 0;
+  bottom: 0;
+  color: black;
   bottom: 0;
   width: 100%;
   box-shadow: 2px 2px 2px 2px black;

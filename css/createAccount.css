@@ -1,0 +1,180 @@
+* {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Rubik", sans-serif;
+    color: #444444;
+    margin: 0;
+    min-height: 100vh;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e99f4c;
+}
+.container {
+    padding: 20px;
+}
+
+.chooseContainer {
+    text-align: center;
+    padding: 10px;
+}
+
+.buyer{
+    width: 30%;
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.buyer.show {
+    display: block;
+}
+.seller {
+    width: 30%;
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.seller.show {
+    display: block;
+}
+
+form {
+    text-align: left;
+
+
+}
+
+form a {
+    color: blue;
+    text-decoration: underline;
+}
+
+form p {
+    font-size: 14px;
+}
+
+#location {
+    width: 99%;
+    height: 30px;
+    margin-top: 5px;
+    outline: none;
+}
+
+.firstName , .lastName {
+    outline: none;
+    width: 48%;
+    height: 30px;
+}
+
+@media (max-width: 1024px) {
+    .firstName , .lastName {
+    outline: none;
+    width: 98%;
+    height: 30px;
+    margin-top: 5px;
+}
+}
+.userName {
+    width: 98%;
+    height: 30px;
+    outline: none;
+    margin-top: 5px;
+}
+
+#email, #password {
+    margin-top: 5px;
+    height: 30px;
+    width: 98%;
+    outline: none;
+}
+
+#submit {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    height: 30px;
+    padding: 2px;
+    width: 100%;
+}
+
+#submit:hover {
+    outline: none;
+    background-color: orange;
+}
+
+#button {
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+}
+
+#button:hover {
+    background-color:orange;
+    color: black;
+    border: orange;
+}
+
+.facebook {
+    background-color: #1778f2;
+    bbox-shadow: 1px 1px 1px 1 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 5px;
+}
+
+.twitter {
+    box-shadow: 1px 1px 1px 1 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    background-color: #1DA1F2;
+    border-radius: 5px;
+}
+
+.apple {
+    box-shadow: 1px 1px 1px 1 rgba(0, 0, 0, 0.2);
+    background-color: gray;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#address{
+    outline: none;
+    margin-top: 5px;
+    height: auto;
+    width: 98%;
+}

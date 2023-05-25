@@ -1,3 +1,13 @@
+<?php
+
+	session_start();
+
+	include './conn.php';
+
+
+	if (isset($_SESSION['seller_login'])) { 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +33,7 @@
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Help Center</a></li>
                 <li><a href="#">My Business</a></li>
+
             </ul>
         </nav>
     </header> 
@@ -32,10 +43,23 @@
     		<div style="margin-bottom: 10px;">
     			<div style="display:flex; align-items: center; margin-bottom: 10px;">
 	    			<div class="avatar_s">
-		    			<img src="./images/avatar.png" alt="avatar">
+		    			<img src="./images/avatar.jpg" alt="avatar">
 		    		</div>
 		    		<div style="position: relative; left: 10%;">
-		    			<h3>Seler Name</h3>
+				    <?php 
+
+						$query ="SELECT * FROM buyer2 where Buyer_ID =  1 ";
+
+						$result = mysqli_query($con, $query);
+
+						if ($result) {
+							
+							$row = mysqli_fetch_assoc($result) ;
+							$sName =  $row['F_name'] . "<br/>";
+							
+						}
+		                ?>
+				    			<h3><?php echo "$sName" ?></h3>
 						<span class="fa fa-star checked"></span>
 						<span class="fa fa-star checked"></span>
 						<span class="fa fa-star checked"></span>
@@ -46,116 +70,89 @@
 
 	    		<hr/>
 	    		<div>
-	    			<p>Pending Order</p>
-	    			<p>Pending Order</p>
-	    			<p>Pending Order</p>
+	    			<p>Pending Order <span style="margin-left: 65%;">20</span></p>
+	    			<p>Pending Order <span style="margin-left: 65%;">20</span></p>
+	    			<p>Pending Order <span style="margin-left: 65%;">20</span></p>
 	    			<hr/>
 	    			<p>Earn in Month</p>
 	    		</div>
 	    	</div>
 	    	<div class="chats">
-	    		<table border="1px">
-	    			<tr>
-	    				<th style="display:flex;">
-	    					<p>Heading</p>
-	    					<a href="#">View All</a>
-	    				</th>
-	    			</tr>
+
+	    		<div style="background: #FFF0F0; display:flex; overflow:hidden; padding:5px; font-weight: bold;">
+	    			<p>Heading</p>
+	    			<a style="margin-left: 68%;" href="#">View All</a>
+	    		</div>
+	    		<?php 
+					$query3 ="
+								SELECT c.message, s.F_name
+								FROM chat c 
+								INNER JOIN seller s ON c.seller_id = s.Seller_ID";
+
+					$result3 = mysqli_query($con, $query3);
+
+					if ($result3) {
+							
+						while ($row3 = mysqli_fetch_assoc($result3)) {
+							$message = $row3['message'];
+
+							$s5 = $row3['F_name'];
+				?>
+				<table border="0px">
 	    			<tr>
 	    				<td>
-	    					<p>Name</p>
-	    					<span>Lorem ipsume is dummy text</span>
-	    				</td>
-	    			</tr>
-	    			<tr>
-	    				<td>
-	    					<p>Name</p>
-	    					<span>Lorem ipsume is dummy text</span>
-	    				</td>
-	    			</tr>
-	    			<tr>
-	    				<td>
-	    					<p>Name</p>
-	    					<span>Lorem ipsume is dummy text</span>
+	    					<p><?php echo "$s5" ?></p>
+	    					<span><?php echo "$message" ?></span>
+	    					<hr>
 	    				</td>
 	    			</tr>
 	    		</table>
+				<?php
+						}
+					} else {
+						echo "<script>console.log('chat box error');</script>";
+					}
+	    		?>
 	    	</div>
-    	</div>
+    	</div> 
 
     	<div class="mainContent">
-    		<button placeholder="Add New"><a href="add_product.php">Add New</a></button>
-    		<div style="display:flex; flex-wrap: wrap; margin-top: 10px;">
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%; cursor: pointer;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    					
+    		<button placeholder="Add New"><a href="item_add.php">Add New</a></button>
 
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    		
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    					
-    			    	 	
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    		  			
-    			    	   	
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    		 			
-    			    	   	
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    		  			
-    			    	  	
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    					
-    			    	   	
-    			<div class="sProduct">
-    				<img src="./images/watch.png">
-    				<div style="display:flex; overflow: hidden; width: 100%;">
-    					<p>$15.00</p>
-    					<i style="position: flex; right: 5px; margin-left: 130px;"  class="fa-solid fa-bars"></i>
-    				</div>
-    			</div>  			
-    			    		 			
+    		<div class="mainProduct">
+	    			<?php 
+
+						$query2 ="SELECT * FROM p ";
+
+						$result2 = mysqli_query($con, $query2);
+
+						if ($result2) {
+							
+							while ($row2 = mysqli_fetch_assoc($result2)) {
+								$pID = $row2['p_ID'];
+								$img =  $row2['p_image'];
+							 	$price =  $row2['p_Price'] . "<br/>";
+							  
+
+					?>
+		    			<div class="sProduct">
+		    				<img src="./images/<?php echo "$img"; ?>">
+		    				<div class="sProductCont">
+		    					<p>$<?php echo "$price"; ?></p>
+		    					<div class="clickIcon">
+		    						<i  class="fa-solid fa-bars"></i>
+			    					<div class="clickBtn">
+			    						<a href="item_edit.php?<?php echo "$pID"; ?>">Edit</a><br/>
+			    						<a href="item_delete.php?<?php echo "$pID"; ?>">Delete</a>
+			    					</div>
+		    					</div>
+		    				</div>
+		    			</div>	
+					<?php
+							
+							}	
+						}
+                ?>	 		  				 			
     			    	    			
     		</div>
     	</div>
@@ -163,7 +160,7 @@
 
     <div class="bottomBar">
    		<div class="bottomCont">
-	    		<table border="1px">
+	    		<table border="0px">
 	    			<tr>
 	    				<th style="display:flex;">
 	    					<p>Heading</p>
@@ -173,7 +170,7 @@
 	    			<tr>
 	    				<td>
 	    					<p>Name</p>
-	    					<span>Lorem ipsume is dummy text</span>
+	    					<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
 	    				</td>
 	    			</tr>
 	    			<tr>
@@ -191,7 +188,7 @@
 	    		</table>
    		</div>
    		<div class="bottomCont">
-	    		<table border="1px">
+	    		<table border="0px">
 	    			<tr>
 	    				<th style="display:flex;">
 	    					<p>Heading</p>
@@ -220,7 +217,7 @@
    		</div>
 
    		<div class="bottomCont">
-	    		<table border="1px">
+	    		<table border="0px">
 	    			<tr>
 	    				<th style="display:flex;">
 	    					<p>Heading</p>
@@ -254,3 +251,8 @@
 
 </body>
 </html>
+<?php
+} else {
+	header("Location: login.php");
+}
+?>

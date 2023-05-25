@@ -20,8 +20,8 @@
                 $login = 1;
                 if ($login = 1) {
             ?>
-                <a href="#"><i>Login</i></a>
-                <a href="#"><i>Sign Up</i></a>
+                <a href="login.php"><i>Login</i></a>
+                <a href="create_account.php"><i>Sign Up</i></a>
             <?php
                 }
             ?>
@@ -37,7 +37,7 @@
                 </a>
             </div>
             <div class="search">
-                <input type="text" placeholder="Search..">
+                <input id="searchBox" type="text" placeholder="Search..">
                 <button>Search</button>
                 <div class="dropdown">
                     <span>All Categories<i class="fa-solid fa-chevron-down"></i></span>
