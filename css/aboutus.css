@@ -1,0 +1,17 @@
+.image{
+    width:200px;
+    height: 200px;
+    padding-top: 25px;
+    padding-right:15px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+.aboutus_para{
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: justify;
+}
+
+h2 .aboutus_para{
+    margin-left: 40px;
+}
