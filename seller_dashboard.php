@@ -79,43 +79,7 @@
 		    			<p>Earn in Month</p>
 		    		</div>
 		    	</div>
-		    	<div class="chats">
 
-		    		<div style="background: #FFF0F0; display:flex; overflow:hidden; padding:5px; font-weight: bold;">
-		    			<p>Heading</p>
-		    			<a style="margin-left: 68%;" href="#">View All</a>
-		    		</div>
-		    		<?php 
-						$query3 ="
-									SELECT c.message, s.F_name
-									FROM chat c 
-									INNER JOIN seller s ON c.seller_id = s.Seller_ID";
-
-						$result3 = mysqli_query($con, $query3);
-
-						if ($result3) {
-								
-							while ($row3 = mysqli_fetch_assoc($result3)) {
-								$message = $row3['message'];
-
-								$s5 = $row3['F_name'];
-					?>
-					<table border="0px">
-		    			<tr>
-		    				<td>
-		    					<p><?php echo "$s5" ?></p>
-		    					<span><?php echo "$message" ?></span>
-		    					<hr>
-		    				</td>
-		    			</tr>
-		    		</table>
-					<?php
-							}
-						} else {
-							echo "<script>console.log('chat box error');</script>";
-						}
-		    		?>
-		    	</div>
 	    	</div> 
 
 	    	<div class="mainContent">
