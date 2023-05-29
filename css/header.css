@@ -4,10 +4,25 @@
     font-size: 14px;
 }
 
-.topbar a {
+.topbar  a {
     text-decoration: none;
+    color: black;
     margin-left: 30px;
 }
+
+.topbar a:hover {
+    color: #e99f4c;
+}
+
+.nav-top-bar a {
+    color: orange;
+    text-decoration: none;
+}
+
+.nav-top-bar a:hover {
+    color: black;
+}
+
 
 .container-top-bar {
     padding: 2px 20px;
@@ -84,7 +99,7 @@
   min-width: 160px;
   box-shadow: 2px 8px 16px 2px rgba(0,0,0,0.2);
   padding: 10px;
-  z-index: 1;
+  z-index: 999;
 }
 
 .dropdown-content a {
@@ -120,6 +135,10 @@
     text-decoration: none;
     margin-left: 30px;
     color: black;
+}
+
+.nav-bottom-bar a:hover {
+    border-bottom: 3px solid orange;
 }
 
 
