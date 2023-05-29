@@ -31,15 +31,15 @@
                 <div class="col">
                     <p><b>Customer Care</b></p>
                     <a href="#"><p>Contact Us</p></a>
-                    <a href="#"><p>Help Center</p></a>
+                    <a href="./helpcenter.php"><p>Help Center</p></a>
                 </div>
                 <div class="col">
                     <div class="item">
                         <p><b>Information</b></p>
-                        <a href="#"><p>About Us</p></a>
-                        <a href="#"><p>Privacy Policy</p></a>
-                        <a href="#"><p>Term of Service</p></a>
-                        <a href="#"><p>Mobile App</p></a>
+                        <a href="./aboutus.php"><p>About Us</p></a>
+                        <a href="./privacy.php"><p>Privacy Policy</p></a>
+                        <a href="./termsofservice.php"><p>Term of Service</p></a>
+                        <a href="./mobileapp.php"><p>Mobile App</p></a>
                         <a href="#"><p>Customer Care</p></a>
                     </div>
                 </div>

@@ -13,6 +13,7 @@
 <body>
     <?php include "./header.php" ?>
 
+        <div class="section">
             <div>
                     <img class="product_image" src="images/sample.jfif">
             </div>
@@ -79,6 +80,44 @@
                     but the majority have suffered alteration in some form, by injected humour</p>
                 </div>
             </div>
+            </div>
+
+            <div class="rating-section">
+                <h2>4.5</h2>
+                <div>
+                    <img class="star-row" src="./images/startrow.png" alt="Star Row">
+                </div>
+                    <div >
+                        <img class="stars" src="./images/starts.png" alt="Stars">
+                    </div>
+                    <div class="rating-num">
+                        <p><span style="margin-left:5px; margin-top: 5px;">12</span></p>
+                        <p><span style="margin-left:5px; margin-top: 5px;">8</p>
+                        <p><span style="margin-left:5px; margin-top: 5px;">2</p>
+                        <p><span style="margin-left:5px; margin-top: 5px;">0</p>
+                        <p><span style="margin-left:5px; margin-top: 5px;">0</p>
+                    </div>
+                </div>
+
+                <div  class="review-1">
+                    <p>Product Reviews</p>
+                </div>
+
+                <div class="review-2">
+                    <p>Date and time</p>
+                    <div class="review-image">
+                        <img src="./images/comb.jpg">
+                    </div>
+                    <div class="review-des">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+                    </div>
+                </div>
+
+
+
+
+
+
 
     <?php include "./footer.php" ?> 
 </body>

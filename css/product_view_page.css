@@ -1,3 +1,4 @@
+
 .product_image{
     width: 350px;
     height: 350px;
@@ -122,6 +123,7 @@
     margin-left: 45px;
     margin-top: 5px;
     float: left;
+    margin-bottom: 10px;
   }
 
   .delivery-description p {
@@ -129,6 +131,77 @@
     font-size: 14px;
     color: #000000;
   }
+
+  .rating-section{
+    border: solid black 1px;
+    border-width: 100%;
+    margin: 20px;
+  }
+
+h2{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.star-row{
+    width: 200px;
+    height: 45px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.stars{
+    width: 200px;
+    height: 190px;
+    margin-left: 150px;
+    float:left;
+}
+
+.rating-num p{
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+
+.review-1 p{
+    font-size: large;
+    color: #000000;
+    margin-left: 30px;
+    margin-bottom: 2px;
+
+}
+
+.review-2{
+    border: solid black 1px;
+    margin-left: 20px;
+    margin-bottom: 2px;
+    margin-right: 20px;
+}
+
+.review-2 p{
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.review-image img{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.review-des p{
+    font-size: medium;
+    margin-right: 10px;
+}
+
+
+
+
 
 
 
