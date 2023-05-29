@@ -14,7 +14,7 @@
     <section class="topbar">
         <div class="container-top-bar">
             <a href="#"><i>Contact Us</i></a>
-            <a href="./helpcenter.php"><i>Help Center</i></a>
+            <a href="#"><i>Help Center</i></a>
             <a href="#"><i>Daily Deals</i></a>
             <?php 
                 $login = 1;
@@ -57,7 +57,7 @@
 
         <div class="nav-bottom-bar">
             <ul>
-                <a href="./index.php">Home</a>
+                <a href="#">Home</a>
                 <a href="#">Electronics</a>
                 <a href="#">Fashion</a>
                 <a href="#">Sports</a>
