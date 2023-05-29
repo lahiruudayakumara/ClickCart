@@ -45,9 +45,9 @@
         <form action="create_buyer_account.php" method="post">
             <input class="firstName" type="text" name="firstName" placeholder="First Name" required/>
             <input class="lastName" type="text" name="lastName" placeholder="Last Name" required/><br>
-            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/></br>
-            <input id="password" type="password" name="password" placeholder="Password" required/><br/>
             <textarea id="address" name="address" rows="5" placeholder="Address"></textarea>
+            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/></br>
+            <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/><br/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
             <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account">
             <p align="center">Already a member? <a href="#">Sign in</a> </p>
@@ -75,7 +75,7 @@
             <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/><br/>
             <input id="password" stype="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
-            <input id="submit" type="submit" name="" placeholder="Create Account" value="Create Account" style="width:98%">
+            <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account" style="width:98%">
         </form>
     </div>
 </div>
@@ -84,8 +84,6 @@
         alert('This function is not working Now. Please Try again later or you cann create account using youur details');
     }
 </script>
-
-
 
     <?php include "./footer.php" ?> 
 

@@ -33,6 +33,63 @@
 		<?php
 
 	} else {
+
+			if (isset($_POST['submit'])) {
+			    $email = $_POST['email'];
+			    $password = $_POST['password'];
+
+			    $sql = "SELECT * FROM seller WHERE email='$email' AND password='$password'";
+			    $result = mysqli_query($con, $sql);
+			    $row_count = mysqli_num_rows($result);
+
+			    if ($row_count == 1) {
+			        // Fetch the row data
+			        $row = mysqli_fetch_assoc($result);
+
+			        // Access specific column values
+			        $sellerID = $row['seller_ID'];
+			        // ...
+
+			        // Seller login successful
+			        $_SESSION['user_role'] = 'seller';
+			        $_SESSION['seller_ID'] = $sellerID;
+			        header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
+			        exit();
+			    } 
+
+			    // Query the Buyers table
+			    $sql = "SELECT * FROM buyer WHERE email='$username' AND password='$password'";
+			    $result = mysqli_query($con, $sql);
+			    $row_count = mysqli_num_rows($result);
+
+			    if ($row_count == 1) {
+			        // Fetch the row data
+			        $row = mysqli_fetch_assoc($result);
+
+			        // Access specific column values
+			        $buyerID = $row['buyerID'];
+			        $buyerName = $row['buyerName'];
+			        // ...
+
+			        // Buyer login successful
+			        $_SESSION['user_role'] = 'buyer';
+			        $_SESSION['username'] = $username;
+			        header("Location: buyer_dashboard.php"); // Redirect to buyer dashboard page
+			        exit();
+			    }
+
+			    if ($row_count == 1 ) {
+
+			    } else {
+			    	$erro = "Invalid username or password";
+			    }		    	
+			    
+
+
+			}
+
+
+/*
 		include './conn.php';
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -43,6 +100,7 @@
 			if ($email == 'lahiru@gmail.com' AND $password == '1234'){
 				//user entered correct details
 				$_SESSION['seller_login'] = true;
+				setcookie('myData', 'Hello, World!');
 				
 
 				header('Location: seller_dashboard.php');
@@ -53,6 +111,8 @@
 			}
 
 		}
+
+*/
 		?>
 		<!DOCTYPE html>
 		<html lang="en">
@@ -72,15 +132,20 @@
 		    		<input type="email" name="email">
 		    		<input type="password" name="password">
 		    		<input type="submit" name="submit">
+		    		<?php if(isset($erro)) { ?>
+		    		<p style="color: red; "><?php echo $erro; ?></p>
+		    		<?php } ?>
 		    	</form>
 		    </div>
 		    <?php include "./footer.php" ?> 
+
 		</body>
 		</html>
 		<?php
 
 	}
 	
+	mysqli_close($con);
 	
 
 ?>
