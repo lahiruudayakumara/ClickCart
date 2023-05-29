@@ -1,11 +1,13 @@
+
 <?php
-    include './con.php';
+    include './conn.php';
 
     session_start();
 
     if($_SESSION['user_role'] == "buyer") {
 
         ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
