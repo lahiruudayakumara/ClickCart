@@ -192,7 +192,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
+    <script src="./js/swiper.js"></script>
+    <!-- <script>
         const swiper = new Swiper('.swiper', {
         autoplay: {
             delay:3000,
@@ -211,7 +212,7 @@
         },
 
         });
-    </script>
+    </script> -->
 
             <div>
             <h3>Popular Categories</h3>
@@ -288,6 +289,7 @@
                         </div>
                         </div>
                     
+                        
                                          
 </body>
 </html>
