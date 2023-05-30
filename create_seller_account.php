@@ -8,17 +8,34 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$query = ("INSERT INTO seller3 VALUES ('1', '', '{$uName}', '{$location}', '{$email}', '{$password}')");
+		$buyerCheck = "SELECT * FROM buyer WHERE email='$email'";
+		$result1 = mysqli_query($con, $buyerCheck);
+		$buyer_row_count = mysqli_num_rows($result1);
 
-		$result = mysqli_query($con, $query);
+		$sellerCheck = "SELECT * FROM seller WHERE email='$email'";
+		$result2 = mysqli_query($con, $sellerCheck);
+		$seller_row_count = mysqli_num_rows($result2);
 
-		if ($result) {
-			echo "<script>alert('Your seller account created Now you can loginn email and password'); window.location = 'login.php';</script>";
-		} else {
-			echo "<script>alert('Your account not created please try again'); window.location = 'create_account.php';</script>";
-		}
+		if ($buyer_row_count == 1) {
 
-		
+			echo "<script>alert('This email already use. Please try using other email.'); window.location = 'create_account.php';</script>";
+
+		} else if($seller_row_count == 1) {
+
+			echo "<script>alert('This email already use. Please try using other email.'); window.location = 'create_account.php';</script>";
+
+		}else  {
+
+			$query = "INSERT INTO seller VALUES ('', '{$uName}', '{$location}', '', '{$email}', '{$password}')";
+
+			$result = mysqli_query($con, $query);
+
+			if ($result) {
+				echo "<script>alert('Your seller account created Now you can loginn email and password'); window.location = 'login.php';</script>";
+			} else {
+				echo "<script>alert('Your account not created please try again'); window.location = 'create_account.php';</script>";
+			}
+		}		
 		
 	}
 	else {
