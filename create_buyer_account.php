@@ -37,13 +37,11 @@
 				echo "<script>alert('Your account not created please try again'); window.location = 'create_account.php';</script>";
 			}
 		}
-
-
-
-
 		
 	}
 	else {
 		header('Location: create_account.php');
 	}
+
+	mysqli_close($con);
 ?>
