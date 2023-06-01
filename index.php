@@ -1,7 +1,7 @@
 
 <!-- Login goes here -->
 <?php
-    include './conn.php';
+    require './conn.php';
 
         $sql = "SELECT * from category";
         $all_category = $con->query($sql);
@@ -79,49 +79,54 @@
 </script>
             <!-- -----------------------------Category part--------------------------------------------------------------------------------- -->
             <main>
-            <h2>Popular Categories</h2>
+                <h2>Popular Categories</h2>
+                <div class="obj-container">
                         <?php
                             while($row = mysqli_fetch_assoc($all_category)){
                         ?>
-                        
-                        <div class="category-name">
-                            <div class="image-style">
-                                <img class="img-style" src="./images/<?php echo $row["category_Picture"]; ?>" alt="Cameras" ?>
-                                <p><?php echo $row["category_Picture"]; ?></p>
+                    <div class="category-name">
+                        <div class="image-style">
+                                <img class="img-style" src="./images/<?php echo $row["category_Picture"]; ?>" alt="Cameras">
+                                <p><?php echo $row["category_Name"]; ?></p>
                             </div>
-                         
                             </div>
-                        </div>
                         <?php
                             }
                         ?>
-                           <br>
-                            <div class="btn-box">
-                            <button class="seeall-btn">See all</button>
-                            </div>
+                </div>
+                <!-- See All Button -->
+                <div class="btn-box">
+                    <button class="seeall-btn">See all</button>
+                </div>
             </main>
+
+
 <!-- ---------------------------------------------------------products part------------------------------------------------------------------------ -->
             <main>
-            <h2>Products</h2>                 
-                <?php 
-                    while($row = mysqli_fetch_assoc($all_products)){
-                ?>      
-                <div class="category-name">
-                            <div class="image-style">
-                                <img class="img-style" src="./images/<?php echo $row["product_Image"]; ?>" alt="Cameras">
-                                <p><?php echo $row["product_Name"]; ?></p>
-                                <p><?php echo $row["product_Price"];?></p>
-                            </div>
+                <h2>Popular Categories</h2>
+                <div class="obj-container">
+                        <?php
+                            while($row = mysqli_fetch_assoc($all_products)){
+                        ?>
+                    <div class="category-name">
+                        <div class="image-style">
+                            <img class="img-style" src="./images/<?php echo $row["product_Image"]; ?>" alt="Cameras">
+                            <p><?php echo $row["product_Name"]; ?></p>
+                            <p><?php echo $row["product_Price"];?></p>
+                        </div>
                             
-                        </div>
-                        </div>
+                    </div>
                         <?php
                             }
                         ?>
-                        <br>
-                            <div class="btn-box">
-                            <button class="seeall-btn">See all</button>
-                            </div>
-            </main>                                         
+                </div>
+                <!-- See All Button -->
+                <div class="btn-box">
+                    <button class="seeall-btn">See all</button>
+                </div>
+            </main>                                       
 </body>
 </html>
+<?php 
+    $con->close();
+?>

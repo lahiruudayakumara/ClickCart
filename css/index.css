@@ -53,13 +53,14 @@ h2{
     margin-bottom: 10px;
 }
 
+.obj-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
 .category-name{
-    width: 100%;
-    display:flex; 
-    flex-wrap: wrap; 
-    overflow:hidden;
-    padding-left: 80px;
-    padding-right: 80px;
+    width: 180px;
+    margin: 10px 40px 10px 40px;
 }
 
 .image-style{
@@ -91,6 +92,7 @@ h2{
   background-color: #000;
   color: rgb(255, 255, 255);  
   margin-left: 35px;
+  margin-top: 15px;
 }
 
 .seeall-btn:hover{
