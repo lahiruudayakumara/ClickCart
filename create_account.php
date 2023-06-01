@@ -72,8 +72,8 @@
                 <option value="Pakistan">Pakisthan</option>
                 <option value="China">China</option>
               </select>
-            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/><br/>
-            <input id="password" stype="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/>
+            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="no-referrer" required/><br/>
+            <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
             <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account" style="width:98%">
         </form>

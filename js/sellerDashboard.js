@@ -16,3 +16,16 @@ function clickbtn(num) {
 	}
 
 }
+
+
+
+    // Function to show the popup
+function showPopup() {
+	document.getElementById("add-product").style.display = "block";
+}
+
+// Function to hide the popup
+function hidePopup() {
+    document.getElementById("add-product").style.display = "none";
+}
+
