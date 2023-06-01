@@ -86,7 +86,7 @@
                         
                         <div class="category-name">
                             <div class="image-style">
-                                <img class="img-style" src="<?php echo $row["category_Picture"]; ?>" alt="Cameras" ?>
+                                <img class="img-style" src="./images/<?php echo $row["category_Picture"]; ?>" alt="Cameras" ?>
                                 <p><?php echo $row["category_Picture"]; ?></p>
                             </div>
                          
@@ -108,7 +108,7 @@
                 ?>      
                 <div class="category-name">
                             <div class="image-style">
-                                <img class="img-style" src="<?php echo $row["product_Image"]; ?>" alt="Cameras">
+                                <img class="img-style" src="./images/<?php echo $row["product_Image"]; ?>" alt="Cameras">
                                 <p><?php echo $row["product_Name"]; ?></p>
                                 <p><?php echo $row["product_Price"];?></p>
                             </div>
