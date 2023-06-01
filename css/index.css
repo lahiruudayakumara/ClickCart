@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .slider-container {
     position: relative;
     max-width: 100%;
