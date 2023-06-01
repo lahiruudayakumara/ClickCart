@@ -77,7 +77,8 @@ h2{
 .btn-box{
   display: flex;
   float: left;
-  margin: 20px 0;
+  margin: 0;
+
 }
 
 .seeall-btn{
@@ -89,6 +90,7 @@ h2{
   cursor: pointer; 
   background-color: #000;
   color: rgb(255, 255, 255);  
+  margin-left: 35px;
 }
 
 .seeall-btn:hover{
