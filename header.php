@@ -17,14 +17,17 @@
             <a href="./helpcenter.php"><i>Help Center</i></a>
             <a href="#"><i>Daily Deals</i></a>
             <?php 
-                $login = 1;
-                if ($login = 1) {
-            ?>
-                <a href="login.php"><i>Login</i></a>
-                <a href="create_account.php"><i>Sign Up</i></a>
-            <?php
+                if(isset($_SESSION['user_role'])) {
+
+                        
+                } else {
+                    ?>
+                    <a href="login.php"><i>Login</i></a>
+                    <a href="create_account.php"><i>Sign Up</i></a>
+                <?php
                 }
             ?>
+
         </div>
     </section>
 

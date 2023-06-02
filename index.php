@@ -1,12 +1,15 @@
 
 <!-- Login goes here -->
 <?php
+
     require './conn.php';
 
-        $sql = "SELECT * from category";
-        $all_category = $con->query($sql);
-        $sql = "SELECT * from product WHERE product_ID  LIMIT 5";
-        $all_products = $con->query($sql);
+    session_start();
+    
+    $sql = "SELECT * from category";
+    $all_category = $con->query($sql);
+    $sql = "SELECT * from product WHERE product_ID  LIMIT 5";
+    $all_products = $con->query($sql);
     
 ?>
 
@@ -106,9 +109,7 @@
             <main>
                 <h2>Popular Products</h2>
                 <div class="obj-container">
-                        <?php
-                            while($row = mysqli_fetch_assoc($all_products)){
-                        ?>
+                    <?php while($row = mysqli_fetch_assoc($all_products)){ ?>
                     <div class="category-name">
                         <div class="image-style">
                             <img class="img-style" src="./images/<?php echo $row["product_Image"]; ?>" alt="Cameras">
@@ -117,9 +118,7 @@
                         </div>
                             
                     </div>
-                        <?php
-                            }
-                        ?>
+                    <?php } ?>
                 </div>
                 <!-- See All Button -->
                 <div class="btn-box">
@@ -131,6 +130,6 @@
             <?php include './footer.php'; ?>
 </body>
 </html>
-<?php 
-    $con->close();
+<?php
+	$con->close();
 ?>
