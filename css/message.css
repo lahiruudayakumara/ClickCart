@@ -1,11 +1,20 @@
 #name button{
     background-color:orange;
-    border-radius: 8px;
+    border-radius: 5px;
     height:30px;
     width: 100px;
+    outline: none;
+    border: none;
     font-size:15px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+}
+
+#name button:hover {
+  background-color: #fff;
+  color: black;
+  border: 1px solid orange;
+  cursor: pointer;
 }
 
 body {
@@ -23,6 +32,8 @@ body {
     float: left;
     width: 89%;
     background: #f1f1f1;
+    outline: none;
+    margin-bottom: 5px;
   }
   
   form.example button {
@@ -59,10 +70,12 @@ body {
   .heading {
     text-align: center;
     border: 1px solid grey;
+    margin: 5px 0 5px 0;
     
   }
 
   .detail {
-    text-align: center;   
+    text-align: center; 
+    margin: 5px 0 5px 0;  
   }
 

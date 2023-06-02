@@ -18,7 +18,7 @@
     ?>
     <div style="width: 90%;margin-top:40px; margin-left:auto; margin-right:auto; border: 1px solid grey; display: flex; flex-wrap: wrap; position:relative;">
         <div style="width:20%; border: 1px solid grey;" class="groove1">
-            <p>
+            <p style="margin-left: 20px; padding: 5px;">
             <a href="#">Inbox</a><br><br>
             <a href="#">Spam</a><br><br>
             <a href="#">ClickCart</a><br><br>
@@ -27,25 +27,27 @@
             <a href="#">Archieve</a><br><br>
             </p>
         </div>
-        <div id="name" style="width:80%; padding: 5px;">
+        <div id="name" style="width:80%; padding: 5px 2px;">
             <button onclick="document.location='default.asp'">Delete</button>
             <button onclick="document.location='default.asp'">Marks</button>
             <button onclick="document.location='default.asp'">Movie</button><br><br>
             <form class="example" action="/action_page.php" style="margin:auto;max-width:300px display: inline-block;" >
                     <input type="text" placeholder="Search.." name="search2" style="display: inline-block;">
-                    <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:40px;"><i class="fa fa-search"></i></button>
+                    <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:42px; width:10%;"><i class="fa fa-search"></i></button>
             </form>
-
-            <br><br>
             <a href="https://courseweb.sliit.lk/">All</a>
             <span>||</span>
             <a href="https://courseweb.sliit.lk/">Unread</a>
             <p class="heading"><span style="float:left; ">From</span> <span>Subject</span> <span style="float:right;">Received</span></p>
-
-            <br><br>
-            <div style="">
-                
-                <p class="detail"><span style="float:left; "><i class="fa fa-check-square" aria-hidden="true"></i>Nano Tech</span> <span>Claming a laptop</span> <span style="float:right;">May</span></p>
+            <div>
+                <form action="/action_page.php" style="display: inline;" class="detail" >
+                    <input type="checkbox" id="vehicle1" name="message" value="Bike">
+                    <p style="display: inline;">
+                        <span>Nano Tech</span> 
+                        <span >Claming a laptop</span> 
+                        <span style="float:right;">May</span>
+                    </p>
+                </form>
             </div>
         </div>
     </div>
