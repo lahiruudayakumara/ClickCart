@@ -19,7 +19,7 @@
     <h1> User name</h1><br>
 
     <div class="row">
-        <div class="column" style="background-color:#ffa366;">
+        <div class="column" style="background-color:#f2f2f2;">
     <form action="/action.php" method="post">
         <fieldset>
             <legend>Personal Information</legend><br>
@@ -37,13 +37,12 @@
     </form>
         </div>
 
-        <div class="column" style="background-color:#ffa366;">
+        <div class="column" style="background-color:#f2f2f2;">
     <form action="/action.php" method="post">
         <fieldset>
             <legend>Payment Information</legend><br>
             <label for="paymethod">Payment Method</label><br><br>
-            <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
-            <a href="https://courseweb.sliit.lk/">Edit  Delete</a><br><br>
+            <i class="fa-brands fa-cc-visa" aria-hidden="true"></i><br><br>
             <i class="fa-brands fa-cc-mastercard"></i>
             <a href="https://courseweb.sliit.lk/">Edit  Delete</a><br><br>
             <i class="fa-brands fa-cc-paypal" aria-hidden="true"></i>
@@ -53,7 +52,7 @@
     </form>
         </div>    
     
-        <div class="column" style="background-color:#ffa366;">
+        <div class="column" style="background-color:#f2f2f2;">
     <form action="/action.php" method="post">
         <fieldset>
             <legend>Password & Security</legend><br>
@@ -71,6 +70,6 @@
     <?php include "./footer.php" ?>
 
 
-
+    
 </body>    
 </html> 
