@@ -7,6 +7,7 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="./css/header.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -18,18 +19,18 @@
 
     <!-- Login form -->
     <div class="login-box">
-      <h1>Login</h1>
-        <form>
-            <label>Email</label>
-            <input type="email" placeholder="" />
-            <label>Password</label>
-            <input type="password" placeholder="" />
-            <input type="button" value="Submit" />
+      <h1>Hello</h1>
+	   <p class="para-2">    <!-- link to create account page -->
+      Sign in to ClickCart or <a href="#">create an account</a>
+    </p>
+        <form action ="#">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button>Login</button>
+			<p class= "para-box"> <a href= '#'>Forgot password </a></p>
       <closeform></closeform></form>
     </div>
-    <p class="para-2">
-      Not have an account? <a href="signup.html">Sign Up Here</a>
-    </p>
+    
 
     <!-- Footer -->
     <?php include './footer.php' ?>
