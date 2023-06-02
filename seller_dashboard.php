@@ -37,7 +37,7 @@
 	            	<li class="li-dropdown">
 						Seller
 						<ul id="child-ul" class="child-ul" > 
-							<li ><a href="#">Manage Account</a></li>
+							<li ><a href="./seller_account_manage.php">Manage Account</a></li>
 							<li><a href="./logout.php">Logout</a></li>
 						</ul>
 					</li>
