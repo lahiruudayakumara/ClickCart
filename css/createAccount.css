@@ -123,7 +123,7 @@ form p {
     outline: none;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: black;
+    background-color: orange;
     color: #fff;
     cursor: pointer;
     height: 30px;
@@ -133,7 +133,7 @@ form p {
 
 #submit:hover {
     outline: none;
-    background-color: orange;
+    background-color: rgba(255, 166, 0, 0.716);
 }
 
 #button {

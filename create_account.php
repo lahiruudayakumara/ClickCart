@@ -1,3 +1,8 @@
+<?php
+    require './conn.php';
+
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
     <link rel="stylesheet" href="./css/createAccount.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script type="text/javascript">
+    <script type="text/javascript">
     function showBuyerContainer() {
       var formContainer = document.getElementById("buyer");
       formContainer.classList.add("show");
@@ -49,7 +54,7 @@
             <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/></br>
             <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/><br/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
-            <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account">
+            <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account"/>
             <p align="center">Already a member? <a href="./login.php">Sign in</a> </p>
         </form>
         <button id="button" type="submit" class="facebook" onclick="alertmessage()"><i class="fa-brands fa-facebook-f"></i> Facebook</button>
@@ -89,3 +94,6 @@
 
 </body>
 </html>
+<?php
+    $con->close();
+?>
