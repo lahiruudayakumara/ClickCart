@@ -47,7 +47,7 @@
                     </div>                    
                 </div>
                 <div class="sbtn">
-                    <a href="#" ><i class="fa-solid fa-shop"></i></a>
+                    <a href="store.php" ><i class="fa-solid fa-shop"></i></a>
                     <a href="#" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     <a href="#" ><i class="fa-regular fa-bell"></i></a>
                 </div>
