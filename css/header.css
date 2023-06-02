@@ -1,5 +1,6 @@
 .topbar {
     text-align: right;
+    background-color: #fff;
     border-bottom: 1px solid gray;
     font-size: 14px;
 }
@@ -47,7 +48,7 @@
 }
 
 .nav-top-bar .logo img {
-    width:  200px;
+    width:  100px;
     height: 50px;
 }
 

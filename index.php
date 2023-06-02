@@ -5,7 +5,7 @@
 
         $sql = "SELECT * from category";
         $all_category = $con->query($sql);
-        $sql = "SELECT * from product";
+        $sql = "SELECT * from product WHERE product_ID  LIMIT 5";
         $all_products = $con->query($sql);
     
 ?>
@@ -30,13 +30,13 @@
     <div class="slider-container">
   <div class="slider">
     <div class="slider-item">
-      <img class="slider-img" src="./images/3.jpg" alt="Slider Image 1">
+      <img class="slider-img" src="./images/1.jpg" alt="Slider Image 1">
     </div>
     <div class="slider-item">
-      <img class="slider-img" src="./images/3.jpg" alt="Slider Image 2">
+      <img class="slider-img" src="./images/1.jpg" alt="Slider Image 2">
     </div>
     <div class="slider-item">
-      <img class="slider-img" src="./images/3.jpg" alt="Slider Image 3">
+      <img class="slider-img" src="./images/1.jpg" alt="Slider Image 3">
     </div>
   </div>
   <div class="slider-buttons"></div>
@@ -77,8 +77,9 @@
     currentSlide = index;
   }
 </script>
-            <!-- -----------------------------Category part--------------------------------------------------------------------------------- -->
-            <main>
+            <!--Category part -->
+          <div style="margin-bottom: 40px;">
+          <main>
                 <h2>Popular Categories</h2>
                 <div class="obj-container">
                         <?php
@@ -101,9 +102,9 @@
             </main>
 
 
-<!-- ---------------------------------------------------------products part------------------------------------------------------------------------ -->
+          <!-- products part-->
             <main>
-                <h2>Popular Categories</h2>
+                <h2>Popular Products</h2>
                 <div class="obj-container">
                         <?php
                             while($row = mysqli_fetch_assoc($all_products)){
@@ -124,7 +125,10 @@
                 <div class="btn-box">
                     <button class="seeall-btn">See all</button>
                 </div>
-            </main>                                       
+            </main>  
+          </div>
+            
+            <?php include './footer.php'; ?>
 </body>
 </html>
 <?php 
