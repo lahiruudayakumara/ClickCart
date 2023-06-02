@@ -44,8 +44,15 @@
                 <div class="dropdown">
                     <span>All Categories<i class="fa-solid fa-chevron-down"></i></span>
                     <div class="dropdown-content">
-                        <a href="#">Electronics</a>
-                        <a href="#">Electronics</a>
+                    <?php
+                        $queryCategory = "SELECT *FROM category";
+                        $resultCategory = $con->query($queryCategory);
+
+                        while($row = $resultCategory->fetch_assoc()) {
+                            echo '<a href='.  $row['category_ID'] .  '>' . $row['category_Name'] .'</a>';
+
+                        }
+                    ?>
                     </div>                    
                 </div>
                 <div class="sbtn">

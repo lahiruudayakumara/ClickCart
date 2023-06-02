@@ -6,7 +6,9 @@ h1,h2{
 }
 
 .row{
-    float: left;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .row-personal-info{

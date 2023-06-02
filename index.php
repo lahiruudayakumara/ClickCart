@@ -1,11 +1,10 @@
-
 <!-- Login goes here -->
 <?php
 
     require './conn.php';
 
     session_start();
-    
+
     $sql = "SELECT * from category";
     $all_category = $con->query($sql);
     $sql = "SELECT * from product WHERE product_ID  LIMIT 5";
@@ -90,7 +89,7 @@
                         ?>
                     <div class="category-name">
                         <div class="image-style">
-                                <img class="img-style" src="./images/<?php echo $row["category_Picture"]; ?>" alt="Cameras">
+                                <img class="img-style" src="./images/category_img/<?php echo $row["category_Picture"]; ?>" alt="Cameras">
                                 <p><?php echo $row["category_Name"]; ?></p>
                             </div>
                             </div>
@@ -112,9 +111,9 @@
                     <?php while($row = mysqli_fetch_assoc($all_products)){ ?>
                     <div class="category-name">
                         <div class="image-style">
-                            <img class="img-style" src="./images/<?php echo $row["product_Image"]; ?>" alt="Cameras">
+                            <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
                             <p><?php echo $row["product_Name"]; ?></p>
-                            <p><?php echo $row["product_Price"];?></p>
+                            <p>$<?php echo $row["product_Price"];?></p>
                         </div>
                             
                     </div>
