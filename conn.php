@@ -1,18 +1,15 @@
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "clickcart";
-
 // Create connection
 
-    $con = mysqli_connect($servername, $username, $password, $db);
+    $con = new mysqli("localhost", "root", "", "Clickcart");
+
 // Check connection
 
-    if (mysqli_connect_error()) {
+    if ($con->connect_error){
         die("Connection failed: " . $con->connect_error);
+    } else {
+        echo "<script>console.log('Database Connect Successful')</script>";
     }
-    echo "<script>console.log('Database Connect Successful')</script>";
-
+    
 ?>

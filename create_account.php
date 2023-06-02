@@ -50,7 +50,7 @@
             <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/><br/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
             <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account">
-            <p align="center">Already a member? <a href="#">Sign in</a> </p>
+            <p align="center">Already a member? <a href="./login.php">Sign in</a> </p>
         </form>
         <button id="button" type="submit" class="facebook" onclick="alertmessage()"><i class="fa-brands fa-facebook-f"></i> Facebook</button>
         <button id="button"  type="submit" class="twitter" onclick="alertmessage()"><i class="fa-brands fa-twitter"></i> Twitter</button>
@@ -72,8 +72,8 @@
                 <option value="Pakistan">Pakisthan</option>
                 <option value="China">China</option>
               </select>
-            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/><br/>
-            <input id="password" stype="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/>
+            <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="no-referrer" required/><br/>
+            <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/>
             <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
             <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account" style="width:98%">
         </form>
@@ -81,7 +81,7 @@
 </div>
 <script type="text/javascript">
     function alertmessage() {
-        alert('This function is not working Now. Please Try again later or you cann create account using youur details');
+        alert('This function is not working Now. Please Try again later or you cann create account using your details');
     }
 </script>
 
