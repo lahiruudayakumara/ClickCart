@@ -1,6 +1,6 @@
 <?php
 
-	include './conn.php';
+	require './conn.php';
 
 	if($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$uName = $_POST['userName'];
@@ -8,13 +8,13 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$buyerCheck = "SELECT * FROM buyer WHERE email='$email'";
-		$result1 = mysqli_query($con, $buyerCheck);
-		$buyer_row_count = mysqli_num_rows($result1);
+		$query1 = "SELECT * FROM buyer WHERE email='$email'";
+		$result1 = $con->query($query1);
+		$buyer_row_count = $result1->num_rows;
 
-		$sellerCheck = "SELECT * FROM seller WHERE email='$email'";
-		$result2 = mysqli_query($con, $sellerCheck);
-		$seller_row_count = mysqli_num_rows($result2);
+		$query2 = "SELECT * FROM seller WHERE email='$email'";
+		$result2 = $con->query($query2);
+		$seller_row_count = $result2->num_rows;
 
 		if ($buyer_row_count == 1) {
 
@@ -26,11 +26,11 @@
 
 		}else  {
 
-			$query = "INSERT INTO seller VALUES ('', '{$uName}', '{$location}', '', '{$email}', '{$password}')";
+			$query3 = "INSERT INTO seller VALUES ('', '{$uName}', '{$location}', '', '{$email}', '{$password}')";
 
-			$result = mysqli_query($con, $query);
+			$result3 = $con->query($query3);
 
-			if ($result) {
+			if ($result3) {
 				echo "<script>alert('Your seller account created Now you can loginn email and password'); window.location = 'login.php';</script>";
 			} else {
 				echo "<script>alert('Your account not created please try again'); window.location = 'create_account.php';</script>";
@@ -41,4 +41,7 @@
 	else {
 		echo "not work";
 	}
+
+	$con->close();
+
 ?>
