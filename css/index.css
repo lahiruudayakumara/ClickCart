@@ -65,7 +65,9 @@ h2{
 
 .image-style{
     width: 180px;
-    border: solid black 1px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-right: 1%;
     text-align: center;
 }
@@ -84,7 +86,7 @@ h2{
 
 .seeall-btn{
   font-size: 20px;
-  padding: 8px 50px 8px 50px;
+  padding: 5px 50px 5px 50px;
   border: none;
   border-radius: none;
   outline: none;
@@ -101,6 +103,10 @@ h2{
 
 p{
   margin-top: 5px;
+}
+
+main {
+  margin-bottom: 80px;
 }
 
 
