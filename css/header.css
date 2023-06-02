@@ -41,6 +41,7 @@
 
 .nav-top-bar {
     padding: 5px 20px;
+    margin-left: 10%;
     display: flex;
     overflow: hidden;
     font-size: 14px;
@@ -142,4 +143,12 @@
     border-bottom: 3px solid orange;
 }
 
-
+@media only screen and (max-width: 1080px) {
+    .topbar {
+        display: none;
+    }
+    .nav-bottom-bar {
+        display: none;
+    }
+    
+}
