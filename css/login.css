@@ -21,14 +21,19 @@ h1{
     color: #07001f;
     margin-bottom: 1.2rem;
 }
-.para-2{
+.para-1{
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: #636363;
 }
-.para-2 a{
+.para-1 a{
     color: rgb(17, 107, 143);
     text-decoration: none;
+}
+.para-2{
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #800000;
 }
 form input{
     width:92%;
@@ -57,4 +62,11 @@ form input{
  input:focus{
     border:1px solid rgb(192, 192, 192);
  }
- 
+ .recover{
+    font-size: 0.7rem;
+    padding: 10px;
+ }
+.recover a{
+    color: #464647;
+    text-decoration: none;
+}

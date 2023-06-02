@@ -1,3 +1,37 @@
+<?php
+	require './conn.php';
+
+	if (isset($_POST['submit'])) {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		$query = "SELECT * FROM seller WHERE email= $email AND password= $password ";
+		$result = mysqli_query($con, $query);
+		$row_count = mysqli_num_rows($result);
+
+		if ($row_count == 1) {
+			// Fetch the row data
+			$row = mysqli_fetch_assoc($result);
+
+			// Access specific column values
+			$sellerID = $row['seller_ID'];
+			// ...
+
+			// Seller login successful
+			$_SESSION['user_role'] = 'seller';
+			$_SESSION['seller_ID'] = $sellerID;
+			header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
+			exit();
+
+
+		} else {
+			$error = "Invalid password";
+		}
+	} else {
+		echo "<script>alert('not work');</script>";
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +46,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body> 
 
     <!-- Header -->
 	<?php include './header.php'; ?>
@@ -20,15 +54,26 @@
     <!-- Login form -->
     <div class="login-box">
       <h1>Hello</h1>
-	   <p class="para-2">    <!-- link to create account page -->
-      Sign in to ClickCart or <a href="#">create an account</a>
+		<p class="para-1">    <!-- link to create account page -->
+      Sign in to ClickCart or <a href="./create_account.php">create an account</a>
     </p>
-        <form action ="#">
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Login</button>
-			<p class= "para-box"> <a href= '#'>Forgot password </a></p>
-      <closeform></closeform></form>
+
+		<?php if(isset($error)) { 
+			 ?> 
+			 <p class= "para-2"> Invalid password !! </p>
+			 <?php
+			} ?>
+        	<form action ="./login.php" method="POST">
+            	<input type="email" name="email" placeholder="Email" />
+            	<input type="password" name="password" placeholder="Password" />
+            <div class="recover"> 
+				<a href= '#'> Forgot password? </a>
+		    </div>
+			<input type="submit" name="submit">
+
+			<!--<button type="submit" name="submit">Login</button>
+      		<closeform></closeform>-->
+		</form>
     </div>
     
 
@@ -38,3 +83,6 @@
 </body>
 
 </html>
+<?php
+	$con->close();
+?>
