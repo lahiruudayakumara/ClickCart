@@ -83,7 +83,7 @@
       <closeform></closeform>
 	</form>
 	<p class="para-2">
-      Not have an account? <a href="signup.html">Sign Up Here</a>
+      Not have an account? <a href="create_account.php">Sign Up Here</a>
     </p>
     </div>
 
