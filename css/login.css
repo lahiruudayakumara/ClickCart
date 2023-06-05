@@ -4,9 +4,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-body{ 
-    background: #dfe9f5;
-}
+
 .login-box{
     width: 330px;
     padding:2rem 1rem;
@@ -14,8 +12,9 @@ body{
     background-color: #fff;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 2 20px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 h1{
     font-size: 2rem;
     color: #07001f;
@@ -31,9 +30,14 @@ h1{
     text-decoration: none;
 }
 .para-2{
-    margin-bottom: 1rem;
+    margin: 1rem;
     font-size: 0.9rem;
     color: #800000;
+}
+
+.para-2 a{
+    color: rgb(17, 107, 143);
+    
 }
 
 .para-3{
@@ -61,10 +65,11 @@ form input{
     width:90%;
     color: #fff;
     cursor: ponter;
-    background:  rgb(17, 107, 143);
+    background:  orange;
  }
  button:hover{
-    background: rgb(17, 107, 143,0.8);
+    background: rgba(255, 166, 0, 0.716);
+    cursor: pointer;
  }
  input:focus{
     border:1px solid rgb(192, 192, 192);

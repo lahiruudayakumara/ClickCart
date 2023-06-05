@@ -41,6 +41,7 @@
 
 .nav-top-bar {
     padding: 5px 20px;
+    margin-left: 10%;
     display: flex;
     overflow: hidden;
     font-size: 14px;
@@ -60,7 +61,8 @@
 
 .nav-top-bar #searchBox {
     width: 50%;
-    height: 30px;
+    height: 34px;
+    outline: none;
 }
 
 .nav-top-bar button {
@@ -142,4 +144,12 @@
     border-bottom: 3px solid orange;
 }
 
-
+@media only screen and (max-width: 1080px) {
+    .topbar {
+        display: none;
+    }
+    .nav-bottom-bar {
+        display: none;
+    }
+    
+}

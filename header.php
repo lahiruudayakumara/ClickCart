@@ -10,21 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
     <section class="topbar">
         <div class="container-top-bar">
             <a href="#"><i>Contact Us</i></a>
             <a href="./helpcenter.php"><i>Help Center</i></a>
             <a href="#"><i>Daily Deals</i></a>
             <?php 
-                $login = 1;
-                if ($login = 1) {
-            ?>
-                <a href="login.php"><i>Login</i></a>
-                <a href="create_account.php"><i>Sign Up</i></a>
-            <?php
+                if(isset($_SESSION['user_role'])) {
+
+                        
+                } else {
+                    ?>
+                    <a href="login.php"><i>Login</i></a>
+                    <a href="create_account.php"><i>Sign Up</i></a>
+                <?php
                 }
             ?>
+
         </div>
     </section>
 
@@ -42,8 +44,15 @@
                 <div class="dropdown">
                     <span>All Categories<i class="fa-solid fa-chevron-down"></i></span>
                     <div class="dropdown-content">
-                        <a href="#">Electronics</a>
-                        <a href="#">Electronics</a>
+                    <?php
+                        $queryCategory = "SELECT *FROM category";
+                        $resultCategory = $con->query($queryCategory);
+
+                        while($row = $resultCategory->fetch_assoc()) {
+                            echo '<a href='.  $row['category_ID'] .  '>' . $row['category_Name'] .'</a>';
+
+                        }
+                    ?>
                     </div>                    
                 </div>
                 <div class="sbtn">

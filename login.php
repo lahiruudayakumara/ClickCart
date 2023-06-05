@@ -48,7 +48,7 @@
 			header("Location: index.php"); // Redirect to seller dashboard page
 			exit();
 		} else {
-			$error = "invalid email password!";
+			$error = "invalid email or password!";
 		}
 	} 
 
@@ -77,14 +77,14 @@
       <h1>Login</h1>
         <form action="login.php" method="post">
 			<p class="para-3"><?php if(isset($error)) { echo $error; } ?></p>
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="password" />
+            <input type="email" name="email" placeholder="Email" autocomplete="off" required/>
+            <input type="password" name="password" placeholder="password" required/>
             <button name="submit">submit</button>
-      <closeform></closeform>
-	</form>
-	<p class="para-2">
-      Not have an account? <a href="create_account.php">Sign Up Here</a>
-    </p>
+			<closeform></closeform>
+		</form>
+		<p class="para-2">
+		Not have an account? <a href="create_account.php">Sign Up Here</a>
+		</p>
     </div>
 
 

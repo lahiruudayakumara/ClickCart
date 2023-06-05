@@ -47,10 +47,6 @@
   				</label>
 	        </nav>
 	    </header> 
-	    <?php
-	    $category = "SELECT * FORM category";
-	    $cat = mysqli_query($con, $category);
-	    ?>
 
 		<div id="add-product" class="add-product">
 	    	<h2>Add Product</h2>
