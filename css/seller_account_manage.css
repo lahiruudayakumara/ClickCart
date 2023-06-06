@@ -1,14 +1,16 @@
 *{
     box-sizing: border-box;
 }
-h1,h2{
-    margin: 10px;
+
+.main-section {
+    display:flex; 
+    flex-wrap: wrap;
 }
 
 .row{
     width: 50%;
     display: flex;
-    flex-wrap: wrap;
+    margin-left: 100px;
 }
 
 .row-personal-info{
