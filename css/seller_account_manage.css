@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+h1{
+    margin: 20px;
+}
+
+h2{
+    padding: 10px;
+}
+
 .main-section {
     display:flex; 
     flex-wrap: wrap;

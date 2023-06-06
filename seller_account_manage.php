@@ -22,10 +22,11 @@
 
         </head>
         <body>
+        <h1>User Name</h1>
             <div class="main-section">
                 <div class="row">
                 <div class="row-personal-info">
-                    <h1>User Name</h1>
+                   
                 <h2>Personal Information</h2><br>
                     <form name="userinfo" id="userinfo" action="#" method="post">
                     <div class="personal-info-form">
