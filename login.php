@@ -80,6 +80,7 @@
             <input type="email" name="email" placeholder="Email" autocomplete="off" required/>
             <input type="password" name="password" placeholder="password" required/>
             <button name="submit">submit</button>
+			<closeform></closeform>
 		</form>
 		<p class="para-2">
 		Not have an account? <a href="create_account.php">Sign Up Here</a>
