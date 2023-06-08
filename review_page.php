@@ -53,7 +53,6 @@
 	} 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,32 +62,54 @@
     <title>Login Page</title>
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/header.css">
-	<link rel="stylesheet" href="./css/login.css">
-	<link rel="stylesheet" href="./css/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/review_page.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
 <body>
 
-    <!-- Header -->
+   <!-- Header -->
 	<?php include './header.php'; ?>
+  
+  <h1>Product Review</h1>
 
-    <!-- Login form -->
-    <div class="login-box">
-      <h1>Login</h1>
-        <form action="login.php" method="post">
-			<p class="para-3"><?php if(isset($error)) { echo $error; } ?></p>
-            <input type="email" name="email" placeholder="Email" autocomplete="off" required/>
-            <input type="password" name="password" placeholder="password" required/>
-            <button name="submit">submit</button>
-			<closeform></closeform>
-		</form>
-		<p class="para-2">
-		Not have an account? <a href="create_account.php">Sign Up Here</a>
-		</p>
-    </div>
+  <form action="create_review.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required>
+      <option value="5">5 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="2">2 Stars</option>
+      <option value="1">1 Star</option>
+    </select>
+
+    <label for="review">Review:</label>
+    <textarea id="review" name="review" required></textarea>
+
+    <input type="submit" value="Submit Review">
+  </form>
+
+  <h2>Reviews</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>Action</th>
+    </tr>
+    <?php include 'display_reviews.php'; ?>
+  </table>
 
     <!-- Footer -->
     <?php include './footer.php' ?>
