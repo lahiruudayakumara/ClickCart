@@ -1,3 +1,4 @@
+<?php require "./conn.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,3 +28,4 @@ English versions from the 1914 translation by H. Rackham.
     <?php include "./footer.php" ?> 
 </body>
 </html>
+<?php $con->close(); ?>

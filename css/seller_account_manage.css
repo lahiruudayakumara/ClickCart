@@ -13,19 +13,25 @@ h2{
 .main-section {
     display:flex; 
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .row{
     width: 50%;
     display: flex;
-    margin-left: 100px;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 .row-personal-info{
     border: solid black 1px;
     border-radius: 4px;
     box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    width: 300px;
+    width: 75%;
+    margin: 10px;
+}
+
+.personal-info-form{
     margin: 10px;
 }
 
@@ -38,8 +44,8 @@ label{
     font-size: 15px;
 }
 
-input,textarea{
-    width: 250px;
+input{
+    width: 100%;
     border: solid #ddd 1px;
     border-radius: 3px;
     outline: 0;
@@ -48,7 +54,11 @@ input,textarea{
     box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
 }
 
-.update-btn{
+#passCheck{
+    width: auto;
+}
+
+.btn{
     width: 75px;
     text-align: center;
     padding: 5px;
@@ -62,92 +72,9 @@ input,textarea{
     color: #fff;
 }
 
-.update-btn:hover{
+.btn:hover{
     background-color: #04AA6D;
 }
-
-.row-payment-info{
-    border: solid black 1px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    width: 300px;
-    margin: 10px;
-}
-
-.payment-info{
-    padding: 7px;
-}
-
-.edit-btn{
-    width: 75px;
-    text-align: center;
-    margin-left: 20px;
-    padding: 5px;
-    font-size: 12px;
-    font-family: sans-serif;
-    border-radius: 3px;
-    background-color: black;
-    cursor: pointer;
-    border: 1px solid;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    color: #fff;
-}
-
-.edit-btn:hover{
-    background-color: #04AA6D;
-}
-
-.delete-btn{
-    width: 75px;
-    text-align: center;
-    margin-left: 20px;
-    padding: 5px;
-    font-size: 12px;
-    font-family: sans-serif;
-    border-radius: 3px;
-    background-color: black;
-    cursor: pointer;
-    border: 1px solid;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    color: #fff;
-}
-
-.delete-btn:hover{
-    background-color: #04AA6D;
-}
-
-.row-security-info{
-    border: solid black 1px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    width: 300px;
-    margin: 10px;
-}
-
-.email-pw-form{
-    width: 250px;
-    padding: 7px;
-}
-
-.change-btn{
-    width: 75px;
-    text-align: center;
-    margin: 10px;
-    padding: 5px;
-    font-size: 12px;
-    font-family: sans-serif;
-    border-radius: 3px;
-    background-color: black;
-    cursor: pointer;
-    border: 1px solid;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    color: #fff;
-}
-
-.change-btn:hover{
-    background-color: #04AA6D;   
-}
-
 
 
 

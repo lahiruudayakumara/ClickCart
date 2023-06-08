@@ -33,14 +33,16 @@
     <header id="header">
         <section class="nav-top-section">
         <div class="nav-top-bar">
-            <div class="logo">
-                <a href="#">
-                    <img src="./images/logo.png" alt="place-holder"/>
-                </a>
-            </div>
             <div class="search">
-                <input id="searchBox" type="text" placeholder="Search..">
-                <button>Search</button>
+                <div class="logo">
+                    <a href="#">
+                        <img src="./images/logo.png" alt="place-holder"/>
+                    </a>
+                </div>
+                <form action="search.php" id="searchform" method="GET">
+                    <input class="search-input" name="query"  type="text" placeholder="Search..">
+                    <button type="submit">Search</button>
+                </form>
                 <div class="dropdown">
                     <span>All Categories<i class="fa-solid fa-chevron-down"></i></span>
                     <div class="dropdown-content">

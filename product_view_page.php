@@ -1,3 +1,7 @@
+<?php 
+    require './conn.php'; 
+    $pID = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +17,22 @@
 <body>
     <?php include "./header.php" ?>
 
+    <?php
+        $query = "SELECT *FROM product WHERE product_ID = $pID";
+        $result = $con->query($query);
+        $row = $result->fetch_assoc();
+        $nM = $row['product_Name'];
+        $description = $row['product_Description']
+    ?>
+
         <div class="section">
             <div>
-                    <img class="product_image" src="images/sample.jfif">
+                    <img class="product_image" src="./images/product/<?php echo $row['product_Image'] ?>">
             </div>
 
             <div>
-                    <p class="product_title">HP I5s-DUIII4TU Laptop (hp NoteBook) JET BLACK MS Office Home</p><br/>
-                    <p class="product_des">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><br/>
+                    <p class="product_title"><?php echo $nM; ?></p><br/>
+                    <p class="product_des"><?php echo $description; ?></p><br/>
             </div>
 
             <div class="ratings">
@@ -37,8 +47,8 @@
             </div>
 
             <div class="brand">Brand : HP</div>
-            <div class="price">$480.00</div>
-            <div class="discount"><s>$599.00</s>&nbsp;&nbsp;&nbsp;&nbsp;20% OFF</div>
+            <div class="price"><?php echo $row['product_Price'] ?></div>
+            <!--<div class="discount"><s>$599.00</s>&nbsp;&nbsp;&nbsp;&nbsp;20% OFF</div>-->
             <div class="quantity">
                 <p>Quantity : </p>
                 <input type="number" min="1" max="10" value="1">
@@ -48,6 +58,7 @@
                 <button class="buy-btn">Buy Now</button>
                 <button class="cart-btn">Add to cart</button>
             </div>
+            </br>
 
             <div class="delivery-description">
                 <div class="delivery-box">
