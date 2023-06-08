@@ -1,72 +1,230 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
+bg{
+  color: aqua;
+}
   
-  h1 {
-    text-align: center;
-  }
-  
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
- input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  td.actions {
-    white-space: nowrap;
-  }
-  
+
+/* section */
+section{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+ /* button */
+.btn,
+.delete-btn,
+.option-btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.inline-delete-btn,
+.inline-option-btn{
+   display: inline-block;
+}
+
+.btn,
+.delete-btn,
+.option-btn,
+.inline-btn,
+.inline-delete-btn,
+.inline-option-btn{
+   margin-top: 1rem;
+   text-align: center;
+   padding: 1rem 3rem;
+   font-size: 1.8rem;
+   border-radius: .5rem;
+   border: var(--border);
+   color: var(--white);
+   cursor: pointer;
+   text-transform: capitalize;
+}
+
+.btn,
+.inline-btn{
+   background-color: var(--main-color);
+}
+
+.delete-btn,
+.inline-delete-btn{
+   background-color: var(--red);
+}
+
+.option-btn,
+.inline-option-btn{
+   background-color: var(--orange);
+}
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover,
+.inline-btn:hover,
+.inline-delete-btn:hover,
+.inline-option-btn:hover{
+   background-color: var(--black);
+}
+
+.flex-btn{
+   display: flex;
+   align-items: center;
+   column-gap: 1.5rem;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+/* account form */
+
+.account-form form{
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  border: var(--border);
+  border-radius: .5rem;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.account-form form h3{
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
+  color: var(--black);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.account-form form p{
+  padding-top: 1rem;
+  font-size: 1.6rem;
+  color: var(--light-color);
+}
+
+.account-form form p span{
+  color: var(--red);
+}
+
+.account-form form .box{
+  width: 100%;
+  border-radius: .5rem;
+  padding: 1.4rem;
+  font-size: 1.8rem;
+  color: var(--black);
+  background-color: var(--light-bg);
+  margin: 1rem 0;
+}
+
+.account-form form textarea{
+  height: 15rem;
+  resize: none;
+}
+
+.account-form form .image{
+  height: 20rem;
+  width: 100%;
+  object-fit: contain;
+  margin-top: .5rem;
+}
+
+.account-form form .link{
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--light-color);
+}
+
+.account-form form .link a{
+  color: var(--red);
+}
+
+.account-form form .link a:hover{
+  text-decoration: underline;
+}
+
+/* review container */
+.reviews-container .box-container{
+  display: grid;
+  row-gap: 3rem;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  border-radius: .5rem;
+  padding: 2rem;
+}
+
+.reviews-container .box-container .box{
+  border-bottom: var(--border);
+  overflow-x: hidden;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.reviews-container .box-container .box .user{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.reviews-container .box-container .box .user img{
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviews-container .box-container .box .user h3{
+  font-size: 2.5rem;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-color: var(--light-bg);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 6.5rem;   
+}
+
+.reviews-container .box-container .box .user p{
+  font-size: 1.8rem;
+  color: var(--black);
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  padding-bottom: .3rem;
+}
+
+.reviews-container .box-container .box .user span{
+  color: var(--light-color);
+  font-size: 1.5rem;
+}
+
+.reviews-container .box-container .box .ratings{
+  position: absolute;
+  top: 0; right: 0;
+  z-index: 10;
+}
+
+.reviews-container .box-container .box .ratings p{
+  border-radius: .5rem;
+  color: var(--white);
+  padding: .5rem 1rem;
+}
+
+.reviews-container .box-container .box .ratings p span{
+  font-size: 2rem;
+}
+
+.reviews-container .box-container .box .ratings p i{
+  font-size: 1.5rem;
+}
+
+.reviews-container .box-container .box .title{
+  font-size: 2rem;
+  color: var(--black);
+  padding: .5rem 0;
+}
+
+.reviews-container .box-container .box .description{
+  font-size: 1.6rem;
+  white-space: pre-line;
+  color: var(--light-color);
+  line-height: 1.5;
+}
