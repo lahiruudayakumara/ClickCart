@@ -26,13 +26,8 @@
            if($con->query($sql2)) {
             echo " <script> alert('Updated successfully!'); window.location = 'seller_dashboard.php';</script>";
            } else {
-            echo " <script> alert('Updated Unsuccessfully!'); window.location = 'seller_dashboard.php';</script>";
+            echo " <script> alert('Update unsuccessful'); window.location = 'seller_dashboard.php';</script>";
            }
-
-            // if($result2){
-            //     echo " <script> alert('Updated successfully!')</script>";
-            // }
-
         }
 
         ?>
@@ -53,19 +48,16 @@
         </head>
 
         <body>
-        <h1>User Name</h1>
 
             <div class="main-section">
                 <div class="row">
                 <div class="row-personal-info">
-
-                <h2>Personal Information</h2><br>
-
                     <form action="#" method="POST">
                     <div class="personal-info-form">
-
-                    <img src="./images/avatar.jpg" style="width:80px; height:80px; margin-left:31%;"></br>
-
+                    <center>
+                    <h2>Personal Information</h2><br>
+                    <img src="./images/avatar.jpg" style="width:100px; height:100px; margin-bottom: 20px;"></br>
+                    </center>
                     <label>Seller name:</label><br>
                     <input type="text" name="name" value="<?php echo "{$info['seller_Name']}" ?>"><br><br>
 
@@ -76,10 +68,25 @@
                     <input type="text" name="s_email" value="<?php echo "{$info['email']}" ?> "><br><br>
                     
                     <label>Password:</label><br>
-                    <input type="password" name="s_password" value="<?php echo "{$info['password']}" ?> "><br><br>
-                
-                    <input class="update-btn" type="submit" value="Update"name="update">
+                    <input type="password" id ="myInput" name="s_password" value="<?php echo "{$info['password']}" ?> "><br>
+                    <div>
+                    <input id="passCheck" type="checkbox" onclick="myFunction()">Show Password
+                    <script>
+                        function myFunction() {
+                        var x = document.getElementById("myInput");
+                        if (x.type === "password") {
+                            x.type = "text";
+                        } else {
+                            x.type = "password";
+                        }
+                        }
+                    </script>
+                    </div>
+                    <br><br>
+                    <input class="btn" type="submit" value="Update"name="update">
                         </form>
+
+                    <button class="btn" type="button"  onclick="window.location = 'seller_dashboard.php'">Cancel</button>
                     
                     </div>
     </div>
