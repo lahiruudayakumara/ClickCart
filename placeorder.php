@@ -24,11 +24,23 @@ session_start();
     <div class="wrapper">
         <div class="left-container">
             <div class="details">
-                <div class="delivery_to"> Delivery to: </div>
-                <div class="descripton"> hqwetjhnnbbiojderfqwertuoohjklnbvcd </div>
-                <div class="details1"> Bill to: </div>
-                <div class="details2"> Email: </div>
-                <div class="details3"> Select Payment Method: </div>
+                <form action="/action_page.php">
+                    <div class="bla">
+                        <label for="des">Delivery To:</label>
+                        <input type="text" id="de" name="de"><br>
+                    </div>
+
+                    <textarea rows="5" cols="50" name="description"></textarea><br><br>
+                    <div class="bla">
+                        <label for="des">Bill to the name:</label>
+                        <input type="text" id="de" name="de"><br>
+                    </div>
+                    <div class="bla">
+                        <label for="des">Email:</label>
+                        <input type="text" id="de" name="de"><br>
+                    </div>
+                </form>
+                <div class="details4"> Select Payment Method: </div>
             </div>
             <div class="items">
                 <div class="item"><i class="fa-solid fa-money-bill-1-wave"></i><input type="radio" /></div>

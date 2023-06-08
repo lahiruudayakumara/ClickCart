@@ -25,27 +25,29 @@
     padding: 10px;
     text-align: left;
 }
-.delivery_to{
+
+.bla{
     display: flex;
-    flex-direction: row;
-    padding: 10px;
+    padding-bottom: 10px;
+}
+.des{
+    /* padding: 20px; */
+    display: flex;
+    /* flex: 1; */
+    padding-right: 10px;
+    
+}
+.de{
+    padding: 20px;
+    flex: 1;
+    
 }
 .descripton{
     display: flex;
-    flex-direction: row;
-    padding: 10px;
+    padding-bottom: 10px; 
 }
-.details1{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-}
-.details2{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-}
-.details3{
+
+.details4{
     display: flex;
     flex-direction: row;
     padding: 10px;
