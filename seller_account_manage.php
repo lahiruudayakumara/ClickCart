@@ -4,7 +4,33 @@
     session_start();
 
     if ($_SESSION['user_role'] == "seller" ) {
-        $sellerID = $_SESSION['seller_ID'];
+
+        $seller_ID = $_SESSION['seller_ID'];
+        
+        $sql = "SELECT * FROM seller WHERE seller_ID = '$seller_ID' ";
+
+        $result = mysqli_query($con,$sql);
+
+        $info = mysqli_fetch_assoc($result);
+
+
+        if(isset($_POST['update'])){
+            $sellerName = $_POST['name'];
+            $sellerLocation = $_POST['location'];
+            $sellerEmail = $_POST['email'];
+            $sellerPassword = $_POST['password'];
+
+            $sql2 = "UPDATE seller SET seller_Name = '$sellerName', location = '$sellerLocation', 
+            email = '$sellerEmail', password = '$sellerPassword' WHERE seller_ID = '$seller_ID' ";
+
+            $result2 = mysqli_query($con, $sql2);
+
+            // if($result2){
+            //     echo " <script> alert('Updated successfully!')</script>";
+            // }
+
+        }
+
         ?>
 
         <!DOCTYPE html>
@@ -21,73 +47,39 @@
             <?php include "./header.php" ?>
 
         </head>
+
         <body>
         <h1>User Name</h1>
+
             <div class="main-section">
                 <div class="row">
                 <div class="row-personal-info">
-                   
+
                 <h2>Personal Information</h2><br>
-                    <form name="userinfo" id="userinfo" action="#" method="post">
+
+                    <form action="#" method="POST">
                     <div class="personal-info-form">
-                    <label>First name:</label><br>
-                    <input type="text" id="fname" placeholder="Enter first name..."><br><br>
-                    <label>Last name:</label><br>
-                    <input type="text" id="lname" placeholder="Enter last name..."><br><br>
-                    <label>Store name:</label><br>
-                    <input type="text" id="storename" placeholder="Enter store name..."><br><br>
-                    <label>Birthday:</label><br>
-                    <input type="date" id="bday" name="bday"><br><br>
-                    <label>Address:</label><br>
-                    <textarea id="address" name="address" placeholder="Enter address..."></textarea><br><br>
-                    <button class="update-btn">Update</button>
-                        </form>
-                    </div>
-                    </div>
 
+                    <img src="./images/avatar.jpg" style="width:80px; height:80px; margin-left:31%;"></br>
 
+                    <label>Seller name:</label><br>
+                    <input type="text" name="name" value="<?php echo "{$info['seller_Name']}" ?>"><br><br>
 
-                <!-- Payment info -->
-                <div class="row">
-                
-                <div class="row-payment-info">
-                    <h2>Payment Information</h2><br>
-                    <h4 style="margin:10px">Payment method</h4>
-                    <div class="payment-info">
-                    <i class="fa-brands fa-cc-visa fa-2xl" style="color: #000000;"></i>
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button><br><br>
-
-                    <i class="fa-brands fa-cc-mastercard fa-2xl" style="color: #000000;"></i>
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button><br><br>
-
-                    <i class="fa-brands fa-cc-paypal fa-2xl" style="color: #000000;"></i>
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button><br><br>
-                    </div>
-                    </div>
-                    </div>
-
-
-
-                <!-- Password and securiy -->
-                <div class="row">
+                    <label>Location:</label><br>
+                    <input type="text" name="location" value="<?php echo "{$info['location']}" ?>"><br><br>
                     
-                    <div class="row-security-info">
-                        <h2>Password and Security</h2>
-                    <form name="sec-info" id="sec-info" action="#" method="post">
-                    <div class="email-pw-form">
                     <label>Email:</label><br>
-                    <input type="text" id="email" placeholder="Enter email..."><br><br>
+                    <input type="text" name="s_email" value="<?php echo "{$info['email']}" ?> "><br><br>
+                    
                     <label>Password:</label><br>
-                    <input type="password" id="password" placeholder="Enter password..."><br><br>
-                    </div>
-                    <button class="change-btn">Change</button>
+                    <input type="password" name="s_password" value="<?php echo "{$info['password']}" ?> "><br><br>
+                
+                    <input class="update-btn" type="submit" value="Update"name="update">
                         </form>
+                    
                     </div>
+    </div>
 
-                </div>
             </div>
         </body>
         </html>
