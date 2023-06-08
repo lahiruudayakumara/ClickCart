@@ -25,7 +25,7 @@ session_start();
         <div class="left-container">
             <div class="details">
                 <div class="delivery_to"> Delivery to: </div>
-                <div class="descripton"> hqwetjhnnbbiojderfqwertuoohjklnbvcdfgxsaz </div>
+                <div class="descripton"> hqwetjhnnbbiojderfqwertuoohjklnbvcd </div>
                 <div class="details1"> Bill to: </div>
                 <div class="details2"> Email: </div>
                 <div class="details3"> Select Payment Method: </div>

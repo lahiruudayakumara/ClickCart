@@ -21,6 +21,30 @@ session_start();
 
 <body>
     <?php include "./header.php" ?>
+    <?php
+    require './conn.php';
+    
+    $cartQuery = "SELECT * from cart where buyer_id='2'";
+    $cartResult = $con->query($cartQuery);
+    $cartRow = $cartResult->fetch_assoc();
+    $productID = $cartRow['product_id'];
+    $quantity = $cartRow['product_qty'];
+    $productQuery = "SELECT * from product where product_ID='$productID'";
+    $productResult = $con->query($productQuery);
+    $productRow = $productResult->fetch_assoc();
+    $totalCost = $productRow['product_Price'] * $quantity;
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $qty = $_POST['quantity'];
+        $cartId = $cartRow['cart_id'];
+        $cartUpdateQuery = "UPDATE cart SET product_qty='$qty' WHERE cart_id='$cartId'";
+        if ($con->query($cartUpdateQuery) === TRUE) {
+            echo "Record updated successfully";
+          } else {
+            echo "Error updating record: " . $con->error;
+          }
+    }
+    ?>
     <div class="wrapper">
         <div class="left-container">
             <div class="action-header">
@@ -29,12 +53,14 @@ session_start();
             </div>
             <div class="cart-item">
                 <div class="action"><input type="checkbox" /></div>
-                <div class="image"><img src="https://www.w3schools.com/html/pic_trulli.jpg" /></div>
-                <div class="decsription">hhhhkjwyuyhjhjhhlhlhhjhj,jhg</div>
+                <div class="image"><img src="./images/product/<?php echo $productRow['product_Image']; ?>" /></div>
+                <div class="decsription"><?php echo $productRow['product_Name']; ?></div>
                 <div class="qty-selector">
-                    <input type="text" value="0" />
+                    <form class="qty-change" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <input type="text" name="quantity" value="<?php echo $quantity; ?>" />
                     <button class="qty-up"><i class="fa-solid fa-chevron-up"></i></button>
                     <button class="qty-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    <form>
                 </div>
 
             </div>
@@ -44,21 +70,25 @@ session_start();
         <div class="right-container">
             <h1>Order details</h1>
             <div class="order-details">
-                <div class="title"> Item(1) </div>
-                <div class="value"> $48.00</div>
+                <div class="title"> Item</div>
+                <div class="value"><span>$</span><?php echo $productRow['product_Price']; ?></div>
             </div>
             <div class="order-details">
+                <div class="title">Quantity</div>
+                <div class="value"><?php echo $quantity; ?></div>
+            </div>
+            <!-- <div class="order-details">
                 <div class="title"> Shipping </div>
                 <div class="value"> $2.00</div>
-            </div>
+            </div> -->
             <div class="order-details">
                 <div class="title"><strong>Total</strong> </div>
-                <div class="value"> $50.00</div>
+                <div class="value"><span>$</span><?php echo number_format($totalCost,2);?></div>
             </div>
-            <button class="checkout-button">CHECKOUT</button>
+            <a href="./placeorder.php" class="checkout-button">CHECKOUT</a>
         </div>
     </div>
-
+   
 
     <?php include "./footer.php" ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

@@ -1,0 +1,100 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 96%;
+    justify-content: space-between;
+    padding: 30px;
+    border: 1px solid #333;
+}
+
+.left-container {
+    border: 1px solid #333;
+    width: 56%;
+    padding: 20px;
+}
+
+.right-container {
+    border: 1px solid #333;
+    width: 38%;
+    padding: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: left;
+}
+.delivery_to{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.descripton{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.details1{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.details2{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.details3{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    padding-bottom: 3px;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+.item i{
+    padding-bottom: 5px;
+    font-size: 30px
+}
+.order-details{
+    display: flex;
+}
+.title{
+    padding: 10px;
+    flex: 1;
+    text-align: left;
+}
+
+.value{
+    padding: 10px;
+    flex: 1;
+    text-align: right;
+}
+
+.placeorder-button{
+    border: none;
+    background-color: crimson;
+    padding: 8px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+
+}
+.placeorder-button:hover{
+    background-color: black;
+}
