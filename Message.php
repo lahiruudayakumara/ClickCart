@@ -41,10 +41,10 @@
             <p class="heading"><span style="float:left; ">From</span> <span>Subject</span> <span style="float:right;">Received</span></p>
             <div>
                 <form action="/action_page.php" style="display: inline;" class="detail" >
-                    <input type="checkbox" id="vehicle1" name="message" value="Bike">
+                    <input type="checkbox" id="vehicle1">
                     <p style="display: inline;">
                         <span>Nano Tech</span> 
-                        <span >Claming a laptop</span> 
+                        <span style="float:center;max-width:100px">Claming a laptop</span> 
                         <span style="float:right;">May</span>
                     </p>
                 </form>
