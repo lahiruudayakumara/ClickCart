@@ -94,24 +94,25 @@
 }
 
 .buy-btn{
-    background-color: black;
+    background-color: orange;
     margin-right: 10px;
 }
 
 .cart-btn{
-    background-color: black;
+    background-color: orange;
 }
 
 .buy-btn:hover{
-    background-color: #04AA6D;
+    background-color: black;
 }
 
 .cart-btn:hover{
-    background-color: #04AA6D;
+    background-color: black;
 }
 
 .delivery-description {
     flex: 0 0 30%;
+    
   }
 
   .delivery-box {

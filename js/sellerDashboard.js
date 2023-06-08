@@ -19,7 +19,7 @@ function clickbtn(num) {
 
 
 
-    // Function to show the popup
+// Function to show the popup
 function showPopup() {
 	document.getElementById("add-product").style.display = "block";
 }
@@ -28,4 +28,5 @@ function showPopup() {
 function hidePopup() {
     document.getElementById("add-product").style.display = "none";
 }
+
 

@@ -9,9 +9,9 @@
 
             $id = $_GET['id'];
 
-            $query2 = "DELETE FROM product WHERE product_ID = $id  LIMIT 1";
+            $query2 = "DELETE FROM product WHERE product_ID = '$id'  LIMIT 1";
 
-            $result_set = mysqli_query($con, $query2);
+            $result_set = $con->query($query2);
 
             if ($result_set) {
                 echo  '<script>alert("Your Product Item Deleted"); window.location = "seller_dashboard.php"; </script>';
@@ -23,5 +23,5 @@
         exit();
     }
 
-    mysqli_close($con);
+    $con->close();
 ?>

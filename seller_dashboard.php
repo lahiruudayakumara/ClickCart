@@ -4,10 +4,7 @@
 
 	require './conn.php';
 
-
 	if ($_SESSION['user_role'] == "seller" ) { 
-
-
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
@@ -19,7 +16,6 @@
 	    <link rel="stylesheet" href="./css/sellerDashboard.css">
 	    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	    
 	</head>
 	<body>
 
@@ -58,47 +54,25 @@
 
 						if($result1) {
 							while ($row = $result1->fetch_assoc()) {
+								?>
 
-								echo '<option value="'. $row['category_ID'] . '">' . $row['category_Name'] . '</option>';
+								<option value="<?php echo $row['category_ID']; ?>"><?php echo $row['category_Name']; ?></option>
 
+								<?php
 							}
 						}
 					?>
 				</select>
-					<input type="text" name="name"><br/>
-					<input type="text" name="price"><br/>
-					<input type="file" name="image"><br/>
-				<input class="submit" name="submit"  type="submit" value="Submit">
+					<input type="text" name="name" placeholder="Product Name" required/><br/>
+					<input type="text" name="brand" placeholder="Brand Name" required/><br/>
+					<textarea rows="4" name="Description" placeholder="Discription"></textarea>
+					<input type="text" name="price" placeholder="Price" required/><br/>
+					<input id="image" type="file" name="image" onchange="preview()" />
+					<img id="img" src="#">
+				<input class="submit" name="submit"  type="submit" value="Submit"/>
 				<button class="cancel" type="button"  onclick="hidePopup()">Cancel</button>
 			</form>
 		</div>
-
-
-		<div id="edit-product" class="edit-product">
-	    	<h2>Add Product</h2>
-	    	<form method="POST" action="product_add.php">
-				<select name="category" id="category">
-					<?php 
-						$query = "SELECT * FROM category";
-						$result = $con->query($query);
-
-						if($result1) {
-							while ($row = $result1->fetch_assoc()) {
-
-								echo '<option value="'. $row['category_ID'] . '">' . $row['category_Name'] . '</option>';
-
-							}
-						}
-					?>
-				</select>
-				<input type="text" name="name"><br/>
-				<input type="text" name="price"><br/>
-				<input type="file" name="image"><br/>
-	    		<input class="submit"  type="submit" value="Submit">
-	    		<button class="cancel" type="button"  onclick="hidePopup()">Cancel</button>
-	    	</form>
-	  	</div>
-
 
 	    <div class="main_section">
 	    	<div class="sideBar">
@@ -175,7 +149,19 @@
 		    			<p>Complete Order <span style="float: right;"><?php echo $order_Counts[1]; ?></span></p>
 		    			<p>Cancle Order <span style="float: right;"><?php echo $order_Counts[2]; ?></span></p>
 		    			<hr/>
-		    			<p>Earn in Month <span style="float: right;">$<?php echo"need" ?></span></p>
+						<?php
+							$queryEarn = "SELECT order_items.*, product.* 
+										FROM order_items
+										JOIN product ON order_items.product_ID = product.product_ID
+										WHERE order_items.seller_ID = $sellerID AND  order_items.order_Type = 'complete'";
+							$resultEarn = $con->query($queryEarn);
+							$Earn = 0;
+							while($row = $resultEarn->fetch_assoc()) {
+								$amount = $row['product_Price'];
+								$Earn += $amount;
+							}
+						?>
+		    			<p>Your Earn<span style="float: right;">$<?php echo $Earn; ?></span></p>
 		    		</div>
 		    	</div>
 		    	<hr>
@@ -194,6 +180,7 @@
 									FROM product
 									JOIN category ON product.category_ID = category.category_ID
 								  	WHERE product.seller_ID = $sellerID
+									ORDER BY product.product_ID
 									";
 
 						$result6 = $con->query($query6);
@@ -204,8 +191,8 @@
 
 					?>
 		    			<div class="sProduct">
-		    				<img src="./images/<?php echo $row['product_Image']; ?>" alt="product_image">
-		    				<p><?php echo$row['category_Name'] . "<br/>" . $row['product_Name']; ?></p>
+		    				<img src="./images/product/<?php echo $row['product_Image']; ?>" alt="product_image">
+		    				<p><?php echo substr($row['category_Name'],0 ,15) . "<br/>" . substr($row['product_Name'],0,15) . "<br/>" . substr($row['product_Brand'],0,15); ?></p>
 		    				<div class="sProductCont">
 		    					<p>$<?php echo $row['product_Price']; ?></p>
 		    					<div class="clickIcon">
@@ -321,10 +308,12 @@
 	    </div>
 	    <br/>
 
-		<?php include'./footer.php' ?>
-	    <!-- js files -->
-	    <script type="text/javascript" src="./js/check_online.js"></script>
-	    <script type="text/javascript" src="./js/sellerDashboard.js"></script>
+	<?php include'./footer.php' ?>
+
+	<!-- javascript files -->
+	<script src="./js/imgPreview.js"></script>
+	<script src="./js/check_online.js"></script>
+	<script src="./js/sellerDashboard.js"></script>
 
 	</body>
 	</html>

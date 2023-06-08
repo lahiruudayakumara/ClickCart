@@ -5,7 +5,7 @@
 
     session_start();
 
-    $sql = "SELECT * from category";
+    $sql = "SELECT * from category WHERE category_ID LIMIT 5";
     $all_category = $con->query($sql);
     $sql = "SELECT * from product WHERE product_ID  LIMIT 5";
     $all_products = $con->query($sql);
@@ -35,10 +35,10 @@
           <img class="slider-img" src="./images/1.jpg" alt="Slider Image 1">
         </div>
         <div class="slider-item">
-          <img class="slider-img" src="./images/1.jpg" alt="Slider Image 2">
+          <img class="slider-img" src="./images/2.jpg" alt="Slider Image 2">
         </div>
         <div class="slider-item">
-          <img class="slider-img" src="./images/1.jpg" alt="Slider Image 3">
+          <img class="slider-img" src="./images/3.jpg" alt="Slider Image 3">
         </div>
       </div>
       <div class="slider-buttons"></div>
@@ -74,13 +74,16 @@
           <h2>Popular Products</h2>
           <div class="obj-container">
           <?php while($row = mysqli_fetch_assoc($all_products)){ ?>
+            <a href="./product_view_page.php?id=<?php echo $row['product_ID']; ?>">
             <div class="category-name">
               <div class="image-style">
                 <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
-                <p><?php echo $row["product_Name"]; ?></p>
+                <p><?php echo substr($row["product_Name"], 0, 15); ?></p>
+                <p><?php echo substr($row["product_Brand"], 0, 15); ?></p>
                 <p>$<?php echo $row["product_Price"];?></p>
               </div>             
             </div>
+          </a>
           <?php } ?>
             </div>
                 <!-- See All Button -->

@@ -118,6 +118,10 @@
   display: block;
 }
 
+.dropdown-content a:hover {
+    background-color: orange;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
 }

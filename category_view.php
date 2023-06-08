@@ -1,9 +1,9 @@
 <?php
 
     require './conn.php'; 
+    $category = $_GET['category'];
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +19,13 @@
     <?php include "./header.php" ?>
     <div class="search-container">
     <?php
-        $searchQuery = $_GET["query"];
+        
 
 
         $sql = "SELECT product.*, category.*
-                FROM product 
-                JOIN category ON product.category_ID = category.category_ID
-                WHERE product_Name 
-                LIKE '%" .$searchQuery. "%'
+                FROM category
+                JOIN product ON product.category_ID = category.category_ID
+                WHERE category_Name LIKE '%" .$category. "%'
                 ";
 
         $result = $con->query($sql);
@@ -34,17 +33,16 @@
 
 
         if ($found > 0) {
-            echo '<h4>' .$found . ' items found for &nbsp;"' . $searchQuery . '"</h4>';
+            echo '<h4>' .$found . ' items found for &nbsp;"' . $category . '" Category </h4>';
             echo '<div class="section">';
             while ($row = $result->fetch_assoc()) {
-
                 ?>
                 <a href="./product_view_page.php?id=<?php echo $row['product_ID']; ?>">
 		    	<div class="productObj">
 		    		<img src="./images/product/<?php echo $row['product_Image']; ?>" alt="product_image">
 		    		<p><?php echo$row['category_Name'] . "<br/>" . substr($row['product_Name'],0,15); ?></p>
 		    		<div class="sProductCont">
-		    			<p>$<?php echo $row['product_Price']; ?></p>
+		    		    <p>$<?php echo $row['product_Price']; ?></p>
 		    		</div>
 		    	</div>	
                 </a>
@@ -52,7 +50,7 @@
             }
             echo '</div>';
         } else {
-            echo '<h4>No results found &nbsp;"' . $searchQuery . '"</h4>';
+            echo '<h4>No results found &nbsp;"' . $category . '" Category </h4>';
         }
         ?>
     

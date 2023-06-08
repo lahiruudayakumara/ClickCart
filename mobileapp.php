@@ -1,3 +1,4 @@
+<?php require "./conn.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,3 +44,4 @@
 ?>
 </body>
 </html>
+<?php $con->close(); ?>

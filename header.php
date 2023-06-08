@@ -17,8 +17,9 @@
             <a href="#"><i>Daily Deals</i></a>
             <?php 
                 if(isset($_SESSION['user_role'])) {
-
-                        
+                    ?>
+                    <a href="logout.php"><i>Logout</i></a>
+                    <?php                        
                 } else {
                     ?>
                     <a href="login.php"><i>Login</i></a>
@@ -51,8 +52,9 @@
                         $resultCategory = $con->query($queryCategory);
 
                         while($row = $resultCategory->fetch_assoc()) {
-                            echo '<a href='.  $row['category_ID'] .  '>' . $row['category_Name'] .'</a>';
-
+                            ?>
+                            <a href="category_view.php?category=<?php echo $row['category_Name']; ?>"><?php echo $row['category_Name']; ?></a>
+                            <?php
                         }
                     ?>
                     </div>                    
@@ -69,16 +71,15 @@
         <div class="nav-bottom-bar">
             <ul>
                 <a href="./index.php">Home</a>
-                <a href="#">Electronics</a>
-                <a href="#">Fashion</a>
-                <a href="#">Sports</a>
-                <a href="#">Health & Beauty</a>
-                <a href="#">Industrial Equpment</a>
-                <a href="#">Home Garden</a>
-                <a href="#">Grocery & Pets</a>
+                <a href="category_view.php?category=Electronics" >Electronics</a>
+                <a href="category_view.php?category=Fashion">Fashion</a>
+                <a href="category_view.php?category=Sports">Sports</a>
+                <a href="category_view.php?category=Health and Beauty">Health & Beauty</a>
+                <a href="category_view.php?category=Industrial Equpment">Industrial Equpment</a>
+                <a href="category_view.php?category=Home Garden">Home Garden</a>
+                <a href="category_view.php?category=Grocery and Pets">Grocery & Pets</a>
             </ul>
         </div>
-        
     </header> 
 </body>
 </html>
