@@ -7,23 +7,27 @@
 
         $seller_ID = $_SESSION['seller_ID'];
         
-        $sql = "SELECT * FROM seller WHERE seller_ID = '$seller_ID' ";
+        $sql = "SELECT *FROM seller WHERE seller_ID = '$seller_ID' ";
 
-        $result = mysqli_query($con,$sql);
+        $result = $con->query($sql);
 
-        $info = mysqli_fetch_assoc($result);
+        $info = $result->fetch_assoc();
 
 
         if(isset($_POST['update'])){
             $sellerName = $_POST['name'];
             $sellerLocation = $_POST['location'];
-            $sellerEmail = $_POST['email'];
-            $sellerPassword = $_POST['password'];
+            $sellerEmail = $_POST['s_email'];
+            $sellerPassword = $_POST['s_password'];
 
             $sql2 = "UPDATE seller SET seller_Name = '$sellerName', location = '$sellerLocation', 
             email = '$sellerEmail', password = '$sellerPassword' WHERE seller_ID = '$seller_ID' ";
 
-            $result2 = mysqli_query($con, $sql2);
+           if($con->query($sql2)) {
+            echo " <script> alert('Updated successfully!'); window.location = 'seller_dashboard.php';</script>";
+           } else {
+            echo " <script> alert('Updated Unsuccessfully!'); window.location = 'seller_dashboard.php';</script>";
+           }
 
             // if($result2){
             //     echo " <script> alert('Updated successfully!')</script>";
@@ -88,4 +92,5 @@
     } else {
         header("Location: login.php");
     }
+    $con->close();
 ?>
