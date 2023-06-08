@@ -1,3 +1,4 @@
+<?php require './conn.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
                     </p>
         </div>
 
-                <div>
+                <div class="img-scetion">
                         <center>
                         <img class="image" src="images/sample.jfif" >
                         <img class="image" src="images/sample.jfif" >
@@ -43,3 +44,4 @@
     <?php include "./footer.php" ?> 
 </body>
 </html>
+<?php $con->close(); ?>
