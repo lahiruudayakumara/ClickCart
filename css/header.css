@@ -41,7 +41,6 @@
 
 .nav-top-bar {
     padding: 5px 20px;
-    margin-left: 10%;
     display: flex;
     overflow: hidden;
     font-size: 14px;
@@ -49,18 +48,25 @@
 }
 
 .nav-top-bar .logo img {
-    width:  100px;
-    height: 50px;
+    width:  90px;
+    height: 34px;
 }
 
 .nav-top-bar .search {
     padding: 8px;
     width: 100%;
-    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.nav-top-bar #searchBox {
-    width: 50%;
+.nav-top-bar #searchform {
+    width: 25%;
+    outline: none; 
+}
+
+.nav-top-bar .search-input {
+    width: 80%;
     height: 34px;
     outline: none;
 }
@@ -78,7 +84,6 @@
 .nav-top-bar input {
     height: 30px;
     width: 60%;
-
 }
 
 .dropdown {
@@ -88,7 +93,8 @@
 
 .dropdown span  {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 1.4em;
+    line-height: 1.4em;
 }
 
 .dropdown-content {
@@ -118,7 +124,6 @@
 
 .nav-top-bar .sbtn  {
     display: inline;
-    padding: 8px;
     font-size: 26px;
 }
 
