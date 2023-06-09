@@ -14,15 +14,33 @@
 <body>
     <?php include "./header.php" ?>
 
-    <h2 class="tos_para">Terms of service</h2><br/>
+    <h1 class="tos_para">Terms of service</h1><br/>
     <p class="tos">
-    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. 
-    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, 
-    discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, 
-    very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by 
-English versions from the 1914 translation by H. Rackham.
-    </p>
+    Welcome to ClickCart! These Terms of Service ("Terms") govern your use of our website and services. By accessing or using ClickCart, you agree to be bound by these Terms, so please read them carefully. If you do not agree to these Terms, you should not use our website or services.
+
+ClickCart is an online platform that allows you to browse and purchase a wide range of products conveniently. Our website and services are provided on an "as is" and "as available" basis. While we strive to ensure accurate product information and a seamless shopping experience, we cannot guarantee the availability, accuracy, or reliability of the website at all times.
+
+When you make a purchase through ClickCart, you agree to provide accurate and up-to-date information, including your name, shipping address, and payment details. You are solely responsible for maintaining the confidentiality of your account information and for any activity that occurs under your account.
+
+By using ClickCart, you agree to use our website and services for lawful purposes only. You must not engage in any activity that violates applicable laws, regulations, or these Terms. This includes but is not limited to: infringing upon intellectual property rights, distributing harmful or malicious software, engaging in fraudulent activities, or interfering with the proper functioning of our website.
+
+ClickCart may contain links to third-party websites or services that are not owned or controlled by us. We do not endorse or assume any responsibility for the content, privacy practices, or terms of use of these external websites or services. It is your responsibility to review and understand the terms and policies of any third-party sites or services you visit through ClickCart.
+
+We strive to provide accurate product descriptions, images, and pricing on our website. However, we cannot guarantee the accuracy or completeness of this information. In the event that a product is listed with incorrect pricing or information due to typographical errors or other factors, we reserve the right to refuse or cancel any orders placed for such products. If your payment has already been processed, we will issue a refund.
+
+<br><br>
+
+At ClickCart, we value your privacy and handle your personal information in accordance with our Privacy Policy. By using our website and services, you consent to the collection, use, and disclosure of your information as described in our Privacy Policy.
+
+ClickCart reserves the right to modify, suspend, or terminate any aspect of our website or services at any time without prior notice. We may also update these Terms from time to time. It is your responsibility to review these Terms periodically for any changes. Your continued use of ClickCart after the posting of any modifications to the Terms constitutes your acceptance of those changes.
+
+In no event shall ClickCart, its affiliates, or its partners be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services, even if we have been advised of the possibility of such damages.
+
+These Terms constitute the entire agreement between you and ClickCart regarding your use of our website and services, superseding any prior agreements or understandings. If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue to be in effect.
+
+If you have any questions or concerns about these Terms of Service, please contact us. We are here to assist you and address any inquiries you may have.
+<br><br>
+</p>
 
     
     <?php include "./footer.php" ?> 

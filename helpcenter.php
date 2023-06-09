@@ -21,57 +21,57 @@
             <center>
             <div class="article">
                 <div class="article-box">
-                <i class="fa-solid fa-user fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-solid fa-user fa-2xl" style="color: #000000; cursor:pointer;"></i>
+                <p><span style="font-size:medium; cursor:pointer;">Account</span></p>
                 </div>
             </div>
 
             <div class="article">
                 <div class="article-box">
-                <i class="fa-sharp fa-solid fa-bag-shopping fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-sharp fa-solid fa-bag-shopping fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">Buying and Selling</span></p>
                 </div>
             </div>
 
             <div class="article">
                 <div class="article-box">
-                <i class="fa-solid fa-user-shield fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-solid fa-user-shield fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">User protection</span></p>
                 </div>
             </div>
 
             <div class="article">
                 <div class="article-box">
-                <i class="fa-sharp fa-solid fa-chart-area fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-sharp fa-solid fa-chart-area fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">Fees and Billing</span></p>
             </div>
             </div>
 <br>
             <div class="article">
                 <div class="article-box">
-                <i class="fa-solid fa-credit-card fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-solid fa-credit-card fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">Payment</span></p>
                 </div>
             </div>
 
             <div class="article">
                 <div class="article-box">
-                <i class="fa-sharp fa-solid fa-rotate fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-sharp fa-solid fa-rotate fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">Returns and Refunds</span></p>
                 </div>
             </div>
 
             <div class="article">
                 <div class="article-box">
-                <i class="fa-solid fa-envelope-open-text fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-solid fa-envelope-open-text fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">Marketing</span></p>
                 </div>
             </div>
               
             <div class="article">
                 <div class="article-box">
-                <i class="fa-sharp fa-solid fa-gear fa-2xl" style="color: #000000;"></i>
-                <p><span style="font-size:medium">Lorem Ipsum</span></p>
+                <i class="fa-sharp fa-solid fa-gear fa-2xl" style="color: #000000;cursor:pointer;"></i>
+                <p><span style="font-size:medium;cursor:pointer;">User settings</span></p>
                 </div>
             </div>
             </center>
