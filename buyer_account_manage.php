@@ -1,3 +1,4 @@
+<?php require './conn.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +43,8 @@
         <fieldset>
             <legend>Payment Information</legend><br>
             <label for="paymethod">Payment Method</label><br><br>
-            <i class="fa-brands fa-cc-visa" aria-hidden="true"></i><br><br>
+            <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
+            <a href="https://courseweb.sliit.lk/">Edit  Delete</a><br><br>
             <i class="fa-brands fa-cc-mastercard"></i>
             <a href="https://courseweb.sliit.lk/">Edit  Delete</a><br><br>
             <i class="fa-brands fa-cc-paypal" aria-hidden="true"></i>
@@ -73,3 +75,4 @@
     
 </body>    
 </html> 
+<?php $con->close(); ?>
