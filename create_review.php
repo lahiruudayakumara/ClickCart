@@ -52,6 +52,35 @@
 			$error = "invalid email or password!";
 		}
 	} 
+//UI wtrote
+if(isset($_POST['submit'])){
+	if($user_id != '')
+	{
+			$id = create_unique_id();
+			$title = $_POST['title'];
+			$title = filter_var($title, FILTER_SANITIZE_STRING);
+			$description = $_POST['title'];
+			$description  = filter_var($title, FILTER_SANITIZE_STRING);
+			$ratings = $_POST['title'];
+			$ratings = filter_var($title, FILTER_SANITIZE_STRING);
+
+				$verify_review = $conn->prepare ("SELECT * FROM 'rating' WHERE rating_id = ? AND buyer_id = ?");
+				$verify_review->execute([$get_id, $user_id]);
+
+			if($verify_review->rowCount() > 0){
+				$warning_msg[] = 'Your review already added ';
+			}else{
+				$add_review = $conn->prepare("INSERT INTO 'reviews'(rating_id,seller_id,product_id,stars) VALUES(?,?,?,?) ");
+				$add_review->execute([$rating_id, $get_id,$product_id,$stars]);
+				$success_msg[] = 'Review added';
+			}
+}else
+	{
+			$warning_msg[]='Please login first!!';
+	}
+	
+
+}
 
 ?>
 
@@ -93,7 +122,8 @@
 	   <option value="5">5</option>
    	</select>
 	<input type="submit" value="submit review" name="submit" class="btn">
-	<a href ="store.php?get_Id=<?= $get_id; ?>"  clas="option-btn">go back</a>
+	<a href ="store.php?get_id=<?= $get_id; ?>"  clas="option-btn">go back</a>
+<!--    -->
 </form>
 
 </section>
