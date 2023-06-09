@@ -57,8 +57,6 @@ if(isset($_POST['submit'])){
 	if($user_id != '')
 	{
 			$id = create_unique_id();
-			$title = $_POST['title'];
-			$title = filter_var($title, FILTER_SANITIZE_STRING);
 			$description = $_POST['description'];
 			$description  = filter_var($title, FILTER_SANITIZE_STRING);
 			$ratings = $_POST['rating'];
@@ -109,9 +107,7 @@ if(isset($_POST['submit'])){
 
 <form action = "" method ="POST">
    	<h3>Post Your Review </h3>
-   	<p class ="placeholder"> review title <span>*</span> </p>
-   	<input type ="text" name="title" required maxlength="50" placehoder="enter review title" class="box">
-   	<p class="placeholder">review description</p>
+	<p class="placeholder">review description</p>
 	<textarea name ="description" class="box" placeholder="enter description" maxlength="1000" cols="30" rows="10"></textarea>
    	<p class="placeholder">review rating<span>*</span></p>
    	<select name="rating"  class="box" required> 
@@ -122,7 +118,7 @@ if(isset($_POST['submit'])){
 	   <option value="5">5</option>
    	</select>
 	<input type="submit" value="submit review" name="submit" class="btn">
-	<a href ="store.php?get_id=<?= $get_id; ?>"  clas="option-btn">go back</a>
+	<a href ="product_view_page.php ?get_id= <?= $get_id; ?>"  class="option-btn">go back</a>
 <!--    -->
 </form>
 
