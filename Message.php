@@ -1,3 +1,35 @@
+<?php require './conn.php'; ?>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['sender']) && isset($_POST['recipient']) && isset($_POST['subject']) && isset($_POST['message'])) {
+        $sender = $_POST['sender'];
+        $recipient = $_POST['recipient'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+        $sql = "INSERT INTO messages (sender, recipient, subject, message) VALUES ('$sender', '$recipient', '$subject', '$message')";
+
+        if ($con->query($sql) === TRUE) {
+            echo "Message created successfully.";
+        } else {
+            echo "Error: " . $sql . "<br>" . $con->error;
+        }
+    }
+}
+
+
+$sql = "SELECT message.*, buyer.*, seller.* 
+        FROM message
+        JOIN buyer ON message.buyer_ID = buyer.buyer_ID
+        JOIN seller ON message.seller_ID = seller.seller_ID
+        "; 
+
+    $result = $con->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,9 +60,8 @@
             </p>
         </div>
         <div id="name" style="width:80%; padding: 5px 2px;">
+            <button onclick="document.location='default.asp'">New</button>
             <button onclick="document.location='default.asp'">Delete</button>
-            <button onclick="document.location='default.asp'">Marks</button>
-            <button onclick="document.location='default.asp'">Movie</button><br><br>
             <form class="example" action="/action_page.php" style="margin:auto;max-width:300px display: inline-block;" >
                     <input type="text" placeholder="Search.." name="search2" style="display: inline-block;">
                     <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:42px; width:10%;"><i class="fa fa-search"></i></button>
@@ -41,22 +72,44 @@
             <p class="heading"><span style="float:left; ">From</span> <span>Subject</span> <span style="float:right;">Received</span></p>
             <div>
                 <form action="/action_page.php" style="display: inline;" class="detail" >
-                    <input type="checkbox" id="vehicle1">
+                    <?php
+                if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+
+                    
+ ?>
+ <input type="checkbox" id="vehicle1">
                     <p style="display: inline;">
-                        <span>Nano Tech</span> 
-                        <span style="float:center;max-width:100px">Claming a laptop</span> 
-                        <span style="float:right;">May</span>
-                    </p>
+                        <span><?php echo $row['seller_Name']; ?></span> 
+                        <span style="float:center;max-width:100px;"><?php echo $row['subject']; ?></span>
+                        <span style="float:center;max-width:100px;"><?php echo substr($row['message'], 0, 50); ?></span> 
+                        <span style="float:right;"><?php echo $row['timestamp']; ?></span>
+                    </p><br/>
+                    <?php
+                }
+                } else {
+                    echo "No messages found.";
+                }
+                ?>
                 </form>
             </div>
-        </div>
-    </div>
+            <!-- Message Creation Form -->
 
+        </div>
+        <!-- Display Messages -->
+            <div>
+
+            </div>
+
+    </div>
 
 
    <?php 
          include "./footer.php" 
     ?>   
+
     <script src="./js/check_online.js"></script>
+
 </body>
 </html>
+<?php $con->close(); ?>
