@@ -59,9 +59,9 @@ if(isset($_POST['submit'])){
 			$id = create_unique_id();
 			$title = $_POST['title'];
 			$title = filter_var($title, FILTER_SANITIZE_STRING);
-			$description = $_POST['title'];
+			$description = $_POST['description'];
 			$description  = filter_var($title, FILTER_SANITIZE_STRING);
-			$ratings = $_POST['title'];
+			$ratings = $_POST['rating'];
 			$ratings = filter_var($title, FILTER_SANITIZE_STRING);
 
 				$verify_review = $conn->prepare ("SELECT * FROM 'rating' WHERE rating_id = ? AND buyer_id = ?");

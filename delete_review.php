@@ -1,67 +1,17 @@
 <?php
-	require './conn.php';
+	if(isset ($_POST['delete_review'])){
+		$delete_id = $_post['delete_id'];
+		$delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
 
-	session_start();
+		$verify_delete =$conn->prepare("SELECT *FROM'rating' WHERE id = ?");
+		$verify_delete->execute([$delete_id]);
 
-	if(isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-
-		$query = "SELECT * FROM seller WHERE email = '$email' AND password = '$password'";
-		$result = $con->query($query);
-		$rowCount = $result->num_rows;
-
-		$query2 = "SELECT * FROM buyer WHERE email = '$email' AND password = '$password'";
-		$result2 = $con->query($query2);
-		$rowCount2 = $result2->num_rows;
-
-		if($rowCount == 1) {
-			$row = $result->fetch_assoc();
-
-			$sellerID = $row['seller_ID'];
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
-			
-			$sellerID = $row['seller_ID'];
-
-			echo "<script>alert('$rowCount')</script>";
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
-			header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
-			exit();
-			
-		} else if($rowCount2 == 1) {
-
-			$row = $result2->fetch_assoc();
-
-			$sellerID = $row['buyer_ID'];
-
-			$_SESSION['user_role'] = 'buyer';
-			$_SESSION['buyer_ID'] = $buyerID;
-			
-			$sellerID = $row['buyer_ID'];
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
-			header("Location: index.php"); // Redirect to seller dashboard page
-			exit();
-		} else {
-			$error = "invalid email or password!";
+		if($verify_delete->rowCount() > 0){
+			$delete_review = $conn->prepare("DELETE FROM 'rating' WHERE id =? ");
+			$delete_review->execute([$delete_id]);
+			$success_msg = 'Review deleted !';
+		}else{
+			$warning_msg[] = 'Review already deleted!';
 		}
-	} 
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  $id = $_GET["id"];
-
-  $stmt = $conn->prepare("DELETE FROM reviews WHERE id=?");
-  $stmt->bind_param("i", $id);
-  $stmt->execute();
-  $stmt->close();
-  $conn->close();
-
-  header("Location: review_page.php");
-  exit;
-}
+	}
 ?>
