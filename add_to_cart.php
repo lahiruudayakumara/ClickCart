@@ -1,7 +1,11 @@
 <?php
-require './conn.php';
+    require './conn.php';
 
-session_start();
+    session_start();
+
+    if ($_SESSION['user_role'] == "buyer" ) { 
+        $id = $_SESSION['buyer_ID'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,26 +26,25 @@ session_start();
 <body>
     <?php include "./header.php" ?>
     <?php
-    require './conn.php';
-    
-    $cartQuery = "SELECT * from cart where buyer_id='2'";
+
+    $cartQuery = "SELECT cart.*, product.* 
+                FROM cart 
+                JOIN product ON product.product_ID = cart.product_ID
+                WHERE cart.buyer_ID = $id";
     $cartResult = $con->query($cartQuery);
     $cartRow = $cartResult->fetch_assoc();
-    $productID = $cartRow['product_id'];
-    $quantity = $cartRow['product_qty'];
-    $productQuery = "SELECT * from product where product_ID='$productID'";
-    $productResult = $con->query($productQuery);
-    $productRow = $productResult->fetch_assoc();
-    $totalCost = $productRow['product_Price'] * $quantity;
+    $productID = $cartRow['product_ID'];
+    $quantity = $cartRow['quantity'];
+    $totalCost = $cartRow['product_Price'] * $quantity;
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $qty = $_POST['quantity'];
-        $cartId = $cartRow['cart_id'];
-        $cartUpdateQuery = "UPDATE cart SET product_qty='$qty' WHERE cart_id='$cartId'";
+        $cartId = $cartRow['cart_ID'];
+        $cartUpdateQuery = "UPDATE cart SET quantity='$qty', price =' $totalCost' WHERE buyer_ID= $id";
         if ($con->query($cartUpdateQuery) === TRUE) {
-            echo "Record updated successfully";
+            echo "<script>alert('Record updated successfully');</script>";
           } else {
-            echo "Error updating record: " . $con->error;
+            echo "Error updating record: ";
           }
     }
     ?>
@@ -53,8 +56,8 @@ session_start();
             </div>
             <div class="cart-item">
                 <div class="action"><input type="checkbox" /></div>
-                <div class="image"><img src="./images/product/<?php echo $productRow['product_Image']; ?>" /></div>
-                <div class="decsription"><?php echo $productRow['product_Name']; ?></div>
+                <div class="image"><img src="./images/product/<?php echo $cartRow['product_Image']; ?>" /></div>
+                <div class="decsription"><?php echo $cartRow['product_Name']; ?></div>
                 <div class="qty-selector">
                     <form class="qty-change" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <input type="text" name="quantity" value="<?php echo $quantity; ?>" />
@@ -71,7 +74,7 @@ session_start();
             <h1>Order details</h1>
             <div class="order-details">
                 <div class="title"> Item</div>
-                <div class="value"><span>$</span><?php echo $productRow['product_Price']; ?></div>
+                <div class="value"><span>$</span><?php echo $cartRow['product_Price']; ?></div>
             </div>
             <div class="order-details">
                 <div class="title">Quantity</div>
@@ -98,5 +101,9 @@ session_start();
 
 </html>
 <?php
+} else {
+    header('Location: login.php');
+    exit();
+}
 $con->close();
 ?>
