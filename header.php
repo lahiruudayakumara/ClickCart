@@ -62,7 +62,7 @@
                 <div class="sbtn">
                     <a href="store.php" ><i class="fa-solid fa-shop"></i></a>
                     <a href="add_to_cart.php" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                    <a href="#" ><i class="fa-regular fa-bell"></i></a>
+                    <a href="Message.php" ><i class="fa-regular fa-message"></i></a>
                 </div>
             </div>
         </div>
