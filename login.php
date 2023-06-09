@@ -23,12 +23,6 @@
 			$_SESSION['user_role'] = 'seller';
 			$_SESSION['seller_ID'] = $sellerID;
 			
-			$sellerID = $row['seller_ID'];
-
-			echo "<script>alert('$rowCount')</script>";
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
 			exit();
 			
@@ -36,15 +30,11 @@
 
 			$row = $result2->fetch_assoc();
 
-			$sellerID = $row['buyer_ID'];
+			$buyerID = $row['buyer_ID'];
 
 			$_SESSION['user_role'] = 'buyer';
 			$_SESSION['buyer_ID'] = $buyerID;
-			
-			$sellerID = $row['buyer_ID'];
 
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: index.php"); // Redirect to seller dashboard page
 			exit();
 		} else {
