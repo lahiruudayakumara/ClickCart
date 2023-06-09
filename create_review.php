@@ -24,12 +24,6 @@
 			$_SESSION['user_role'] = 'seller';
 			$_SESSION['seller_ID'] = $sellerID;
 			
-			$sellerID = $row['seller_ID'];
-
-			echo "<script>alert('$rowCount')</script>";
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
 			exit();
 			
@@ -37,15 +31,11 @@
 
 			$row = $result2->fetch_assoc();
 
-			$sellerID = $row['buyer_ID'];
+			$buyerID = $row['buyer_ID'];
 
 			$_SESSION['user_role'] = 'buyer';
 			$_SESSION['buyer_ID'] = $buyerID;
-			
-			$sellerID = $row['buyer_ID'];
 
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: index.php"); // Redirect to seller dashboard page
 			exit();
 		} else {
@@ -56,27 +46,27 @@
 if(isset($_POST['submit'])){
 	if($user_id != '')
 	{
-			$id = create_unique_id();
-			$description = $_POST['description'];
-			$description  = filter_var($title, FILTER_SANITIZE_STRING);
-			$ratings = $_POST['rating'];
-			$ratings = filter_var($title, FILTER_SANITIZE_STRING);
+		$id = create_unique_id();
+		$description = $_POST['description'];
+		$description  = filter_var($title, FILTER_SANITIZE_STRING);
+		$ratings = $_POST['rating'];
+		$ratings = filter_var($title, FILTER_SANITIZE_STRING);
 
-				$verify_review = $conn->prepare ("SELECT * FROM 'rating' WHERE rating_id = ? AND buyer_id = ?");
-				$verify_review->execute([$get_id, $user_id]);
+			$verify_review = $conn->prepare ("SELECT * FROM 'rating' WHERE rating_id = ? AND buyer_id = ?");
+			$verify_review->execute([$get_id, $user_id]);
 
-			if($verify_review->rowCount() > 0){
-				$warning_msg[] = 'Your review already added ';
-			}else{
-				$add_review = $conn->prepare("INSERT INTO 'reviews'(rating_id,seller_id,product_id,stars) VALUES(?,?,?,?) ");
-				$add_review->execute([$rating_id, $get_id,$product_id,$stars]);
-				$success_msg[] = 'Review added';
-			}
-}else
+		if($verify_review->rowCount() > 0)
+		{
+			$warning_msg[] = 'Your review already added ';
+		}else{
+			$add_review = $conn->prepare("INSERT INTO 'reviews'(rating_id,seller_id,product_id,stars) VALUES(?,?,?,?) ");
+			$add_review->execute([$rating_id, $get_id,$product_id,$stars]);
+			$success_msg[] = 'Review added';
+		}
+	}else
 	{
-			$warning_msg[]='Please login first!!';
+		$warning_msg[]='Please login first!!';
 	}
-	
 
 }
 
@@ -105,25 +95,26 @@ if(isset($_POST['submit'])){
 	<!-- Add review section Start -->
 <section class = "account-form">
 
-<form action = "" method ="POST">
-   	<h3>Post Your Review </h3>
-	<p class="placeholder">review description</p>
-	<textarea name ="description" class="box" placeholder="enter description" maxlength="1000" cols="30" rows="10"></textarea>
-   	<p class="placeholder">review rating<span>*</span></p>
-   	<select name="rating"  class="box" required> 
-	   <option value="1">1</option>
-	   <option value="2">2</option>
-	   <option value="3">3</option>
-	   <option value="4">4</option>
-	   <option value="5">5</option>
-   	</select>
-	<input type="submit" value="submit review" name="submit" class="btn">
-	<a href ="product_view_page.php ?get_id= <?= $get_id; ?>"  class="option-btn">go back</a>
+	<form action = "" method ="POST">
+   		<h3>Post Your Review </h3>
+			<p class="placeholder">review description</p>
+			<textarea name ="description" class="box" placeholder="enter description" maxlength="1000" cols="30" rows="10"></textarea>
+   			<p class="placeholder">review rating<span>*</span></p>
+   			<select name="rating"  class="box" required> 
+	   			<option value="1">1</option>
+	   			<option value="2">2</option>
+	   			<option value="3">3</option>
+	   			<option value="4">4</option>
+	   			<option value="5">5</option>
+   			</select>
+			<input type="submit" value="submit review" name="submit" class="btn">
+			<a href ="product_view_page.php ?get_id= <?= $get_id; ?>"  class="option-btn">go back</a>
 <!--    -->
-</form>
+	</form>
 
 </section>
    <!-- Add review section ends -->
+   
     <!-- Footer -->
     <?php include './footer.php' ?>
 
