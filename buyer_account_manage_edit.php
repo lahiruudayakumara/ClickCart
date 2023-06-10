@@ -12,7 +12,7 @@
 
 		if((!empty($bfname))&&(!empty($blname))&&(!empty($bbday))&&(!empty($baddress))){
 			$bID=$_SESSION['buyer_ID'];
-			$query="UPDATE buyer SET fname='$bfname', lname='$blname', bday='$bbday', address='baddress' WHERE buyer_ID='$bID'";
+			$query="UPDATE buyer SET fname='$bfname', lname='$blname', bday='$bbday', address='$baddress' WHERE buyer_ID='$bID'";
 			$con->query($query) {
 				echo "<script>alert('Profile upadeted sucessfully'); window.location = 'buyer_account_manage_edit.php'</script>";
 				exit;
