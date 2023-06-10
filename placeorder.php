@@ -105,8 +105,8 @@ if (isset($_POST['buy_now'])) {
                 <div class="value"> $5.00</div>
             </div>
             <div class="order-details">
-                <div class="title"><strong>Total</strong> </div>
-                <input class="totalbox" type="text" name="total" id="qty" value="<?php echo "$" . $cal =  ($productPrice * $q) + 5; ?>" required><br>
+                <div class="title"><strong>Total($)</strong> </div>
+                <input class="totalbox" type="text" name="total" id="qty" value="<?php echo $cal =  ($productPrice * $q) + 5; ?>" required><br>
             </div>
             <input class="placeorder-button" type="submit" name="place_order" value="Place Order">
             
