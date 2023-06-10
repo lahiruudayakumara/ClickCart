@@ -162,3 +162,25 @@
     }
     
 }
+
+@media only screen and (max-width: 768px) {
+    .topbar {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
+
+    #logo {
+        margin: 0;
+        padding: 0;
+    }
+    #searchform {
+        display: none;
+    }
+    .sbtn a{
+        display: none;
+    }
+    
+}
+

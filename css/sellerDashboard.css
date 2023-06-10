@@ -367,21 +367,17 @@ hr {
         width: 100%;
     }
 
-    .seller_nav {
-    }
-
     .seller_nav  .logo {
         position: absolute;
-        padding: 10px;
+        padding: 5px;
     }
     .seller_nav  .logo img {
-        width:  130px;
+        width:  60px;
         height: auto;
     }
 
     .seller_nav ul {
         display: none;
-
     }
 
     .main_section {
