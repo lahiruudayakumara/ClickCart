@@ -51,7 +51,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store page</title>
+    <title>Add Review</title>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -90,22 +90,22 @@ if(isset($_POST["Submit"]))
 
   <div class="add-review-box">
     <h3>Add Review</h3>
-        <form action ="" method="post" name="form1" >
+        <form action ="addreview.php" method="post" name="form1" >
           <div class="form-group">
 				    <label>Stars rating<span>*</span></label>
-				   <!-- <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count"> 	-->
-   			        <select name="rating"  class="box" required> 
-	   			        <option value="1">1</option>
+				    <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
+   			    <!-- <select name="rating"  class="box" required>
+						<option value="1">1</option>
 	   			        <option value="2">2</option>
 	   			        <option value="3">3</option>
 	   			        <option value="4">4</option>
 	   			        <option value="5">5</option>
-   			        </select>
+   			        </select>-->
 		      </div>
 		      <div class="form-group">
 
 				    <label>Comment</label>
-				    <input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10"> 
+				    <input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10" required> 
       
           </div>
             <input type="submit" name="Submit" value="Submit" class="button1">

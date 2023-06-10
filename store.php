@@ -43,24 +43,6 @@
 	} 
 
 ?>
- <!--<?php
-// Start session
-session_start();
-
-// Check do the person logged in
-if($_SESSION['buyer_ID']==NULL){
-    // Haven't log in
-    echo "You haven't log in";
-}else{
-    // Logged in
-    echo "Successfully Logged in";
-    $_SESSION['user_role'] = 'buyer';
-    $_SESSION['buyer_ID'] = $buyerID;
-    
-}
-
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +59,6 @@ if($_SESSION['buyer_ID']==NULL){
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  
-    
 </head>
 
 <body> 
@@ -98,12 +79,12 @@ while($row = mysqli_fetch_assoc($result))
 {
 ?>
 
-<header>
+ <!--<header>
         <div class="logo-container">
         <img class="storelogo" src="./images/store/"alt="Store Logo">
             <h1>Nano Tech</h1>
         </div>
-</header>
+</header> -->
 <!-- store page navigation -->
 <nav>
         <ul>
@@ -114,9 +95,10 @@ while($row = mysqli_fetch_assoc($result))
 </nav>
 
 <!-- Product card -->
-<div class="obj-container">
-
-
+<div class ="row">
+    <div class="column">
+    <div class="obj-container">
+        
               <div class="image-style">
                     <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
                     <p><?php echo $row["product_Name"]; ?></p>
@@ -127,6 +109,7 @@ while($row = mysqli_fetch_assoc($result))
                     <div><a href="addreview.php?id=<?php echo $row['product_ID']; ?>" class="button">Add Review</a></div>
               </div> 
               <div>
+
                     <?php
 
                         $id = $row["product_ID"];
@@ -137,8 +120,10 @@ while($row = mysqli_fetch_assoc($result))
                         {
         
                     ?>
+                    
                         <p><?php echo $row["stars"]; ?></p>
                         <p><?php echo $row["comment"]; ?></p>
+                    
 
                     <?php  } ?>
               </div>

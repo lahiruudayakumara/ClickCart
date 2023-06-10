@@ -407,6 +407,9 @@ section{
    line-height: 1.5;
 }
 */
+body{
+   background-color: #fff;
+}
 /* add review styles */
 h3{
    font-size: 2rem;
@@ -456,5 +459,29 @@ div {
 }
 
 /* edit review styles*/
+.edit-review-box{
+   width: 330px;
+   padding:2rem 1rem;
+   margin: 50px auto;
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.review .edit-button {
+   background-color: #4CAF50;
+   color: #fff;
+   border: none;
+   padding: 5px 10px;
+   margin-right: 5px;
+   cursor: pointer;
+}
 
+.review .edit-button:hover {
+   background-color: #45a049;
+}
+
+button [type=submit]{
+
+}
