@@ -1,0 +1,71 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+/* Store container styles */
+.store-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.store-container h2 {
+    text-align: center;
+}
+
+.store-details {
+    margin-bottom: 20px;
+}
+
+/* Reviews styles */
+.reviews-container {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.review h4 {
+    margin-bottom: 5px;
+}
+
+.review p {
+    margin-bottom: 10px;
+}
