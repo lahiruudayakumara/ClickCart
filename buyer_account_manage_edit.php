@@ -18,4 +18,16 @@
 		}
 	}
 ?>
+
+<?php 
+	$query = "SELECT * FROM buyer";
+	$result = $con->query($query);
+
+	$query = "  SELECT buyer.*
+			    FROM buyer
+				WHERE buyer_ID = $id";
+
+	$result = $con->query($query);
+	$buyer = $result->fetch_assoc();
+?>
 <?php $con->close(); ?>
