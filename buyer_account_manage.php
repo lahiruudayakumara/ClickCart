@@ -17,7 +17,7 @@
     <?php
          include "./header.php"
     ?>
-    <h1> User name</h1><br>
+    <h1> User Profile</h1><br>
 
     <div class="row">
         <div class="column" style="background-color:#f2f2f2;">
@@ -61,8 +61,8 @@
             <label for="email">Email</label><br>
             <input type="text" id="email" name="email" placeholder="name@gmail.com"><br><br>
             <label for="password">Password</label><br>
-            <input type="text" id="password" name="password" placeholder="Enter the password">
-            <i class="fa-brands fa fa-eye"aria-hidden="true"></i>
+            <input type="text" id="password" name="password" placeholder="Enter the password"><br><br>
+          
             <a href="https://courseweb.sliit.lk/">Change</a><br><br>
         </fieldset>
     </form>
