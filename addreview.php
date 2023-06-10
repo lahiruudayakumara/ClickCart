@@ -68,7 +68,6 @@
 
 <?php 
 $bID = $_SESSION['buyer_ID'];
-echo $bID;
 ?>
 
 <?php
@@ -81,6 +80,7 @@ if(isset($_POST["Submit"]))
     {
     	//post all value
     	$comment = $_POST['comment'];
+		$stars = $_POST['stars'];
         $id = $_GET['id']; //product ID from store page
     	$query = "INSERT INTO rating (rating_ID, seller_ID, buyer_ID,  product_ID, stars, comment) VALUES ('', '1', '{$bID}', '{$id}', '{$stars}', '{$comment}')";
 		$result = $con->query($query);
