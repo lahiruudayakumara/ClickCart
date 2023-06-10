@@ -170,7 +170,45 @@
 		    			<p>Your Earn<span style="float: right;">$<?php echo $Earn; ?></span></p>
 		    		</div>
 
+					<div class="chat">
+		    			<table>
+			    			<tr>
+			    			<th><p class="inline" style="float:left;">Chat - Inbox Message</p><p class="a_inline_right">View All</p></th>
+			    			</tr>
+							<?php
+								$messages_query = "SELECT message.*, buyer.*
+													FROM message
+													JOIN buyer ON buyer.buyer_ID = message.buyer_ID
+													WHERE message.sender_role = 'buyer' AND message.seller_ID = $sellerID LIMIT 3";
 
+								$messages_result = $con->query($messages_query);
+
+								if($messages_result ) {
+
+									while($row = $messages_result->fetch_assoc()) {
+										$message = $row['message'];
+										$buyer = $row['fName'];
+										$timestamp = $row['timestamp']
+										?>
+										<tr>
+											<td>
+												<img style="
+												position: absolute;" src="./images/avatar.jpg" alt="avatar" width="40px" height="40px">
+												<div style="margin-left: 50px;"> 
+												<p class="inline"><?php echo $buyer; ?></p><br/>
+												<p class="inline"><?php echo  $message; ?></p>
+												<span style="font-size:12px; margin-right: 5px;"  class="p_right" align="center">
+													<?php echo $timestamp ?>
+												</span>
+											</div>
+											</td>
+										</tr>
+										<?php
+									}
+								}
+							?>
+						</table>
+			    	</div>
 
 		    	</div>
 		    	<hr>

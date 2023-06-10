@@ -4,32 +4,36 @@
 
     session_start();
 
+    if($_SESSION['user_role'] == 'buyer' && isset($_SESSION['user_role'])) {
+            
+
     $bId = $_SESSION['buyer_ID'];
 
-// Check if the form is submitted
-if (isset($_POST['buy_now'])) {
+    // Check if the form is submitted
+    if (isset($_POST['buy_now'])) {
 
 
-    $productID = $_GET['pId'];
-    $q = $_POST['quantity'];
+        $productID = $_GET['pId'];
+        $q = $_POST['quantity'];
 
-    $sql = "SELECT * FROM product WHERE product_ID = ?";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("s", $productID);
-    $stmt->execute();
-    $result = $stmt->get_result();
+        $sql = "SELECT * FROM product WHERE product_ID = ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("s", $productID);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($row = $result->fetch_assoc()){
-        $productName = $row['product_Name'];
-        $brandName = $row['product_Brand'];
-        $productPrice = $row['product_Price'];
-        $productImage = $row['product_Image'];
-        $desc = $row['product_Description'];
+        if ($row = $result->fetch_assoc()){
+            $productName = $row['product_Name'];
+            $brandName = $row['product_Brand'];
+            $productPrice = $row['product_Price'];
+            $productImage = $row['product_Image'];
+            $desc = $row['product_Description'];
+        }
+
+        $querybuyer = "SELECT * FROM buyer WHERE buyer_ID = 1 ";
+        $resultbuyer = $con->query($querybuyer);
+        $row1 = $resultbuyer->fetch_assoc();
     }
-
-    $querybuyer = "SELECT * FROM buyer WHERE buyer_ID = 1 ";
-    $resultbuyer = $con->query($querybuyer);
-    $row1 = $resultbuyer->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +129,7 @@ if (isset($_POST['buy_now'])) {
 </html>
 <?php
 } else {
-    header('Location: index.php');
+    header('Location: login.php');
     exit();
 }
 
