@@ -31,7 +31,7 @@
     <h1> User Profile</h1><br>
 
     <div class="row">
-        <div class="column" style="background-color:#f2f2f2;">
+        <div class="column">
     <form action="buyer_account_manage_edit.php" method="post">
         <fieldset>
             <legend>Personal Information</legend><br>
@@ -41,13 +41,13 @@
             <input type="text" id="lname" name="lname" value="<?php echo $rowDisplay['lName']; ?>"><br><br>
             <label for="address">Address:</label><br>
             <textarea id="address" name="address"><?php echo $rowDisplay['address']; ?></textarea><br><br>
-            <input type="submit" value="Update" name="update">
-            <input type="reset" value="Reset"><br><br>
+            <input class="btn" type="submit" value="Update" name="update">
+            <input class="btn" type="reset" value="Reset"><br><br>
         </fieldset>
     </form>
         </div>
 
-        <div class="column" style="background-color:#f2f2f2;">
+        <div class="column">
     <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Payment Information</legend><br>
@@ -63,7 +63,7 @@
     </form>
         </div>    
     
-        <div class="column" style="background-color:#f2f2f2;">
+        <div class="column">
     <form action="buyer_account_manage_edit.php" method="post">
         <fieldset>
             <legend>Password & Security</legend><br>
@@ -71,7 +71,7 @@
             <input type="text" id="email" name="email" value="<?php echo $rowDisplay['email']; ?>" ><br><br>
             <label for="password">Password</label><br>
             <input type="password" id="password" name="password" value="<?php echo $rowDisplay['password']; ?>"><br><br>
-            <input type="submit" value="Change" name="change">
+            <input class="btn" type="submit" value="Change" name="change">
         </fieldset>
     </form>
         </div><br><br><br><br>      
@@ -88,5 +88,5 @@
 		header('location: login.php');
 		exit();
     }
-    $con->close(); 
+    $con->close();
 ?>

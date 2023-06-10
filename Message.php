@@ -15,8 +15,12 @@
             $query = "INSERT INTO message VALUES('', 1, '{$bID}', '{$sub}', '{$msg}', 'current_timestamp()', 'buyer') ";
 
             if($con->query($query)) {
-                echo "Message created successfully";
+                echo  "<script>alert('Message created sucessfully'); window.location = 'Message.php';</script>";
             }
+            else {
+                echo  '<script>alert("Message Delete Failed"); window.location = "message.php"; </script>';
+            }
+        
             
         }
 
