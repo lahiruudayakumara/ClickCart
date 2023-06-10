@@ -87,7 +87,7 @@
                     
                     <!-- ----------------------Account delete process------------------- -->
                     <form action="delete_account.php" method="POST">
-                    <input type="submit" name="delete" value="Delete Account?">
+                    <input type="button" name="delete" value="Delete Account?">
 
 
                     

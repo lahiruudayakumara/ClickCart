@@ -1,85 +1,42 @@
 <?php
 require './conn.php';
+$a = 1;
 
-if (isset($_POST['delete'])) {
+if ($a = 1 ) {
     // Seller ID to delete
-    $sellerId = 'seller_ID';
+    $sellerId = 7;
 
     // Check for referencing records
-    $sqlMessages = "SELECT COUNT(*) FROM messages WHERE seller_ID = ?";
-    $sqlProducts = "SELECT COUNT(*) FROM product WHERE seller_ID = ?";
-    $sqlRatings = "SELECT COUNT(*) FROM rating WHERE seller_ID = ?";
-    $sqlOrderItems = "SELECT COUNT(*) FROM order_items WHERE seller_ID = ?";
+    $sqlProducts = "SELECT COUNT(*) FROM product WHERE seller_ID = '$sellerId'";
+    $sqlRatings = "SELECT COUNT(*) FROM rating WHERE seller_ID = '$sellerId'";
+    $sqlOrderItems = "SELECT COUNT(*) FROM order_items WHERE seller_ID = '$sellerId'";
 
-    $stmtMessages = $con->prepare($sqlMessages);
-    $stmtProducts = $con->prepare($sqlProducts);
-    $stmtRatings = $con->prepare($sqlRatings);
-    $stmtOrderItems = $con->prepare($sqlOrderItems);
+    $resultProducts = $con->query($sqlProducts);
+    $resultRatings = $con->query($sqlRatings);
+    $resultOrderItems = $con->query($sqlOrderItems);
 
-    $stmtMessages->bind_param("s", $sellerId);
-    $stmtProducts->bind_param("s", $sellerId);
-    $stmtRatings->bind_param("s", $sellerId);
-    $stmtOrderItems->bind_param("s", $sellerId);
-
-    $stmtMessages->execute();
-    $stmtProducts->execute();
-    $stmtRatings->execute();
-    $stmtOrderItems->execute();
-
-    $resultMessages = $stmtMessages->get_result();
-    $resultProducts = $stmtProducts->get_result();
-    $resultRatings = $stmtRatings->get_result();
-    $resultOrderItems = $stmtOrderItems->get_result();
-
-    $numMessages = $resultMessages->fetch_row()[0];
     $numProducts = $resultProducts->fetch_row()[0];
     $numRatings = $resultRatings->fetch_row()[0];
     $numOrderItems = $resultOrderItems->fetch_row()[0];
 
-    if ($numMessages > 0 || $numProducts > 0 || $numRatings > 0 || $numOrderItems > 0) {
-        echo "Cannot delete the account. There are referencing records in other tables.";
+    if ($numProducts > 0 || $numRatings > 0 || $numOrderItems > 0) {
+        echo "Cannot delete the seller. There are referencing records in other tables.";
     } else {
         // Delete referencing records
-        $sqlDeleteMessages = "DELETE FROM messages WHERE seller_ID = ?";
-        $sqlDeleteProducts = "DELETE FROM product WHERE seller_ID = ?";
-        $sqlDeleteRatings = "DELETE FROM rating WHERE seller_ID = ?";
-        $sqlDeleteOrderItems = "DELETE FROM order_items WHERE seller_ID = ?";
+        $sqlDeleteProducts = "DELETE FROM product WHERE seller_ID = '$sellerId'";
+        $sqlDeleteRatings = "DELETE FROM rating WHERE seller_ID = '$sellerId'";
+        $sqlDeleteOrderItems = "DELETE FROM order_items WHERE seller_ID = '$sellerId'";
 
-        $stmtDeleteMessages = $con->prepare($sqlDeleteMessages);
-        $stmtDeleteProducts = $con->prepare($sqlDeleteProducts);
-        $stmtDeleteRatings = $con->prepare($sqlDeleteRatings);
-        $stmtDeleteOrderItems = $con->prepare($sqlDeleteOrderItems);
-
-        $stmtDeleteMessages->bind_param("s", $sellerId);
-        $stmtDeleteProducts->bind_param("s", $sellerId);
-        $stmtDeleteRatings->bind_param("s", $sellerId);
-        $stmtDeleteOrderItems->bind_param("s", $sellerId);
-
-        $stmtDeleteMessages->execute();
-        $stmtDeleteProducts->execute();
-        $stmtDeleteRatings->execute();
-        $stmtDeleteOrderItems->execute();
+        $con->query($sqlDeleteProducts);
+        $con->query($sqlDeleteRatings);
+        $con->query($sqlDeleteOrderItems);
 
         // Delete the seller record
-        $sqlDeleteSeller = "DELETE FROM seller WHERE seller_ID = ?";
-        $stmtDeleteSeller = $con->prepare($sqlDeleteSeller);
-        $stmtDeleteSeller->bind_param("s", $sellerId);
-        $stmtDeleteSeller->execute();
+        $sqlDeleteSeller = "DELETE FROM seller WHERE seller_ID = '$sellerId' LIMIT 1";
+        $con->query($sqlDeleteSeller);
 
-        echo "Account deleted successfully.";
+        echo "Seller record deleted successfully.";
     }
-
-    // Close connections
-    $stmtMessages->close();
-    $stmtProducts->close();
-    $stmtRatings->close();
-    $stmtOrderItems->close();
-
-    $stmtDeleteMessages->close();
-    $stmtDeleteProducts->close();
-    $stmtDeleteRatings->close();
-    $stmtDeleteOrderItems->close();
-    $stmtDeleteSeller->close();
     $con->close();
 }
 ?>
