@@ -16,13 +16,13 @@
 
 
     if ($numProducts > 0 || $numRatings > 0 || $numOrderItems > 0) {
-        echo "<script>alert('Cannot delete the seller. There are referencing records in other tables.'); window.location = 'seller_dashboard.php';</script>";
+        echo "<script>alert('Cannot delete the account. There are pending orders.'); window.location = 'seller_dashboard.php';</script>";
     } else {
         // Delete the seller record
         $sqlDeleteSeller = "DELETE FROM seller WHERE seller_ID = '$sellerId' LIMIT 1";
         $con->query($sqlDeleteSeller);
 
-        echo "<script>alert('Seller record deleted successfully.'); window.location = 'seller_dashboard.php';</script>";
+        echo "<script>alert('Account deleted successfully.'); window.location = 'seller_dashboard.php';</script>";
     }
     $con->close();
 
