@@ -21,8 +21,10 @@ if (isset($_POST['buy_now'])) {
 
     if ($row = $result->fetch_assoc()){
         $productName = $row['product_Name'];
+        $brandName = $row['product_Brand'];
         $productPrice = $row['product_Price'];
         $productImage = $row['product_Image'];
+        $desc = $row['product_Description'];
     }
 
     $querybuyer = "SELECT * FROM buyer WHERE buyer_ID = 1 ";
@@ -56,6 +58,8 @@ if (isset($_POST['buy_now'])) {
                 <form method="POST" action="process_order.php?pId=<?php echo  $productID; ?>" >
                     
                     <h2>Product Name: <?php echo $productName; ?></h2>
+                    <h4><?php echo $brandName; ?></h4>
+                    <p><?php echo $desc; ?></p>
                     <img style="width:100px;height:100px;" src="./images/product/<?php echo $productImage; ?>" alt="Product Image">
                     <br>
 
@@ -80,10 +84,10 @@ if (isset($_POST['buy_now'])) {
 
                     <div class="details4"> Select Payment Method: </div>
                     <div class="items">
-                <div class="item"><i class="fa-solid fa-money-bill-1-wave"></i><input type="radio" name="payment_method" id="payment_method"/></div>
-                <div class="item"><i class="fa-brands fa-cc-visa"></i><input type="radio" name="payment_method" id="payment_method" /></div>
-                <div class="item"><i class="fa-brands fa-cc-mastercard"></i><input type="radio" name="payment_method" id="payment_method" /></div>
-                <div class="item"><i class="fa-brands fa-cc-paypal"></i><input type="radio" name="payment_method" id="payment_method" /></div>
+                <div class="item"><i class="fa-solid fa-money-bill-1-wave"></i><input type="radio" name="payment_method" id="payment_method" value="cash" required/></div>
+                <div class="item"><i class="fa-brands fa-cc-visa"></i><input type="radio" name="payment_method" id="payment_method" value="visa" required/></div>
+                <div class="item"><i class="fa-brands fa-cc-mastercard"></i><input type="radio" name="payment_method" id="payment_method" value="master" required/></div>
+                <div class="item"><i class="fa-brands fa-cc-paypal"></i><input type="radio" name="payment_method" id="payment_method" value="paypal" required/></div>
             </div>
                   
         </div>
@@ -102,9 +106,9 @@ if (isset($_POST['buy_now'])) {
             </div>
             <div class="order-details">
                 <div class="title"><strong>Total</strong> </div>
-                <div class="value"><?php echo "$" . $productPrice * $q ?></div>
+                <input class="totalbox" type="text" name="total" id="qty" value="<?php echo "$" . $cal =  ($productPrice * $q) + 5; ?>" required><br>
             </div>
-            <input type="submit" name="place_order" value="Place Order">
+            <input class="placeorder-button" type="submit" name="place_order" value="Place Order">
             
         </div>
     </form>
