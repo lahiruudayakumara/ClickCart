@@ -15,7 +15,7 @@
             $query = "INSERT INTO message VALUES('', 1, '{$bID}', '{$sub}', '{$msg}', 'current_timestamp()', 'buyer') ";
 
             if($con->query($query)) {
-                echo "done";
+                echo "Message created successfully";
             }
             
         }
@@ -62,6 +62,7 @@
             <button type="button" onclick="hide()">Close</button>
         </form>
     </div>
+
     <div style="width: 90%;margin-top:40px; margin-left:auto; margin-right:auto; border: 1px solid grey; display: flex; flex-wrap: wrap; position:relative;">
         <div style="width:20%; border: 1px solid grey;" class="groove1">
             <p style="margin-left: 20px; padding: 5px;">
@@ -73,32 +74,42 @@
             <a href="#">Archieve</a><br><br>
             </p>
         </div>
+
         <div id="name" style="width:80%; padding: 5px 2px;">
             <button onclick="show()">New</button>
-            <form class="example" action="/action_page.php" style="margin:auto;max-width:300px display: inline-block;" >
+
+            <form class="example" action="Message.php" style="margin:auto;max-width:300px display: inline-block;" >
                     <input type="text" placeholder="Search.." name="search2" style="display: inline-block;">
                     <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:42px; width:10%;"><i class="fa fa-search"></i></button>
             </form>
+            
             <a href="https://courseweb.sliit.lk/">All</a>
             <span>||</span>
             <a href="https://courseweb.sliit.lk/">Unread</a>
-            <p class="heading"><span style="float:left; ">From</span> <span>Subject</span> <span style="float:right;">Received</span></p>
+
+            <p class="heading">
+                <span style="margin-right: 200px; float:center;max-width:10px;">From</span>
+                <span style="margin-right: 200px; float:center;max-width:10px;">Subject</span> 
+                <span style="margin-right: 150px; float:center;max-width:10px;">Message</span> 
+                <span style="float:right;">Received</span>
+            </p>
+
             <div>
-                <form action="/action_page.php" style="display: inline;" class="detail" >
-                    <?php
+                <form action="Message.php" style="display: inline;" class="detail" >
+
+                <?php
                 if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                 ?> 
 
-                    
- ?>
                     <a href="message_delete.php?id=<?php echo $row['message_ID']; ?>"><button type="button">Delete</button></a>
                     <p style="display: inline;">
-                        <span><?php echo $row['seller_Name']; ?></span> 
-                        <span style="float:center;max-width:100px;"><?php echo $row['subject']; ?></span>
-                        <span style="float:center;max-width:100px;"><?php echo substr($row['message'], 0, 50); ?></span> 
+                        <span style="margin-right: 150px;"><?php echo $row['seller_Name']; ?></span> 
+                        <span style="margin-right: 150px; float:center;max-width:100px;"><?php echo $row['subject']; ?></span>
+                        <span style="margin-right: 10px; float:center;max-width:100px;"><?php echo substr($row['message'], 0, 50); ?></span> 
                         <span style="float:right;"><?php echo $row['timestamp']; ?></span>
                     </p><br/>
-                    <?php
+                <?php
                 }
                 } else {
                     echo "No messages found.";
@@ -106,10 +117,7 @@
                 ?>
                 </form>
             </div>
-            
-
-            </div>
-
+        </div>
     </div>
 
 
@@ -127,4 +135,5 @@
         header('Location: login.php');
         exit();
     }
-$con->close(); ?>
+$con->close();
+ ?>

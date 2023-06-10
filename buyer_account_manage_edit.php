@@ -1,6 +1,6 @@
 <?php 
 	require './conn.php'; 
-	if(!isset($_SESSION['buyer_ID'])){
+	if(!isset($_SESSION['user_role'] == 'buyer')){
 		header('loction:login.php');
 	}
 
@@ -26,6 +26,7 @@
 			}
 		}
 	}
+	
 
 
 ?>
