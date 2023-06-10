@@ -1,32 +1,34 @@
-<?php require './conn.php'; ?>
+<?php 
 
-<?php
+    require './conn.php'; 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['sender']) && isset($_POST['recipient']) && isset($_POST['subject']) && isset($_POST['message'])) {
-        $sender = $_POST['sender'];
-        $recipient = $_POST['recipient'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
+    session_start();
 
-        $sql = "INSERT INTO messages (sender, recipient, subject, message) VALUES ('$sender', '$recipient', '$subject', '$message')";
+    if($_SESSION['user_role'] == 'buyer') {
+        $bID = $_SESSION['buyer_ID'];
 
-        if ($con->query($sql) === TRUE) {
-            echo "Message created successfully.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $con->error;
+        if (isset($_POST['submit'])) {
+            $rec = $_POST['recipient'];
+            $sub = $_POST['subject'];
+            $msg = $_POST['message'];
+
+            $query = "INSERT INTO message VALUES('', 1, '{$bID}', '{$sub}', '{$msg}', 'current_timestamp()', 'buyer') ";
+
+            if($con->query($query)) {
+                echo "done";
+            }
+            
         }
-    }
-}
 
 
-$sql = "SELECT message.*, buyer.*, seller.* 
-        FROM message
-        JOIN buyer ON message.buyer_ID = buyer.buyer_ID
-        JOIN seller ON message.seller_ID = seller.seller_ID
-        "; 
+        $sql = "SELECT message.*, buyer.*, seller.* 
+                FROM message
+                JOIN buyer ON message.buyer_ID = buyer.buyer_ID
+                JOIN seller ON message.seller_ID = seller.seller_ID
+                WHERE sender_role = 'buyer'
+                "; 
 
-    $result = $con->query($sql);
+            $result = $con->query($sql);
 ?>
 
 
@@ -48,6 +50,18 @@ $sql = "SELECT message.*, buyer.*, seller.*
     <?php
          include "./header.php"
     ?>
+
+    <div id="newMessage">
+        <h2>New Message</h2>
+        <!-- Message Creation Form -->
+        <form method="POST" action="Message.php">
+            <input type="text" name="recipient" placeholder="Recipient">
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Message"></textarea>
+            <button  type="submit" name="submit">Create Message</button>
+            <button type="button" onclick="hide()">Close</button>
+        </form>
+    </div>
     <div style="width: 90%;margin-top:40px; margin-left:auto; margin-right:auto; border: 1px solid grey; display: flex; flex-wrap: wrap; position:relative;">
         <div style="width:20%; border: 1px solid grey;" class="groove1">
             <p style="margin-left: 20px; padding: 5px;">
@@ -60,8 +74,7 @@ $sql = "SELECT message.*, buyer.*, seller.*
             </p>
         </div>
         <div id="name" style="width:80%; padding: 5px 2px;">
-            <button onclick="document.location='default.asp'">New</button>
-            <button onclick="document.location='default.asp'">Delete</button>
+            <button onclick="show()">New</button>
             <form class="example" action="/action_page.php" style="margin:auto;max-width:300px display: inline-block;" >
                     <input type="text" placeholder="Search.." name="search2" style="display: inline-block;">
                     <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:42px; width:10%;"><i class="fa fa-search"></i></button>
@@ -78,7 +91,7 @@ $sql = "SELECT message.*, buyer.*, seller.*
 
                     
  ?>
- <input type="checkbox" id="vehicle1">
+                    <a href="message_delete.php?id=<?php echo $row['message_ID']; ?>"><button type="button">Delete</button></a>
                     <p style="display: inline;">
                         <span><?php echo $row['seller_Name']; ?></span> 
                         <span style="float:center;max-width:100px;"><?php echo $row['subject']; ?></span>
@@ -93,11 +106,7 @@ $sql = "SELECT message.*, buyer.*, seller.*
                 ?>
                 </form>
             </div>
-            <!-- Message Creation Form -->
-
-        </div>
-        <!-- Display Messages -->
-            <div>
+            
 
             </div>
 
@@ -109,7 +118,13 @@ $sql = "SELECT message.*, buyer.*, seller.*
     ?>   
 
     <script src="./js/check_online.js"></script>
+    <script src="./js/message.js"></script>
 
 </body>
 </html>
-<?php $con->close(); ?>
+<?php 
+    } else {
+        header('Location: login.php');
+        exit();
+    }
+$con->close(); ?>
