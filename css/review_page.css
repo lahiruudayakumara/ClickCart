@@ -407,10 +407,23 @@ section{
    line-height: 1.5;
 }
 */
+/* add review styles */
+h3{
+   font-size: 2rem;
+    color: #07001f;
+    margin-bottom: 1.2rem;
+}
+.add-review-box{
+   width: 330px;
+   padding:2rem 1rem;
+   margin: 50px auto;
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-
-
-input[type=text], select {
+input[type=text], select  {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -418,9 +431,10 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+ 
 }
 
-input[type=submit] {
+.button1 {
   width: 100%;
   background-color: #4CAF50;
   color: white;
@@ -431,7 +445,7 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+.button1:hover {
   background-color: #45a049;
 }
 
@@ -441,8 +455,6 @@ div {
   padding: 20px;
 }
 
-
-
-
+/* edit review styles*/
 
 

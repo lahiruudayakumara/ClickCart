@@ -55,8 +55,8 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/review_page.css"> 
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/review_page.css"> 
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  
@@ -81,27 +81,39 @@ if(isset($_POST["Submit"]))
     	$query = "INSERT INTO `rating` (`rating_ID`, `product_ID`, `stars`, `comment`) VALUES (NULL, '".$id."', '".$stars."', '".$comment."')";
 
     	mysqli_query($con,$query);
-    	header("location:store.php");
+    	header("location:store.php"); // if submit was done redirect to the store page
     }
 
 ?>
 
-<div>
-    <h3>Add Review</h3>
+<!-- Add review section Start -->
 
-  <form method="post" name="form1" >
-    <div class="form-group">
-				  <label>Stars</label>
-				  <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count">	
-		</div>
-		<div class="form-group">
-				  <label>Comment</label>
-				  <input type="text" name="comment" class="form-control" placeholder="Enter Message">
-		</div>
-    <input type="submit" name="Submit" value="Add Review" class="btn btn-primary btn-block">
-			
-  </form>
-</div>
+  <div class="add-review-box">
+    <h3>Add Review</h3>
+        <form action ="" method="post" name="form1" >
+          <div class="form-group">
+				    <label>Stars rating<span>*</span></label>
+				   <!-- <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count"> 	-->
+   			        <select name="rating"  class="box" required> 
+	   			        <option value="1">1</option>
+	   			        <option value="2">2</option>
+	   			        <option value="3">3</option>
+	   			        <option value="4">4</option>
+	   			        <option value="5">5</option>
+   			        </select>
+		      </div>
+		      <div class="form-group">
+
+				    <label>Comment</label>
+				    <input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10"> 
+      
+          </div>
+            <input type="submit" name="Submit" value="Submit" class="button1">
+			<closeform></closeform>
+        </form>
+  </div> 
+
+<!-- Add review section ends -->
 
   <!-- Footer -->
   <?php include './footer.php' ?>
@@ -109,5 +121,7 @@ if(isset($_POST["Submit"]))
 </body>
 </html>
 
-
+<?php
+	$con->close();
+?>
 
