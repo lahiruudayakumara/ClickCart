@@ -1,6 +1,8 @@
 <?php 
     require './conn.php'; 
     $pID = $_GET['id'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,29 @@
         $result = $con->query($query);
         $row = $result->fetch_assoc();
         $nM = $row['product_Name'];
-        $description = $row['product_Description']
+        $description = $row['product_Description'];
+
+        $stars = array(1, 2, 3, 4, 5);
+        $count = array();
+        $total = 0;
+        foreach ($stars as $star) {
+                $query4 = "SELECT * FROM rating WHERE product_ID = $pID AND stars = $star";
+                $result4 = $con->query($query4);
+
+                $count[$star] = $result4->num_rows;
+                $total += 	$count[$star];			    			
+            }
+
+            $a = $result4->num_rows;
+            
+            $calstar = (1 * $count[1] + 2 * $count[2] + 3 * $count[3] + 4 * $count[4] + 5 * $count[5]);
+
+            if($calstar == 0) {
+                $rate = 0;
+            } else {
+                $rate = $calstar / $total;
+            }
+   
     ?>
 
         <div class="section">
@@ -36,28 +60,29 @@
             </div>
 
             <div class="ratings">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+            <span id="stars" class="<?php if($rate >= 1) {echo "fa fa-star checked";} else if (0 < $rate and $rate < 1) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
+							<span id="stars" class="<?php if($rate >= 2) {echo "fa fa-star checked";} else if (1 < $rate and $rate < 2) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
+							<span id="stars" class="<?php if($rate >= 3) {echo "fa fa-star checked";} else if (2 < $rate and $rate < 3) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
+							<span id="stars" class="<?php if($rate >= 4) {echo "fa fa-star checked";} else if (3 < $rate and $rate < 4) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
+							<span id="stars" class="<?php if($rate >= 5) {echo "fa fa-star checked";} else if (4 < $rate and $rate < 5) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
             
-                <a href="#">&nbsp;&nbsp;14 Ratings</a>
-                <a class="rating_num" href="#"> &nbsp;&nbsp;20 Answered Questions</a>
+                <a href="#">&nbsp;&nbsp;<?php echo $a; ?> Ratings</a>
             </div>
 
             <div class="brand">Brand : HP</div>
             <div class="price"><?php echo $row['product_Price'] ?></div>
             <!--<div class="discount"><s>$599.00</s>&nbsp;&nbsp;&nbsp;&nbsp;20% OFF</div>-->
-            <div class="quantity">
-                <p>Quantity : </p>
-                <input type="number" min="1" max="10" value="1">
-            </div>
+            <form action="placeorder.php?pId=<?php echo $pID; ?>" method="POST">
+                <div class="quantity">
+                    <p>Quantity : </p>
+                    <input type="number" min="1" max="10" name="quantity" value="1">
+                </div>
 
-            <div class="btn-box">
-                <button class="buy-btn">Buy Now</button>
-                <button class="cart-btn">Add to cart</button>
-            </div>
+                <div class="btn-box">
+                        <button class="buy-btn" name="buy_now">Buy Now</button>
+            </form>
+                    <button class="cart-btn">Add to cart</button>
+                </div>
             </br>
 
             <div class="delivery-description">
@@ -94,19 +119,58 @@
             </div>
 
             <div class="rating-section">
-                <h2>4.5</h2>
+
+                <h2><?php echo $rate; ?> </h2>
                 <div>
-                    <img class="star-row" src="./images/startrow.png" alt="Star Row">
+
+							<span id="stars" class="<?php if($rate >= 1) {echo "fa fa-star checked";} else if (0 < $rate and $rate < 1) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
+							<span id="stars" class="<?php if($rate >= 2) {echo "fa fa-star checked";} else if (1 < $rate and $rate < 2) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
+							<span id="stars" class="<?php if($rate >= 3) {echo "fa fa-star checked";} else if (2 < $rate and $rate < 3) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
+							<span id="stars" class="<?php if($rate >= 4) {echo "fa fa-star checked";} else if (3 < $rate and $rate < 4) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
+							<span id="stars" class="<?php if($rate >= 5) {echo "fa fa-star checked";} else if (4 < $rate and $rate < 5) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
+							
                 </div>
-                    <div >
-                        <img class="stars" src="./images/starts.png" alt="Stars">
-                    </div>
                     <div class="rating-num">
-                        <p><span style="margin-left:5px; margin-top: 5px;">12</span></p>
-                        <p><span style="margin-left:5px; margin-top: 5px;">8</p>
-                        <p><span style="margin-left:5px; margin-top: 5px;">2</p>
-                        <p><span style="margin-left:5px; margin-top: 5px;">0</p>
-                        <p><span style="margin-left:5px; margin-top: 5px;">0</p>
+                        <p>
+                            <span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+                            <span id="stars" class="fa fa-star checked"></span>
+                            <span style="margin-left:5px; margin-top: 5px;"><?php echo $count[5]?></span>
+                        </p>
+                        <p>
+                            <span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+                            <span id="stars" class="far fa-star"></span>
+                            <span style="margin-left:5px; margin-top: 5px;"><?php echo $count[4]?>
+                        </p>
+                        <p>
+                            <span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="far fa-star"></span>
+                            <span id="stars" class="far fa-star"></span> 
+                            <span style="margin-left:5px; margin-top: 5px;"><?php echo $count[3]?>
+                        </p>
+                        <p>
+                            <span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="far fa-star"></span>
+							<span id="stars" class="far fa-star"></span>
+                            <span id="stars" class="far fa-star"></span> 
+                            <span style="margin-left:5px; margin-top: 5px;"><?php echo $count[2]?>
+                        </p>
+                        <p>
+                            <span id="stars" class="fa fa-star checked"></span>
+							<span id="stars" class="far fa-star"></span>
+							<span id="stars" class="far fa-star"></span>
+							<span id="stars" class="far fa-star"></span>
+                            <span id="stars" class="far fa-star"></span> 
+                            <span style="margin-left:5px; margin-top: 5px;"><?php echo $count[1]?>
+                        </p>
                     </div>
                 </div>
 
@@ -114,15 +178,25 @@
                     <p>Product Reviews</p>
                 </div>
 
+                
+                <?php
+                $query4 = "SELECT * FROM rating WHERE product_ID = $pID";
+                $result4 = $con->query($query4);
+                while ($row4 = $result4->fetch_assoc()) {
+
+                ?>
                 <div class="review-2">
                     <p>Date and time</p>
                     <div class="review-image">
                         <img src="./images/comb.jpg">
                     </div>
                     <div class="review-des">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+                        <p><?php echo $row4['comment'] ?></p>
                     </div>
                 </div>
+                <?php } ?>
+
+                
 
 
 
