@@ -50,17 +50,16 @@ nav ul li a {
     display: grid;
 }
 
-.button{
-    background-color: grey;
-    z-index: 5;
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    text-align: center;
-    cursor: pointer;
+.button {
+    display: block;
     width: 100%;
-    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .button:hover {
@@ -68,8 +67,6 @@ opacity: 0.7;
 background-color: #000;
 color: orange;
 }
-
-
 
 /* new one to chat qpt*/
 .store-container {
@@ -79,7 +76,7 @@ color: orange;
 }
 
 .product-card {
-    width: calc(50% - 20px); /* Adjust the width as per your requirement */
+    width: calc(50% - 20px);  /*Adjust the width as per your requirement*/
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -101,9 +98,5 @@ color: orange;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 10px;
-}
-
-.rating-container {
     margin-top: 10px;
 }
