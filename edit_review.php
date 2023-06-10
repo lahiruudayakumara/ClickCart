@@ -68,7 +68,7 @@
     
    <div class="edit-review-box" id="review-form">
         <h3>Edit Review</h3>
-        	<form method="post" action="edit_review.php">
+        	<form method="post" action="edit_review.php?id=<?php echo $id ?>">
             	<div class="rating"> 
 					<lable> Star Rating</lable>
 					

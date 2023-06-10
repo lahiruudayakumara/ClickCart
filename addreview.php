@@ -86,8 +86,8 @@ if(isset($_POST["Submit"]))
         $id = $_GET['id']; //product ID from store page
     	$query = "INSERT INTO `rating` (`rating_ID`, `product_ID`, `stars`, `comment`) VALUES (NULL, '".$id."', '".$stars."', '".$comment."')";
 
-    	mysqli_query($con,$query);
-    	header("location:store.php"); // if submit was done redirect to the store page
+    	//mysqli_query($con,$query);
+    	//header("location:store.php"); // if submit was done redirect to the store pag
     }
 
 ?>
@@ -97,7 +97,7 @@ if(isset($_POST["Submit"]))
   <div class="add-review-box">
     <h3>Add Review</h3>
 	<?php echo $bID; ?>
-        <form action ="addreview.php" method="post" name="form1" >
+        <form action ="addreview.php?id=<?php echo $id ?>" method="post" name="form1" >
           <div class="form-group">
 				    <label>Stars rating<span>*</span></label>
 				    <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
