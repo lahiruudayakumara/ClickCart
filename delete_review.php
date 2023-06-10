@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 
 session_start();
 
@@ -24,4 +24,18 @@ if ($_SESSION['user_role'] == 'buyer') {
 }
 
 $con->close();
+?>-->
+
+<?php
+
+  include("conn.php");
+  $id = $_GET["id"];
+  $result = mysqli_query($con, "DELETE FROM rating WHERE rating_ID=$id");
+  header("location:myreviews.php");
+
+
+
+
+  $con->close();
+
 ?>
