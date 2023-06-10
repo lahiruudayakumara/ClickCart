@@ -60,10 +60,10 @@
                 <div class="decsription"><?php echo $cartRow['product_Name']; ?></div>
                 <div class="qty-selector">
                     <form class="qty-change" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                    <input type="text" name="quantity" value="<?php echo $quantity; ?>" />
-                    <button class="qty-up"><i class="fa-solid fa-chevron-up"></i></button>
-                    <button class="qty-down"><i class="fa-solid fa-chevron-down"></i></button>
-                    <form>
+                        <input type="text" name="quantity" value="<?php echo $quantity; ?>" />
+                        <button class="qty-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="qty-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </form>
                 </div>
 
             </div>
@@ -71,6 +71,7 @@
         </div>
 
         <div class="right-container">
+        <form action="placeorder.php?pId=<?php echo $productID; ?>" method="POST">
             <h1>Order details</h1>
             <div class="order-details">
                 <div class="title"> Item</div>
@@ -78,7 +79,7 @@
             </div>
             <div class="order-details">
                 <div class="title">Quantity</div>
-                <div class="value"><?php echo $quantity; ?></div>
+                <input style="outline:none; border: none; text-align: right; margin-left: 5px;" type="text" name="quantity" id="" value="<?php echo $quantity; ?>" readonly/>
             </div>
             <!-- <div class="order-details">
                 <div class="title"> Shipping </div>
@@ -88,7 +89,9 @@
                 <div class="title"><strong>Total</strong> </div>
                 <div class="value"><span>$</span><?php echo number_format($totalCost,2);?></div>
             </div>
-            <a href="./placeorder.php" class="checkout-button">CHECKOUT</a>
+            
+                <button class="checkout-button" name="buy_now">CHECKOUT</button>
+            </form>
         </div>
     </div>
    
