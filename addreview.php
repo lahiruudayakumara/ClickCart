@@ -67,6 +67,12 @@
     <!-- Header -->
 <?php include './header.php'; ?>
 
+
+<?php 
+$bID = $_SESSION['buyer_ID'];
+echo $bID;
+?>
+
 <?php
 
 include_once("conn.php");
@@ -90,6 +96,7 @@ if(isset($_POST["Submit"]))
 
   <div class="add-review-box">
     <h3>Add Review</h3>
+	<?php echo $bID; ?>
         <form action ="addreview.php" method="post" name="form1" >
           <div class="form-group">
 				    <label>Stars rating<span>*</span></label>
