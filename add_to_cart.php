@@ -94,10 +94,12 @@
             </form>
         </div>
     </div>
-
-    <p></p>
    
 
+    <p>Hello</p>
+
+
+    
     <?php include "./footer.php" ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./js/addtocart.js"></script>
