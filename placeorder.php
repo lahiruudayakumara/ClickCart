@@ -1,8 +1,24 @@
 <?php
 require './conn.php';
 
-session_start();
+// Check if the form is submitted
+if (isset($_POST['buy_now'])) {
+
+$productID = $_POST['product_id'];
+
+$sql = "SELECT * FROM product WHERE product_ID = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $productID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()){
+    $productName = $row['product_Name'];
+    $productPrice = $row['product_Price'];
+    $productImage = $row['product_Image'];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,40 +37,53 @@ session_start();
 
 <body>
     <?php include "./header.php" ?>
+
+
     <div class="wrapper">
         <div class="left-container">
             <div class="details">
-                <form action="/action_page.php">
+                <form method="POST" action="/process_order.php" >
+                    
+                    <h2>Product Name: <?php echo $productName; ?></h2>
+                    <img style="width:30px;height:30px;" src="<?php echo $productImage; ?>" alt="Product Image">
+                    <br>
+
                     <div class="bla">
-                        <label for="des">Delivery To:</label>
-                        <input type="text" id="de" name="de"><br>
+                        <label for="des">Delivery Address:</label>
+                        <input type="text" name="delivery_address" id="delivery_address" required><br>
                     </div>
 
-                    <textarea rows="5" cols="50" name="description"></textarea><br><br>
                     <div class="bla">
-                        <label for="des">Bill to the name:</label>
-                        <input type="text" id="de" name="de"><br>
+                        <label for="des">Quantity:</label>
+                        <input type="text" name="qty" id="qty" required><br>
                     </div>
+                    
+                        <label for="des">Billing address:</label>
+                        <input type="text" name="billing_address" id="billing_address" required><br><br>
+                    </div>
+
                     <div class="bla">
                         <label for="des">Email:</label>
-                        <input type="text" id="de" name="de"><br>
+                        <input type="email" name="buyer_email" id="buyer_email" required><br>
                     </div>
-                </form>
-                <div class="details4"> Select Payment Method: </div>
+
+                    <div class="details4"> Select Payment Method: </div>
+                    <div class="items">
+                <div class="item"><i class="fa-solid fa-money-bill-1-wave"></i><input type="radio" name="payment_method" id="payment_method"/></div>
+                <div class="item"><i class="fa-brands fa-cc-visa"></i><input type="radio" name="payment_method" id="payment_method" /></div>
+                <div class="item"><i class="fa-brands fa-cc-mastercard"></i><input type="radio" name="payment_method" id="payment_method" /></div>
+                <div class="item"><i class="fa-brands fa-cc-paypal"></i><input type="radio" name="payment_method" id="payment_method" /></div>
             </div>
-            <div class="items">
-                <div class="item"><i class="fa-solid fa-money-bill-1-wave"></i><input type="radio" /></div>
-                <div class="item"><i class="fa-brands fa-cc-visa"></i><input type="radio" /></div>
-                <div class="item"><i class="fa-brands fa-cc-mastercard"></i><input type="radio" /></div>
-                <div class="item"><i class="fa-brands fa-cc-paypal"></i><input type="radio" /></div>
+                  
             </div>
-        </div>
+            
+        
 
         <div class="right-container">
             <h1>Order details</h1>
             <div class="order-details">
                 <div class="title"> Item(1) </div>
-                <div class="value"> $48.00</div>
+                <div class="value"><p><?php echo $productPrice ?></p></div>
             </div>
             <div class="order-details">
                 <div class="title"> Shipping </div>
@@ -64,11 +93,13 @@ session_start();
                 <div class="title"><strong>Total</strong> </div>
                 <div class="value"> $50.00</div>
             </div>
-            <a href="#" class="placeorder-button">PLACE ORDER</a>
+            <input type="submit" name="place_order" value="Place Order">
+            
         </div>
+    </form>
     </div>
 
-
+    </div>
 
     <?php include "./footer.php" ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -78,5 +109,6 @@ session_start();
 
 </html>
 <?php
-$con->close();
-?></meta>
+}
+
+?>

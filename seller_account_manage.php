@@ -1,12 +1,14 @@
 <?php 
     require './conn.php';
-
+    
     session_start();
 
     if ($_SESSION['user_role'] == "seller" ) {
 
+        require './delete_account.php';
+
         $seller_ID = $_SESSION['seller_ID'];
-        
+ 
         $sql = "SELECT *FROM seller WHERE seller_ID = '$seller_ID' ";
 
         $result = $con->query($sql);
@@ -81,6 +83,14 @@
                         }
                     </script>
                     </div>
+                    <br>
+                    
+                    <!-- ----------------------Account delete process------------------- -->
+                    <form action="delete_account.php" method="POST">
+                    <input type="submit" name="delete" value="Delete Account?">
+
+
+                    
                     <br><br>
                     <input class="btn" type="submit" value="Update"name="update">
                         </form>

@@ -58,6 +58,14 @@ input{
     width: auto;
 }
 
+.delete-btn{
+    font-size: 15px; 
+    font-family: sans-serif;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+}
+
 .btn{
     width: 75px;
     text-align: center;
