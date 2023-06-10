@@ -21,7 +21,7 @@
 
     <div class="row">
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Personal Information</legend><br>
             <label for="fname">First name:</label><br>
@@ -32,14 +32,14 @@
             <input type="date" id="bday" name="bday"><br><br>
             <label for="address">Address:</label><br>
             <textarea id="address" name="address">No.113, Chatham road, Sydney, Australia</textarea><br><br>
-            <input type="submit" value="Update">
+            <a href="buyer_account_manage_edit.php"><input type="submit" value="Update"></a>
             <input type="reset" value="Reset"><br><br>
         </fieldset>
     </form>
         </div>
 
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Payment Information</legend><br>
             <label for="paymethod">Payment Method</label><br><br>
@@ -55,7 +55,7 @@
         </div>    
     
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Password & Security</legend><br>
             <label for="email">Email</label><br>

@@ -17,6 +17,46 @@
   cursor: pointer;
 }
 
+#newMessage {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#newMessage input {
+  width: 100%;
+  margin: 2px 0 2px 0;
+}
+
+#newMessage textarea{
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+#newMessage button {
+  background-color: orange;
+  width: 48%;
+  height: 30px;
+  outline: none;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#newMessage button:hover {
+  background-color: black;
+  color: #fff;
+}
+
 body {
     font-family: Arial;
   }
