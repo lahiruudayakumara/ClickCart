@@ -1,10 +1,8 @@
 <?php
-require './conn.php';
-$a = 1;
+    require './conn.php';
 
-if ($a = 1 ) {
     // Seller ID to delete
-    $sellerId = 7;
+    $sellerId = $_GET['sId'];
 
     // Check for referencing records
     $sqlProducts = "SELECT COUNT(*) FROM product WHERE seller_ID = '$sellerId'";
@@ -20,7 +18,7 @@ if ($a = 1 ) {
     $numOrderItems = $resultOrderItems->fetch_row()[0];
 
     if ($numProducts > 0 || $numRatings > 0 || $numOrderItems > 0) {
-        echo "Cannot delete the seller. There are referencing records in other tables.";
+        echo "<script>alert('Cannot delete the seller. There are referencing records in other tables.'); window.location = 'seller_dashboard.php';</script>";
     } else {
         // Delete referencing records
         $sqlDeleteProducts = "DELETE FROM product WHERE seller_ID = '$sellerId'";
@@ -35,8 +33,8 @@ if ($a = 1 ) {
         $sqlDeleteSeller = "DELETE FROM seller WHERE seller_ID = '$sellerId' LIMIT 1";
         $con->query($sqlDeleteSeller);
 
-        echo "Seller record deleted successfully.";
+        echo "<script>alert('Seller record deleted successfully.'); window.location = 'seller_dashboard.php';</script>";
     }
     $con->close();
-}
+
 ?>

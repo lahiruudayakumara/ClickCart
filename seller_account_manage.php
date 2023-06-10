@@ -5,7 +5,7 @@
 
     if ($_SESSION['user_role'] == "seller" ) {
 
-        require './delete_account.php';
+        
 
         $seller_ID = $_SESSION['seller_ID'];
  
@@ -87,7 +87,9 @@
                     
                     <!-- ----------------------Account delete process------------------- -->
                     <form action="delete_account.php" method="POST">
+                        <a href="./delete_account.php?sId=<?php echo $seller_ID; ?>">
                     <input type="button" name="delete" value="Delete Account?">
+                    </a>
 
 
                     
