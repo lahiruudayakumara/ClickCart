@@ -72,15 +72,15 @@ $query = "SELECT * FROM product";
 $sellerquery = "SELECT p.*, s.seller_Name FROM seller s JOIN product p ON s.seller_ID = p.seller_ID ";
 $result = mysqli_query($con,$sellerquery);
 ?>
-
-<div class="heading">
+<nav>
+    <div class="heading">
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="store_details.php">Store Details</a></li>
         </ul>
-</div>
-
+    </div>
+</nav>
 <!-- Product card -->
 <div class ="row">
     <div class="column">
@@ -104,7 +104,22 @@ $result = mysqli_query($con,$sellerquery);
 </div>
 </div>
 </div>
+<div>
+             <?php
 
+              $id = $row["product_ID"];
+              $queryone = "SELECT * FROM rating WHERE product_ID = $id";
+              $resultone = mysqli_query($con,$queryone);
+              while($row = mysqli_fetch_assoc($resultone))
+
+              {
+        
+             ?>
+               <p><?php echo $row["stars"]; ?></p>
+               <p><?php echo $row["comment"]; ?></p>
+
+               <?php  } ?>
+              </div>
 
 
 
