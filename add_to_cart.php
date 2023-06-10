@@ -27,46 +27,79 @@
     <?php include "./header.php" ?>
     <?php
 
-    $cartQuery = "SELECT cart.*, product.* 
-                FROM cart 
-                JOIN product ON product.product_ID = cart.product_ID
-                WHERE cart.buyer_ID = $id";
-    $cartResult = $con->query($cartQuery);
-    $cartRow = $cartResult->fetch_assoc();
-    $productID = $cartRow['product_ID'];
-    $quantity = $cartRow['quantity'];
-    $totalCost = $cartRow['product_Price'] * $quantity;
 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST['update'])) {
+        $productPrice = 0;
+        $quantity = 0;
+        $totalCost = 0;
+
         $qty = $_POST['quantity'];
-        $cartId = $cartRow['cart_ID'];
-        $cartUpdateQuery = "UPDATE cart SET quantity='$qty', price =' $totalCost' WHERE buyer_ID= $id";
+        $qId = $_GET['id'];
+        $cartUpdateQuery = "UPDATE cart SET quantity='$qty', price =' 250' WHERE buyer_ID= $id AND cart_ID = $qId";
         if ($con->query($cartUpdateQuery) === TRUE) {
-            echo "<script>alert('Record updated successfully');</script>";
+            //echo "<script>alert('Record updated successfully');</script>";
           } else {
             echo "Error updating record: ";
           }
+    } else if(isset($_POST['select'])) {
+        $qId = $_GET['id'];
+        $cartQuery = "SELECT cart.*, product.* 
+        FROM cart 
+        JOIN product ON product.product_ID = cart.product_ID
+        WHERE cart.buyer_ID = $id AND cart.cart_ID = $qId ";
+
+        $cartResult = $con->query($cartQuery);
+        $cartRow = $cartResult->fetch_assoc();
+
+        $productID = $cartRow['product_ID'];
+        $quantity = $cartRow['quantity'];
+        $productPrice = $cartRow['product_Price'];
+        $totalCost = $cartRow['product_Price'] * $quantity;
+
+    } else {
+        $productPrice = 0;
+        $quantity = 0;
+        $totalCost = 0;
     }
     ?>
     <div class="wrapper">
         <div class="left-container">
             <div class="action-header">
-                <div><input type="checkbox"/> Select all</div>
-                <div><i class="fa-solid fa-trash"></i> Delete</div>
+                <div>Cart List</div>
+
             </div>
+            <?php 
+                $queryQnt = "SELECT cart.*, product.* 
+                            FROM cart 
+                            JOIN product ON product.product_ID = cart.product_ID
+                            WHERE cart.buyer_ID = $id";
+
+                $resultQnt = $con->query($queryQnt);
+                while($row = $resultQnt->fetch_assoc()) {
+
+            ?>
             <div class="cart-item">
-                <div class="action"><input type="checkbox" /></div>
-                <div class="image"><img src="./images/product/<?php echo $cartRow['product_Image']; ?>" /></div>
-                <div class="decsription"><?php echo $cartRow['product_Name']; ?></div>
+                <div class="image"><img src="./images/product/<?php echo $row['product_Image']; ?>" /></div>
+                <div class="decsription">
+                    <?php echo $row['product_Name']; ?><br/>
+                    <?php echo $row['product_Brand']; ?><br/>
+                    <?php echo $row['product_Description']; ?><br/>
+                    <?php echo "$" . $row['product_Price']; ?><br/>
+                </div>
                 <div class="qty-selector">
-                    <form class="qty-change" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                        <input type="text" name="quantity" value="<?php echo $quantity; ?>" />
-                        <button class="qty-up"><i class="fa-solid fa-chevron-up"></i></button>
-                        <button class="qty-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    
+                    <form class="qty-change" action="add_to_cart.php?id=<?php echo $row['cart_ID']; ?>" method="post">
+                        <input class="inputQ" type="number" name="quantity" value="<?php echo $row['quantity']; ?>" /><br/>
+                        <button type="submit" class="btn" name="select">Select</button><br/>
+                        <button type="submit" class="btn" name="update">Update</button><br/>
+                        <a href="cart_item_delete.php?cId=<?php echo $row['cart_ID']; ?>">
+                            <button type="button" class="btn" >Delete</button>
+                        </a>
                     </form>
                 </div>
 
             </div>
+            <?php  } ?>
 
         </div>
 
@@ -75,11 +108,11 @@
             <h1>Order details</h1>
             <div class="order-details">
                 <div class="title"> Item</div>
-                <div class="value"><span>$</span><?php echo $cartRow['product_Price']; ?></div>
+                <div class="value"><span>$</span><?php echo $productPrice ?></div>
             </div>
             <div class="order-details">
                 <div class="title">Quantity</div>
-                <input style="outline:none; border: none; text-align: right; margin-left: 5px;" type="text" name="quantity" id="" value="<?php echo $quantity; ?>" readonly/>
+                <input class="qnti" type="text" name="quantity" id="" value="<?php echo $quantity; ?>" readonly/>
             </div>
             <!-- <div class="order-details">
                 <div class="title"> Shipping </div>
@@ -98,8 +131,6 @@
 
 
     <?php include "./footer.php" ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="./js/addtocart.js"></script>
 
 </body>
 
