@@ -21,7 +21,7 @@
 
     <div class="row">
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Personal Information</legend><br>
             <label for="fname">First name:</label><br>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Payment Information</legend><br>
             <label for="paymethod">Payment Method</label><br><br>
@@ -55,7 +55,7 @@
         </div>    
     
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="/action.php" method="post">
+    <form action="buyer_account_manage.php" method="post">
         <fieldset>
             <legend>Password & Security</legend><br>
             <label for="email">Email</label><br>
