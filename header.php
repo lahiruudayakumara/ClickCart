@@ -12,10 +12,10 @@
         <div class="container-top-bar">
             <a href="#"><i>Contact Us</i></a>
             <a href="./helpcenter.php"><i>Help Center</i></a>
-            <a href="#"><i>Daily Deals</i></a>
             <?php 
                 if(isset($_SESSION['user_role'])) {
                     ?>
+                    <a href="buyer_account_manage.php"><i>Account Manage</i></a>
                     <a href="logout.php"><i>Logout</i></a>
                     <?php                        
                 } else {
