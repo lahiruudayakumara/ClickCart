@@ -1,33 +1,32 @@
 <?php 
 	require './conn.php'; 
-	$bid = $_GET['id'];
-	
-	if(isset($_POST['update'])) {
-	
-			$bfname = $_POST['fname'];
-			$blname = $_POST['lname'];
-			$bbday = $_POST['bday'];
-			$baddress = $_POST['address'];
-			
+	if(!isset($_SESSION['buyer_ID'])){
+		header('loction:login.php');
+	}
 
-		$query = "UPDATE buyer SET fName = '$bfname', lName = '$blname', address = '$baddress', birtday = '$baddress''  WHERE buyer_ID = '$bid'";
-		if($con->query($query)) {
-			echo "<script>alert('Update Sucessfull'); window.location = 'buyer_account_manage.php'</script>";
-		} else {
-			echo "<script>alert('Error updating record:');</script>";
+	if(isset($_REQUEST['submit'])){
+		$bfname=$_POST['fname'];
+		$blname=$_POST['lname'];
+		$bbday=$_POST['bday'];
+		$baddress=$_POST['address'];
+
+		if((!empty($bfname))&&(!empty($blname))&&(!empty($bbday))&&(!empty($baddress))){
+			$bID=$_SESSION['buyer_ID'];
+			$query="UPDATE buyer SET fname='$bfname', lname='$blname', bday='$bbday', address='baddress' WHERE buyer_ID='$bID'";
+			$con->query($query) {
+				echo "<script>alert('Profile upadeted sucessfully'); window.location = 'buyer_account_manage_edit.php'</script>";
+				exit;
+			} 
+		}
+
+		else {
+			$con->query($query) {
+			echo "<script>alert('First name,Last name,Birthday,Address are required );</script>; window.location = 'buyer_account_manage_edit.php'</script>";
+			exit;
+			}
 		}
 	}
-?>
 
-<?php 
-	$query = "SELECT * FROM buyer";
-	$result = $con->query($query);
 
-	$query = "  SELECT buyer.*
-			    FROM buyer
-				WHERE buyer_ID = $id";
-
-	$result = $con->query($query);
-	$buyer = $result->fetch_assoc();
 ?>
 <?php $con->close(); ?>

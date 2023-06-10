@@ -32,7 +32,7 @@
             <input type="date" id="bday" name="bday"><br><br>
             <label for="address">Address:</label><br>
             <textarea id="address" name="address">No.113, Chatham road, Sydney, Australia</textarea><br><br>
-            <input type="submit" value="Update">
+            <a href="buyer_account_manage_edit.php"><input type="submit" value="Update"></a>
             <input type="reset" value="Reset"><br><br>
         </fieldset>
     </form>
