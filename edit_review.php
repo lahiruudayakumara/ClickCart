@@ -41,22 +41,6 @@
 			$error = "invalid email or password!";
 		}
 	} 
-//UI wrote
-  if(isset($_POST['submit'])){
-    
-        $title = $_POST['title'];
-        $title = filter_var($title, FILTER_SANITIZE_STRING);
-        $description = $_POST['description'];
-        $description  = filter_var($description, FILTER_SANITIZE_STRING);
-        $ratings = $_POST['rating'];
-        $ratings = filter_var($rating, FILTER_SANITIZE_STRING);
-  
-        $update_review = $conn->prepare("UPDATE 'reviews' SET rating = ?, title = ?, description =? WHERE id = ? ");
-        $update_review->execute([$rating, $title,$description,$get_id]);
-  
-        $success_msg[] = 'Review Updated';
-
-  }
 
 ?>
 
@@ -66,7 +50,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Edit Review</title>
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/header.css">
 	<link rel="stylesheet" href="./css/review_page.css">
@@ -81,47 +65,41 @@
 	<?php include './header.php'; ?>
 
    <!-- update review section starts -->
-<section class="account-form">
-<?php  
-$select_review = $conn->prepare("SELECT * FROM 'rating' WHERE id=? LIMIT 1");
-$select_review->execute([$get_id]);
-if($select_review->rowCount() > 0){
-  while($fetch_review = $select_review-> fetch(PDO::FETCH FETCH_ASSOC))
+    
+   <div class="edit-review-box" id="review-form">
+        <h2>Edit Review</h2>
+        	<form method="post" action="edit_review.php">
+            	<div class="rating"> 
+					<lable> Star Rating</lable>
+				<div class="rating">
+            		<span><input type="radio" name="rating" value="1" <?php if ($review['rating'] == 1) echo 'checked'; ?>></span>
+            		<span><input type="radio" name="rating" value="2" <?php if ($review['rating'] == 2) echo 'checked'; ?>></span>
+            		<span><input type="radio" name="rating" value="3" <?php if ($review['rating'] == 3) echo 'checked'; ?>></span>
+            		<span><input type="radio" name="rating" value="4" <?php if ($review['rating'] == 4) echo 'checked'; ?>></span>
+            		<span><input type="radio" name="rating" value="5" <?php if ($review['rating'] == 5) echo 'checked'; ?>></span>
+        		</div>
+            	
+				<textarea name="comment" id="comment" placeholder="Write your review here" required></textarea>
+            	
+				<button type="submit" id="submit-button">Submit Review</button>
+            	<button type="button" id="cancel-button">Cancel</button>
+        	</form>
+    </div>
+    
+   <!-- <div id="review-list">
+        <h2>Reviews</h2>
+        <?php include 'read.php'; ?>
+    </div>-->
 
-?>
-<form action = "" method ="POST">
-   	<h3>edit Your Review </h3>
-   	<p class ="placeholder"> review title <span>*</span> </p>
-   	<input type ="text" name="title" required maxlength="50" placehoder="enter review title" class="box" value="<?= $fetch_review['title'];?>">
-   	<p class="placeholder">review description</p>
-	<textarea name ="description" class="box" placeholder="enter description" maxlength="1000" cols="30" rows="10"><?= $fetch_review['description'];?></textarea>
-   	<p class="placeholder">review rating<span>*</span></p>
-   	<select name="rating"  class="box" required> 
-	   <option value="<?= $fetch_review['rating'];?>"><?= $fetch_review['rating'];?></option>
-	   <option value="1">1</option>
-     <option value="2">2</option>
-	   <option value="3">3</option>
-	   <option value="4">4</option>
-	   <option value="5">5</option>
-   	</select>
-	<input type="submit" value="update review" name="submit" class="btn">
-	<a href ="store.php?get_id=<?= $fetch_review['post_id']; ?>"  clas="option-btn">go back</a>
-<!--    -->
-</form>
-<?php 
-}else{
-  echo '<p.class = "empty">somthing.went.wrong!</p>';
-} ?>
-</section>
-   <!-- update review section starts -->
+   
+<!-- update review section end -->
 
-    <!-- Footer -->
-    <?php include './footer.php' ?>
-
+  <!-- Footer -->
+  <?php include './footer.php' ?>
 </body>
 
 </html>
+
 <?php
 	$con->close();
-
 ?>
