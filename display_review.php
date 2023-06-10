@@ -103,19 +103,19 @@
 		<?php }; ?> 
 		<?php if($fetch_review['rating'] == 2){ ?>
 			<p style="background:var(--orange);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];?> </span></p>
+			<span> <?= $fetch_review['rating']; ?> </span></p>
 		<?php }; ?> 
 		<?php if($fetch_review['rating'] == 3){ ?>
 			<p style="background:var(--red);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];?> </span></p>
+			<span> <?= $fetch_review['rating']; ?> </span></p>
 		<?php }; ?> 
 		<?php if($fetch_review['rating'] == 4){ ?>
 			<p style="background:var(--main-color);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];?> </span></p>
+			<span> <?= $fetch_review['rating']; ?> </span></p>
 		<?php }; ?>
 		<?php if($fetch_review['rating'] == 5){ ?>
 			<p style="background:var(--main-color);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];?> </span></p>
+			<span> <?= $fetch_review['rating']; ?> </span></p>
 		<?php }; ?>
 	</div>
 		<h3 class="title"> <? fetch_review['title'] ?> </h3>
