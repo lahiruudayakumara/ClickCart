@@ -29,6 +29,7 @@
     <?php include "./header.php" ?>
 
     <!-- SLIDER -->
+    <!-- Reference - W3Schools -->
     <div class="slider-container">
       <div class="slider">
         <div class="slider-item">

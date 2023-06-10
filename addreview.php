@@ -52,8 +52,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Review</title>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/review_page.css"> 
@@ -84,10 +82,9 @@ if(isset($_POST["Submit"]))
     	//post all value
     	extract($_POST);
         $id = $_GET['id']; //product ID from store page
-    	$query = "INSERT INTO `rating` (`rating_ID`, `product_ID`, `stars`, `comment`) VALUES (NULL, '".$id."', '".$stars."', '".$comment."')";
+    	$query = "INSERT INTO rating (rating_ID, seller_ID, buyer_ID,  product_ID, stars, comment) VALUES ('', '{$id}', '', '{$bID}' '{$stars}', '{$comment}')";
+		$result = $con->query($query);
 
-    	//mysqli_query($con,$query);
-    	//header("location:store.php"); // if submit was done redirect to the store pag
     }
 
 ?>
@@ -131,4 +128,3 @@ if(isset($_POST["Submit"]))
 <?php
 	$con->close();
 ?>
-
