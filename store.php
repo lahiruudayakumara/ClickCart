@@ -96,7 +96,6 @@ $result = mysqli_query($con,$sellerquery);
                     <p><?php echo $row["seller_Name"]; ?></p>
                     <p>$<?php echo $row["product_Price"];?></p>   
                     <div><a href="product_view_page.php" class="button">View Product</a></div>
-                    <div><a href="add_to_cart.php" class="button">Add to cart</a></div>
                     <div><a href="addreview.php?id=<?php echo $row['product_ID']; ?>" class="button">Add Review</a></div>
               </div> 
               <?php   } ?>
