@@ -68,17 +68,12 @@
     
    <div class="edit-review-box" id="review-form">
         <h3>Edit Review</h3>
-        	<form method="post" action="edit_review.php?id=<?php echo $id ?>">
+        	<form method="post" >
             	<div class="rating"> 
 					<lable> Star Rating</lable>
 					
 					<input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	
-            		<!--<div class="rating">	<span><input type="radio" name="rating" value="1" <?php if ($review['rating'] == 1) echo 'checked'; ?>></span>
-            			<span><input type="radio" name="rating" value="2" <?php if ($review['rating'] == 2) echo 'checked'; ?>></span>
-            			<span><input type="radio" name="rating" value="3" <?php if ($review['rating'] == 3) echo 'checked'; ?>></span>
-            			<span><input type="radio" name="rating" value="4" <?php if ($review['rating'] == 4) echo 'checked'; ?>></span>
-            			<span><input type="radio" name="rating" value="5" <?php if ($review['rating'] == 5) echo 'checked'; ?>></span> 
-        			</div> -->
+            		
 					<lable>Comment</lable>
 					<input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10" required> 
             	</div>

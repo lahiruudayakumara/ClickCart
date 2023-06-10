@@ -14,9 +14,9 @@
             $result_set = $con->query($query2);
 
             if ($result_set) {
-                echo  '<script>alert("Your Product Item Deleted"); window.location = "seller_dashboard.php"; </script>';
+                echo  '<script>alert("Your Product deleted."); window.location = "seller_dashboard.php"; </script>';
             } else {
-               echo  '<script>alert("Product Item Deleted Fail"); window.location = "seller_dashboard.php"; </script>';
+               echo  '<script>alert("Product cannot be deleted. There are pending orders."); window.location = "seller_dashboard.php"; </script>';
             }
     } else {
         header('Location : login.php');
