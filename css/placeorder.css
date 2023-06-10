@@ -5,6 +5,7 @@
     justify-content: space-between;
     padding: 30px;
     border: 1px solid #333;
+    float: left;
 }
 
 .left-container {
@@ -30,18 +31,7 @@
     display: flex;
     padding-bottom: 10px;
 }
-.des{
-    /* padding: 20px; */
-    display: flex;
-    /* flex: 1; */
-    padding-right: 10px;
-    
-}
-.de{
-    padding: 20px;
-    flex: 1;
-    
-}
+
 .descripton{
     display: flex;
     padding-bottom: 10px; 
@@ -60,15 +50,6 @@
     padding-left: 40px;
 }
 
-.item {
-    display: flex;
-    flex-direction: column;
-    padding-right: 20px;
-}
-.item i{
-    padding-bottom: 5px;
-    font-size: 30px
-}
 .order-details{
     display: flex;
 }
