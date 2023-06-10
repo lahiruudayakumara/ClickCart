@@ -90,32 +90,27 @@
             <div class="delivery-description">
                 <div class="delivery-box">
                     <p><span style="font-size: medium;"><b>Delivery</b></span></p>
-                    <p>There are many variations of passages of Lorem Ipsum available, 
-                    but the majority have suffered alteration in some form, by injected humour</p>
+                    <p>We offer reliable and efficient delivery services for your orders. Our team ensures that your items are carefully packaged and dispatched for prompt delivery to your designated address. Delivery times may vary depending on your location and the shipping method chosen. For specific details, please refer to our Shipping and Delivery policy.</p>
                 </div>
             </div>
 
             <div class="delivery-description">
                 <div class="delivery-box">
                     <p><span style="font-size: medium;"><b>Standard Delivery</b></span></p>
-                    <p>There are many variations of passages of Lorem Ipsum available, 
-                    but the majority have suffered alteration in some form, by injected humour</p>
+                    <p>We process and ship orders promptly, aiming to deliver your items in a timely manner. Delivery times may vary based on your location and chosen shipping method. Rest assured, we prioritize efficient delivery while ensuring your items arrive in excellent condition. For more information, please review our Shipping and Delivery policy.</p>
                 </div>
             </div>
 
             <div class="delivery-description">
                 <div class="delivery-box">
                     <p><span style="font-size: medium;"><b>Services</b></span></p>
-                    <p>There are many variations of passages of Lorem Ipsum available, 
-                    but the majority have suffered alteration in some form, by injected humour</p>
-                </div>
+                    <p>We offer a seamless shopping experience with secure payments, efficient order processing, and reliable delivery. From browsing products to tracking orders, our goal is to provide exceptional service at every step.</div>
             </div>
 
             <div class="delivery-description">
                 <div class="delivery-box">
-                    <p><span style="font-size: medium;"><b>Sold by</b></span></p>
-                    <p>There are many variations of passages of Lorem Ipsum available, 
-                    but the majority have suffered alteration in some form, by injected humour</p>
+                    <p><span style="font-size: medium;"><b>Returns</b></span></p>
+                    <p>Not completely satisfied? No worries! Our hassle-free return process allows you to initiate a return within 30 days of receiving your order. Please ensure the item is unused and in its original packaging. For more details, refer to our Returns Policy. Your satisfaction is our priority, and we're here to help.</p>
                 </div>
             </div>
             </div>

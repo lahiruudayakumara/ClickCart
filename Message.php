@@ -12,7 +12,7 @@
             $sub = $_POST['subject'];
             $msg = $_POST['message'];
 
-            $query = "INSERT INTO message VALUES('', 1, '{$bID}', '{$sub}', '{$msg}', 'current_timestamp()', 'buyer') ";
+            $query = "INSERT INTO message VALUES('', '{$rec}', '{$bID}', '{$sub}', '{$msg}', current_timestamp(), 'buyer') ";
 
             if($con->query($query)) {
                 echo  "<script>alert('Message created sucessfully'); window.location = 'Message.php';</script>";
