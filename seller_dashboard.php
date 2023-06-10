@@ -118,7 +118,7 @@
 					    ?>
 							<span id="stars" class="<?php if($rate >= 1) {echo "fa fa-star checked";} else if (0 < $rate and $rate < 1) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
 							<span id="stars" class="<?php if($rate >= 2) {echo "fa fa-star checked";} else if (1 < $rate and $rate < 2) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
-							<span id="stars" class="<?php if($rate >= 3) {echo "fa fa-star checked";} else if (2 < $rate and $rate < 3) {echo "fa fa-star-half-alt";} ?>"></span>
+							<span id="stars" class="<?php if($rate >= 3) {echo "fa fa-star checked";} else if (2 < $rate and $rate < 3) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
 							<span id="stars" class="<?php if($rate >= 4) {echo "fa fa-star checked";} else if (3 < $rate and $rate < 4) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
 							<span id="stars" class="<?php if($rate >= 5) {echo "fa fa-star checked";} else if (4 < $rate and $rate < 5) {echo "fa fa-star-half-alt";} else {echo "far fa-star";}?>"></span>
 							<?php echo $rate; ?> 
@@ -150,14 +150,14 @@
 		    			<p>Cancle Order <span style="float: right;"><?php echo $order_Counts[2]; ?></span></p>
 		    			<hr/>
 						<?php
-							$queryEarn = "SELECT order_items.*, product.* 
-										FROM order_items
-										JOIN product ON order_items.product_ID = product.product_ID
-										WHERE order_items.seller_ID = $sellerID AND  order_items.order_Type = 'complete'";
+							$queryEarn = "SELECT place_order.*, product.* 
+										FROM place_order
+										JOIN product ON place_order.product_ID = product.product_ID
+										WHERE product.seller_ID = $sellerID AND  place_order.order_status = 'complete'";
 							$resultEarn = $con->query($queryEarn);
 							$Earn = 0;
 							while($row = $resultEarn->fetch_assoc()) {
-								$amount = $row['product_Price'];
+								$amount = $row['total_price'];
 								$Earn += $amount;
 							}
 						?>
@@ -223,12 +223,11 @@
 		    		<p class="inline">Product Name</p><p class="p_right">Buyer Name (Q.)</p>
 		    	</div>
 		    	<?php
-		    		$query7 =  "SELECT order_items.*, seller.*, buyer.*, product.*
-		    					FROM order_items 
-		    					JOIN seller ON order_items.seller_ID = seller.seller_ID
-		    					JOIN buyer ON order_items.buyer_ID = buyer.buyer_ID
-		    					JOIN product ON order_items.product_ID = product.product_ID
-		    					WHERE order_items.order_Type = 'pending' AND order_items.seller_ID = $sellerID
+		    		$query7 =  "SELECT place_order.*, buyer.*, product.*
+		    					FROM  place_order 
+		    					JOIN buyer ON place_order.buyer_ID = buyer.buyer_ID
+		    					JOIN product ON place_order.product_ID = product.product_ID
+		    					WHERE place_order.order_status = 'pending' AND product.seller_ID = $sellerID
 		    					";
 
 		    		$result7 = $con->query($query7);
@@ -237,8 +236,9 @@
 
 		    			while($row = $result7->fetch_assoc()) {
 		    				?>
-			    			<p class="inline"><?php echo $row['product_Name']; ?></p>
+			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 45); ?></p>
 							<p class="p_right"><?php echo $row['fName'] . "&nbsp; &nbsp;" . $row['quantity'] . "&nbsp &nbsp"; ?></p>
+							<br/>
 		    				<?php
 		    			}
 		    		}
@@ -254,13 +254,12 @@
 		    		<p class="inline">Product Name</p><p class="p_right">Buyer Name (Q.)</p>
 		    	</div>
 		    	<?php
-		    		$query8 = "  SELECT order_items.*, seller.*, buyer.*, product.*
-		    							FROM order_items 
-		    							JOIN seller ON order_items.seller_ID = seller.seller_ID
-		    							JOIN buyer ON order_items.buyer_ID = buyer.buyer_ID
-		    							JOIN product ON order_items.product_ID = product.product_ID
-		    							WHERE order_items.order_Type = 'complete' AND order_items.seller_ID = $sellerID
-		    							";
+		    		$query8 = "SELECT place_order.*, buyer.*, product.*
+								FROM  place_order 
+								JOIN buyer ON place_order.buyer_ID = buyer.buyer_ID
+								JOIN product ON place_order.product_ID = product.product_ID
+								WHERE place_order.order_status = 'complete' AND product.seller_ID = $sellerID
+								";
 		    		$result8 = $con->query($query8);
 
 		    		if($result8) {
@@ -277,20 +276,19 @@
 
 	   		<div class="bottomCont">
 		    	<div class="head" >
-		    		<p class="inline" >Cancel Oder List</p>
+		    		<p class="inline" >Shipment Oder List</p>
 		    		<a class="a_inline_right" href="#">View All</a>
 		    	</div>
 		    	<div class="border_bottom">
 		    		<p class="inline">Product Name</p><p class="p_right">Buyer Name (Q.)</p>
 		    	</div>
 		    	<?php
-		    		$query9 = "  SELECT order_items.*, seller.*, buyer.*, product.*
-		    							FROM order_items 
-		    							JOIN seller ON order_items.seller_ID = seller.seller_ID
-		    							JOIN buyer ON order_items.buyer_ID = buyer.buyer_ID
-		    							JOIN product ON order_items.product_ID = product.product_ID
-		    							WHERE order_items.order_Type = 'cancel' AND order_items.seller_ID = $sellerID
-		    							";
+		    		$query9 = "SELECT place_order.*, buyer.*, product.*
+								FROM  place_order 
+								JOIN buyer ON place_order.buyer_ID = buyer.buyer_ID
+								JOIN product ON place_order.product_ID = product.product_ID
+								WHERE place_order.order_status = 'shipment' AND product.seller_ID = $sellerID
+								";
 		    		$result9 = $con->query($query9);
 
 		    		if($result9) {
