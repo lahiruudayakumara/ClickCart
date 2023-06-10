@@ -80,9 +80,9 @@ $id = $_GET['id'];
 if(isset($_POST["Submit"]))
     {
     	//post all value
-    	extract($_POST);
+    	$comment = $_POST['comment'];
         $id = $_GET['id']; //product ID from store page
-    	$query = "INSERT INTO rating (rating_ID, seller_ID, buyer_ID,  product_ID, stars, comment) VALUES ('', '{$id}', '', '{$bID}' '{$stars}', '{$comment}')";
+    	$query = "INSERT INTO rating (rating_ID, seller_ID, buyer_ID,  product_ID, stars, comment) VALUES ('', '1', '{$bID}', '{$id}', '{$stars}', '{$comment}')";
 		$result = $con->query($query);
 
     }
@@ -93,18 +93,11 @@ if(isset($_POST["Submit"]))
 
   <div class="add-review-box">
     <h3>Add Review</h3>
-	<?php echo $bID; ?>
-        <form action ="addreview.php?id=<?php echo $id ?>" method="post" name="form1" >
+        <form action ="" method="post" name="form1" >
           <div class="form-group">
 				    <label>Stars rating<span>*</span></label>
 				    <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
-   			    <!-- <select name="rating"  class="box" required>
-						<option value="1">1</option>
-	   			        <option value="2">2</option>
-	   			        <option value="3">3</option>
-	   			        <option value="4">4</option>
-	   			        <option value="5">5</option>
-   			        </select>-->
+   			   
 		      </div>
 		      <div class="form-group">
 
