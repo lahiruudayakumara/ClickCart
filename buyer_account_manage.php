@@ -1,4 +1,15 @@
-<?php require './conn.php'; ?>
+<?php 
+    require './conn.php';
+
+    session_start();
+
+    if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'buyer') {
+        $bID = $_SESSION['buyer_ID'];
+
+        $queryDisplay = "SELECT * FROM buyer WHERE buyer_ID = $bID ";
+        $resultDisplay = $con->query($queryDisplay);
+        $rowDisplay =  $resultDisplay->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +32,16 @@
 
     <div class="row">
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="buyer_account_manage.php" method="post">
+    <form action="buyer_account_manage_edit.php" method="post">
         <fieldset>
             <legend>Personal Information</legend><br>
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="Binuki"><br><br>
+            <input type="text" id="fname" name="fname" value="<?php echo $rowDisplay['fName']; ?>"><br><br>
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Mihara"><br><br>
-            <label for ="bday">Birthday:</label><br>
-            <input type="date" id="bday" name="bday"><br><br>
+            <input type="text" id="lname" name="lname" value="<?php echo $rowDisplay['lName']; ?>"><br><br>
             <label for="address">Address:</label><br>
-            <textarea id="address" name="address">No.113, Chatham road, Sydney, Australia</textarea><br><br>
-            <a href="buyer_account_manage_edit.php"><input type="submit" value="Update"></a>
+            <textarea id="address" name="address"><?php echo $rowDisplay['address']; ?></textarea><br><br>
+            <input type="submit" value="Update" name="update">
             <input type="reset" value="Reset"><br><br>
         </fieldset>
     </form>
@@ -55,15 +64,14 @@
         </div>    
     
         <div class="column" style="background-color:#f2f2f2;">
-    <form action="buyer_account_manage.php" method="post">
+    <form action="buyer_account_manage_edit.php" method="post">
         <fieldset>
             <legend>Password & Security</legend><br>
             <label for="email">Email</label><br>
-            <input type="text" id="email" name="email" placeholder="name@gmail.com"><br><br>
+            <input type="text" id="email" name="email" value="<?php echo $rowDisplay['email']; ?>" ><br><br>
             <label for="password">Password</label><br>
-            <input type="text" id="password" name="password" placeholder="Enter the password"><br><br>
-          
-            <a href="https://courseweb.sliit.lk/">Change</a><br><br>
+            <input type="password" id="password" name="password" value="<?php echo $rowDisplay['password']; ?>"><br><br>
+            <input type="submit" value="Change" name="change">
         </fieldset>
     </form>
         </div><br><br><br><br>      
@@ -75,4 +83,10 @@
     
 </body>    
 </html> 
-<?php $con->close(); ?>
+<?php 
+    } else {
+		header('location: login.php');
+		exit();
+    }
+    $con->close(); 
+?>

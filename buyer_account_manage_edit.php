@@ -3,8 +3,7 @@
 	if(!isset($_SESSION['user_role'] == 'buyer')){
 		header('loction:login.php');
 	}
-
-	if(isset($_REQUEST['submit'])){
+    else{if(isset($_REQUEST['submit'])){
 		$bfname=$_POST['fname'];
 		$blname=$_POST['lname'];
 		$bbday=$_POST['bday'];
@@ -25,6 +24,7 @@
 			exit;
 			}
 		}
+	}
 	}
 	
 
