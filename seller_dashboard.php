@@ -170,47 +170,7 @@
 		    			<p>Your Earn<span style="float: right;">$<?php echo $Earn; ?></span></p>
 		    		</div>
 
-					<div class="chat">
-		    	<table>
-			    	<tr>
-			    		<th><p class="inline" style="float:left;">Chat</p><p class="a_inline_right">View All</p></th>
-			    	</tr>
 
-
-
-
-
-
-			    	<?php
-			    		$messages_query = "SELECT * FROM messages WHERE sender = 'seller' AND seller_ID = $sellerID AND buyer_ID = 1 LIMIT 2";
-
-			    		$messages_result = mysqli_query($con, $messages_query);
-
-			    		if($messages_result ) {
-
-			    			while($row = mysqli_fetch_assoc($messages_result)) {
-			    				$message = $row['message'];
-			    				$buyer = $row['buyer_ID'];
-			    				$timestamp = $row['timestamp']
-			    				?>
-				    			<tr>
-				    				<td>
-				    					<img style="
-				    					position: absolute;" src="./images/avatar.jpg" alt="avatar" width="40px" height="40px">
-				    					<div style="margin-left: 50px;"> 
-				    												    			<p class="inline"><?php echo $buyer . $message; ?></p><br/>
-						    			<p class="inline"><?php echo $buyer . $message; ?></p>
-						    			<span style="font-size:12px; margin-right: 5px;"  class="p_right" align="center"><?php echo $timestamp ?></span>
-						    		</div>
-					    			</td>
-					    		</tr>
-
-			    				<?php
-			    			}
-			    		}
-			    	?>
-			    </table>
-			    </div>
 
 		    	</div>
 		    	<hr>
