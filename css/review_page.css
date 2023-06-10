@@ -1,7 +1,7 @@
-/* google font link  */
+/* google font link  
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-/* font awesome cdn link  */
+ font awesome cdn link  
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 
 :root{
@@ -406,9 +406,82 @@ section{
    color: var(--light-color);
    line-height: 1.5;
 }
+*/
+body{
+   background-color: #fff;
+}
+/* add review styles */
+h3{
+   font-size: 2rem;
+    color: #07001f;
+    margin-bottom: 1.2rem;
+}
+.add-review-box{
+   width: 330px;
+   padding:2rem 1rem;
+   margin: 50px auto;
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+input[type=text], select  {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+ 
+}
 
+.button1 {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+.button1:hover {
+  background-color: #45a049;
+}
 
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
+/* edit review styles*/
+.edit-review-box{
+   width: 330px;
+   padding:2rem 1rem;
+   margin: 50px auto;
+   background-color: #fff;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.review .edit-button {
+   background-color: #4CAF50;
+   color: #fff;
+   border: none;
+   padding: 5px 10px;
+   margin-right: 5px;
+   cursor: pointer;
+}
+
+.review .edit-button:hover {
+   background-color: #45a049;
+}
+
+button [type=submit]{
+
+}

@@ -1,7 +1,9 @@
 <?php 
     require './conn.php'; 
-    $pID = $_GET['id'];
 
+    session_start();
+
+    $pID = $_GET['id'];
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +39,7 @@
                 $total += 	$count[$star];			    			
             }
 
-            $a = $result4->num_rows;
+            $a = $count[1] + $count[2] + $count[3] + $count[4] + $count[5];
             
             $calstar = (1 * $count[1] + 2 * $count[2] + 3 * $count[3] + 4 * $count[4] + 5 * $count[5]);
 
@@ -75,13 +77,13 @@
             <form action="placeorder.php?pId=<?php echo $pID; ?>" method="POST">
                 <div class="quantity">
                     <p>Quantity : </p>
-                    <input type="number" min="1" max="10" name="quantity" value="1">
+                    <input id="quantityInput" type="number" min="1" max="10" name="quantity" value="1">
                 </div>
 
                 <div class="btn-box">
                         <button class="buy-btn" name="buy_now">Buy Now</button>
             </form>
-                    <button class="cart-btn">Add to cart</button>
+            <a id="addToCartLink" href="#" data-pid="<?php echo $pID; ?>" data-price="<?php echo $row['product_Price']; ?>"><button type="button" class="cart-btn">Add to cart</button></a>
                 </div>
             </br>
 
@@ -120,8 +122,9 @@
 
             <div class="rating-section">
 
-                <h2><?php echo $rate; ?> </h2>
-                <div>
+                <h1 style="display:block;"><?php echo $rate; ?><br/> </h1>
+                
+                <div class="ratingprecent">
 
 							<span id="stars" class="<?php if($rate >= 1) {echo "fa fa-star checked";} else if (0 < $rate and $rate < 1) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
 							<span id="stars" class="<?php if($rate >= 2) {echo "fa fa-star checked";} else if (1 < $rate and $rate < 2) {echo "fa fa-star-half-alt";} else {echo "far fa-star";} ?>"></span>
@@ -174,36 +177,27 @@
                     </div>
                 </div>
 
-                <div  class="review-1">
+                <div  class="review-2">
                     <p>Product Reviews</p>
-                </div>
-
-                
                 <?php
                 $query4 = "SELECT * FROM rating WHERE product_ID = $pID";
                 $result4 = $con->query($query4);
                 while ($row4 = $result4->fetch_assoc()) {
 
                 ?>
-                <div class="review-2">
-                    <p>Date and time</p>
-                    <div class="review-image">
-                        <img src="./images/comb.jpg">
-                    </div>
+                <div>
                     <div class="review-des">
                         <p><?php echo $row4['comment'] ?></p>
+                        <hr>
                     </div>
                 </div>
-                <?php } ?>
-
                 
-
-
-
-
-
-
+                <?php } ?>
+            </div>
 
     <?php include "./footer.php" ?> 
+
+    <script src="./js/productView.js"></script>
 </body>
 </html>
+<?php $con->close(); ?>

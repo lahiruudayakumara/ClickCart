@@ -44,6 +44,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,12 +55,41 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/store.css"> 
+    <link rel="stylesheet" href="./css/store_details.css">
     <link rel="stylesheet" href="./css/index.css">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Oswald:wght@200&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
  
+    <!-- store.css doesn't support -->
+    <style>
+        .box{
+            column-count: 4;
+            display: grid;
+        }
+
+        .button{
+            background-color: grey;
+            z-index: 5;
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .button:hover {
+     opacity: 0.7;
+    background-color: #000;
+    color: orange;
+}
+</style> 
+
 </head>
+
+
 
 <body> 
 
@@ -78,57 +108,46 @@ while($row = mysqli_fetch_assoc($result))
 
 {
 ?>
+    <header>
+        <h1>Online Shopping Store</h1>
+    </header>
 
- <!--<header>
-        <div class="logo-container">
-        <img class="storelogo" src="./images/store/"alt="Store Logo">
-            <h1>Nano Tech</h1>
-        </div>
-</header> -->
-<!-- store page navigation -->
-<nav>
+    <nav>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="store.php">Home</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="store_details.php">Store Details</a></li>
+            <li><a href="#">Store Details</a></li>
         </ul>
-</nav>
+    </nav>
 
-<!-- Product card -->
-<div class ="row">
-    <div class="column">
-    <div class="obj-container">
-        
-              <div class="image-style">
-                    <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
-                    <p><?php echo $row["product_Name"]; ?></p>
-                    <p><?php echo $row["seller_Name"]; ?></p>
-                    <p>$<?php echo $row["product_Price"];?></p>   
-                    <div><a href="product_view_page.php" class="button">View Product</a></div>
-                    <div><a href="add_to_cart.php" class="button">Add to cart</a></div>
-                    <div><a href="addreview.php?id=<?php echo $row['product_ID']; ?>" class="button">Add Review</a></div>
-              </div> 
-              <div>
+    
+    <div class="store-container">
+        <h2>Store Name</h2>
 
-                    <?php
+        <div class="store-details">
+            <p>Address: 123 Main Street, City, Country</p>
+            <p>Contact Number: +1 234 567 890</p>
+            <p>Star Rating: 4.5</p>
+        </div>
 
-                        $id = $row["product_ID"];
-                        $queryone = "SELECT * FROM rating WHERE product_ID = $id";
-                        $resultone = mysqli_query($con,$queryone);
-                        while($row = mysqli_fetch_assoc($resultone))
+        <h3>User Reviews</h3>
 
-                        {
-        
-                    ?>
-                    
-                        <p><?php echo $row["stars"]; ?></p>
-                        <p><?php echo $row["comment"]; ?></p>
-                    
+        <div class="reviews-container">
+            <div class="review">
+                <h4>John Doe</h4>
+                <p>Rating: 4.5</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium efficitur nisi, id interdum quam accumsan eu. Nam bibendum vestibulum bibendum.</p>
+            </div>
+            <div class="review">
+                <h4>Jane Smith</h4>
+                <p>Rating: 5.0</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim aliquet nunc id viverra.</p>
+            </div>
+            <!-- Add more reviews here -->
+        </div>
+    </div>
 
-                    <?php  } ?>
-              </div>
-              
-</div>
+</body>
 
 
 <?php   } ?>
@@ -139,6 +158,3 @@ while($row = mysqli_fetch_assoc($result))
 </body>
 
 </html>
-<?php
-	$con->close();
-?>
