@@ -128,26 +128,32 @@
 		    		<hr/>
 
 		    		<?php
-		    			$types = array("pending", "complete", "cancel");
+		    			$types = array("pending", "complete", "shipment");
 		    			$order_Counts = array();
 
 		    			foreach ($types as $type){
 
-			    			$query5 = "SELECT * FROM order_items WHERE seller_ID = $sellerID AND  order_Type = '$type'";
+			    			$query5 = "SELECT place_order.*, buyer.*, product.*
+							FROM  place_order 
+							JOIN buyer ON place_order.buyer_ID = buyer.buyer_ID
+							JOIN product ON place_order.product_ID = product.product_ID
+							WHERE place_order.order_status = '$type' AND product.seller_ID = $sellerID";
 			    			$result5 = $con->query($query5);
-			    			$order_Counts[] = $result5->num_rows;
+							if ($result5->num_rows > 0) {
+								$order_Counts[] = $result5->num_rows;
+							} else {
+								$order_Counts[] = 0;
+							}
+			    			
 
 		    			}
 
-		    			$query_p_o_count = "SELECT * FROM order_items WHERE seller_ID = $sellerID AND  order_Type = 'pending' ";
-		    			$query_p_o_count_result = mysqli_query($con, $query_p_o_count);
-		    			$query_p_o_row = mysqli_num_rows($query_p_o_count_result);
 		    		?>
 
 		    		<div>
 		    			<p>Pending Order <span style="float: right;"><?php echo $order_Counts[0]; ?></span></p>
 		    			<p>Complete Order <span style="float: right;"><?php echo $order_Counts[1]; ?></span></p>
-		    			<p>Cancle Order <span style="float: right;"><?php echo $order_Counts[2]; ?></span></p>
+		    			<p>Shipment Order <span style="float: right;"><?php echo $order_Counts[2]; ?></span></p>
 		    			<hr/>
 						<?php
 							$queryEarn = "SELECT place_order.*, product.* 
@@ -163,6 +169,49 @@
 						?>
 		    			<p>Your Earn<span style="float: right;">$<?php echo $Earn; ?></span></p>
 		    		</div>
+
+					<div class="chat">
+		    	<table>
+			    	<tr>
+			    		<th><p class="inline" style="float:left;">Chat</p><p class="a_inline_right">View All</p></th>
+			    	</tr>
+
+
+
+
+
+
+			    	<?php
+			    		$messages_query = "SELECT * FROM messages WHERE sender = 'seller' AND seller_ID = $sellerID AND buyer_ID = 1 LIMIT 2";
+
+			    		$messages_result = mysqli_query($con, $messages_query);
+
+			    		if($messages_result ) {
+
+			    			while($row = mysqli_fetch_assoc($messages_result)) {
+			    				$message = $row['message'];
+			    				$buyer = $row['buyer_ID'];
+			    				$timestamp = $row['timestamp']
+			    				?>
+				    			<tr>
+				    				<td>
+				    					<img style="
+				    					position: absolute;" src="./images/avatar.jpg" alt="avatar" width="40px" height="40px">
+				    					<div style="margin-left: 50px;"> 
+				    												    			<p class="inline"><?php echo $buyer . $message; ?></p><br/>
+						    			<p class="inline"><?php echo $buyer . $message; ?></p>
+						    			<span style="font-size:12px; margin-right: 5px;"  class="p_right" align="center"><?php echo $timestamp ?></span>
+						    		</div>
+					    			</td>
+					    		</tr>
+
+			    				<?php
+			    			}
+			    		}
+			    	?>
+			    </table>
+			    </div>
+
 		    	</div>
 		    	<hr>
 
