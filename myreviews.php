@@ -75,7 +75,6 @@ $result = $con->query($query);
 ?>
 
 <div class ="review">
-
   <table style="width: 100%; text-align:center;">
     <tr>
       <th>Product ID</th>
@@ -94,8 +93,15 @@ $result = $con->query($query);
             <td><?php echo $row["stars"]; ?></td>
             <td><p><?php echo $row["comment"]; ?></p></td>
             <td><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></td>
-            <td><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Delete Review</a></td>
+            <td><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></td>
           </tr>
+        <!--alret message -->
+        <script> 
+            function message(){
+                alert("Your Review was deleted!");
+            }
+        </script>
+
           <?php   } ?>
   </table>
 </div> 
