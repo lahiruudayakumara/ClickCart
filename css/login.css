@@ -67,7 +67,7 @@ h1{
     color: red;
 }
 
-form input{
+form .input{
     width:92%;
     outline: none;
     border: 1px solid #fff;
@@ -76,7 +76,7 @@ form input{
     border-radius: 20px;
     background : #e4e4e4;
 }
-form button{
+form .btn{
     font-size:1rem;
     margin-top: 1,8rem;
     padding: 10px 0;
@@ -88,11 +88,11 @@ form button{
     cursor: ponter;
     background:  orange;
  }
- button:hover{
+ .btn:hover{
     background: rgba(255, 166, 0, 0.716);
     cursor: pointer;
  }
- input:focus{
+ .input:focus{
     border:1px solid rgb(192, 192, 192);
  }
  .recover{
