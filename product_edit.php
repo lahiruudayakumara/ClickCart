@@ -4,9 +4,6 @@
 	
 	if(isset($_POST['update'])) {
 	
-
-			$uploadDir = './images/product/';
-
 			$name = $_POST['name'];
 			$brand = $_POST['brand'];
 			$desc = $_POST['description'];
@@ -19,32 +16,28 @@
 			$ftemp = $_FILES["image"] ["tmp_name"];
 			$ferror = $_FILES["image"] ["error"];
 
-			$filePath = $uploadDir . $fname;
 
-			if (file_exists($filePath)) {
-				echo "<script>alert('have same name image file try other image'); window.location = 'seller_dashboard.php';</script>";
-			} else {
-				if ($ferror>0) {
-					echo "<script>alert('error uploading file please try again'); window.location = 'seller_dashboard.php';</script>";
-				} else {
-					move_uploaded_file($ftemp, "./images/product/" .$fname);
-					$query = "UPDATE product SET product_Name = '$name', product_Brand = '$brand', product_Description = '$desc', product_Price = '$price', category_ID = '$category', product_Image = '{$fname}'  WHERE product_ID = '$id'";
+
+
+			if ($ferror>0) {
+				$query = "UPDATE product SET product_Name = '{$name}', product_Brand = '{$brand}', product_Description = '{$desc}', product_Price = '{$price}', category_ID = '{$category}'  WHERE product_ID = '$id'";
 					
-					if($con->query($query)) {
-						echo "<script>alert('Update Sucessfull'); window.location = 'seller_dashboard.php'</script>";
-					} else {
-						echo "<script>alert('unsucessful');</script>";
-					}
+				if($con->query($query)) {
+					echo "<script>alert('Update Sucessfull not change image'); window.location = 'seller_dashboard.php'</script>";
+				} else {
+					echo "<script>alert('withot update image unsucessful');</script>";
+				}
+			} else {
+				move_uploaded_file($ftemp, "./images/product/" .$fname);
+				$query = "UPDATE product SET product_Name = '{$name}', product_Brand = '{$brand}', product_Description = '{$desc}', product_Price = '{$price}', category_ID = '{$category}', product_Image = '{$fname}'  WHERE product_ID = '$id'";
+					
+				if($con->query($query)) {
+					echo "<script>alert('Update Sucessfull'); window.location = 'seller_dashboard.php'</script>";
+				} else {
+					echo "<script>alert('unsucessful');</script>";
 				}
 			}
 
-
-		$query = "UPDATE product SET product_Name = '$name', product_Brand = '$brand', product_Description = '$desc', product_Price = '$price', category_ID = '$category'  WHERE product_ID = '$id'";
-		if($con->query($query)) {
-			echo "<script>alert('Update Sucessfull'); window.location = 'seller_dashboard.php'</script>";
-		} else {
-			echo "<script>alert('unsucess');</script>";
-		}
 	}
 ?>
 <!DOCTYPE html>
