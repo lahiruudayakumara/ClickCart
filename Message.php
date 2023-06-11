@@ -99,13 +99,17 @@
             <a href="https://courseweb.sliit.lk/">All</a>
             <span>||</span>
             <a href="https://courseweb.sliit.lk/">Unread</a>
+            <hr>
 
-            <p class="heading">
-                <span style="margin-right: 200px; float:center;max-width:10px;">From</span>
-                <span style="margin-right: 200px; float:center;max-width:10px;">Subject</span> 
-                <span style="margin-right: 150px; float:center;max-width:10px;">Message</span> 
-                <span style="float:right;">Received</span>
-            </p>
+            <table style="width:100%; text-align: center;" >
+                <tr>
+                    <th></th>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Recived</th>
+                </tr>
+            
 
             <div>
                 <form action="Message.php" style="display: inline;" class="detail" >
@@ -114,14 +118,15 @@
                 if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                  ?> 
+                 <tr>
+                    <td><a href="message_delete.php?id=<?php echo $row['message_ID']; ?>"><button type="button">Delete</button></a></td>
+                    <td><?php echo $row['seller_Name']; ?></td>
+                    <td><?php echo $row['subject']; ?></td>
+                    <td align="left"><?php echo substr($row['message'], 0, 50); ?></td>
+                    <td><?php echo $row['timestamp']; ?></td>
+                 </tr>
 
-                    <a href="message_delete.php?id=<?php echo $row['message_ID']; ?>"><button type="button">Delete</button></a>
-                    <p style="display: inline;">
-                        <span style="margin-right: 150px;"><?php echo $row['seller_Name']; ?></span> 
-                        <span style="margin-right: 150px; float:center;max-width:100px;"><?php echo $row['subject']; ?></span>
-                        <span style="margin-right: 10px; float:center;max-width:100px;"><?php echo substr($row['message'], 0, 50); ?></span> 
-                        <span style="float:right;"><?php echo $row['timestamp']; ?></span>
-                    </p><br/>
+
                 <?php
                 }
                 } else {
@@ -130,6 +135,7 @@
                 ?>
                 </form>
             </div>
+            </table>
         </div>
     </div>
 
