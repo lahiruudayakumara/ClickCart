@@ -53,7 +53,7 @@
             <textarea id="address" name="address" rows="5" placeholder="Address"></textarea>
             <input id="email" type="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/></br>
             <input id="password" type="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$" required/><br/>
-            <p>By creating Account, You agree to our <a href="">user agrement</a> and <a href="">Privacy Policy.</a></p>
+            <p>By creating Account, You agree to our <a href="./useragreement.php">user agrement</a> and <a href="./privacy.php">Privacy Policy.</a></p>
             <input id="submit" type="submit" name="submit" placeholder="Create Account" value="Create Account"/>
             <p align="center">Already a member? <a href="./login.php">Sign in</a> </p>
         </form>
