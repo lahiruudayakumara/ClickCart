@@ -35,7 +35,7 @@
         <div class="nav-top-bar">
             <div class="search">
                 <div class="logo">
-                    <a href="#">
+                    <a href="./index.php">
                         <img src="./images/logo.png" alt="place-holder"/>
                     </a>
                 </div>
