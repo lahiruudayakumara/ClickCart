@@ -85,31 +85,31 @@ $result = $con->query($query);
 
 <div class ="review">
         <?php 
-        while($row = mysqli_fetch_assoc($result))
+            while($row = mysqli_fetch_assoc($result))
 
         { ?>
               <div class="card">
                 <div class="card-inside">
-    <p><?php echo $row["product_ID"]; ?></p>
+                    <p><?php echo $row["product_ID"]; ?></p>
 
-    <?php
-    $productID = $row["product_ID"];
-    $sqlone = "SELECT product_Name FROM product WHERE product_ID = $productID";
-    $result_one = mysqli_query($con, $sqlone);
-    $product = mysqli_fetch_assoc($result_one);
-    $productName = $product["product_Name"];
-    ?>
-    <p><?php echo $productName; ?></p>
-    <p><?php echo $row["stars"]; ?></p>
-    <p><?php echo $row["comment"]; ?></p>
-    <div><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></div>
-    <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></div>
-
-    <script> 
-    function message(){
-        alert("Your Review was deleted!");
-     }
-    </script>
+                    <?php
+                        $productID = $row["product_ID"];
+                        $sqlone = "SELECT product_Name FROM product WHERE product_ID = $productID";
+                        $result_one = mysqli_query($con, $sqlone);
+                        $product = mysqli_fetch_assoc($result_one);
+                        $productName = $product["product_Name"];
+                    ?>
+                        <p><?php echo $productName; ?></p>
+                        <p><?php echo $row["stars"]; ?></p>
+                        <p><?php echo $row["comment"]; ?></p>
+                        <div><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></div>
+                        <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></div>
+                            <<!--alret message -->
+                            <script> 
+                                function message(){
+                                    alert("Your Review was deleted!");
+                                }
+                            </script>
 
 </div>
 
