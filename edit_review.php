@@ -72,3 +72,4 @@ while($row = mysqli_fetch_array($result))
     </div>
 </body>
 </html>
+<!--reference: W3Schools-->

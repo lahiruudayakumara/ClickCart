@@ -172,3 +172,4 @@ if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
 }
 $con->close();
 ?>
+<!--reference: W3Schools-->
