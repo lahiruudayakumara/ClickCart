@@ -106,27 +106,22 @@
         </ul>
     </nav>
 <?php 
-include_once("conn.php"); //connection establishement 
+
 
 $query = "SELECT * FROM seller";
-$sellerquery = "SELECT p., s. FROM seller s JOIN product p ON s.seller_ID = p.seller_ID ";
-$result = mysqli_query($con,$sellerquery);
+$sellerquery = "SELECT product.*, seller.* FROM seller JOIN product ON seller.seller_ID = product.seller_ID ";
+$result = $con->query($sellerquery);
 
-while($row = mysqli_fetch_assoc($result))
+while($row = $result->fetch_assoc())
 
 {
-?>
-
-
-
-
-    
+?>    
     <div class="store-container">
-        <h2><?php echo $row["seller_Name"]; ?></h2>
+        <h2><?php echo $row['seller_Name']; ?></h2>
 
         <div class="store-details">
-            <p><?php echo $row["location"]; ?></p>
-            <p><?php echo $row["email"]; ?></p>
+            <p><?php echo $row['location']; ?></p>
+            <p><?php echo $row['email']; ?></p>
             
         </div>
     </div>
@@ -141,6 +136,3 @@ while($row = mysqli_fetch_assoc($result))
 </body>
 
 </html>
-<?php
-	$con->close();
-?>
