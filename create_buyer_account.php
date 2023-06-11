@@ -10,7 +10,7 @@
 		$password = $_POST['password'];
 
 		$query1 = "SELECT * FROM buyer WHERE email='$email'";
-		$result1 = $con->query($query);
+		$result1 = $con->query($query1);
 		$buyer_row_count = $result1->num_rows;
 
 		$query2 = "SELECT * FROM seller WHERE email='$email'";
@@ -43,5 +43,5 @@
 		header('Location: create_account.php');
 	}
 
-	$con->close($con);
+	$con->close();
 ?>

@@ -1,7 +1,9 @@
 <?php
 	require './conn.php';
 
-	session_start();
+  session_start();
+
+  if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'buyer') {
 
 	if(isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
 		$email = $_POST['email'];
@@ -103,3 +105,9 @@ $result = $con->query($query);
        
 </body>
 </html>
+<?php 
+  } else {
+    header('Location: login.php');
+    exit();
+  }
+?>
