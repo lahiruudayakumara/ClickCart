@@ -69,9 +69,9 @@
       <h1>Login</h1>
         <form action="login.php" method="post">
 			<p class="para-3"><?php if(isset($error)) { echo $error; } ?></p>
-            <input type="email" name="email" placeholder="Email" autocomplete="off" required/>
-            <input type="password" name="password" placeholder="password" required/>
-            <button name="submit">submit</button>
+            <input class="input" type="email" name="email" placeholder="Email" autocomplete="off" required/>
+            <input class="input" type="password" name="password" placeholder="password" required/>
+            <button class="btn" name="submit">submit</button>
 			<closeform></closeform>
 		</form>
 		<p class="para-2">
