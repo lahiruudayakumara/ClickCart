@@ -3,6 +3,8 @@ require './conn.php';
 
 session_start();
 
+if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'buyer') {
+
 if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -164,5 +166,9 @@ if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
 
 </html>
 <?php
+} else {
+    header('Location: login.php');
+    exit();
+}
 $con->close();
 ?>

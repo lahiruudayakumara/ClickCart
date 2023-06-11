@@ -279,7 +279,7 @@
 		    		if($result7) {
 		    			while($row = $result7->fetch_assoc()) {
 		    				?>
-			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 45); ?></p>
+			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 30); ?></p>
 							<p class="p_right"><?php echo $row['fName'] . "&nbsp; &nbsp;" . $row['quantity'] . "&nbsp &nbsp"; ?></p>
 							<br/>
 		    				<?php
@@ -309,7 +309,7 @@
 
 		    			while($row = $result8->fetch_assoc()) {
 		    				?>
-			    			<p class="inline"><?php echo $row['product_Name']; ?></p>
+			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 30); ?></p>
 							<p class="p_right"><?php echo $row['fName'] . "&nbsp; &nbsp;" . $row['quantity'] . "&nbsp &nbsp"; ?></p><br/>
 		    				<?php
 		    			}
@@ -338,7 +338,7 @@
 
 		    			while($row = $result9->fetch_assoc()) {
 		    				?>
-			    			<p class="inline"><?php echo $row['product_Name'];?></p>
+			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 30); ?></p>
 							<p class="p_right"><?php echo$row['fName'] . "&nbsp; &nbsp;" . $row['quantity'] . "&nbsp &nbsp"; ?></p>
 		    				<?php
 		    			}
