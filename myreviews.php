@@ -65,11 +65,26 @@
 <?php 
 include_once("conn.php"); //connection establishement 
 $bID = $_SESSION['buyer_ID'];
-$query = "SELECT * FROM rating where buyer_ID = '$bID' ";
+$query = "SELECT rating.*, product.* 
+          FROM rating
+          JOIN product ON product.product_ID = rating.product_ID 
+          WHERE buyer_ID = '$bID' ";
 $result = $con->query($query);
 ?>
 
 <div class ="review">
+<<<<<<< HEAD
+  <table style="width: 100%; text-align:center;">
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Rating Count</th>
+      <th>Comment</th>
+      <th>Edit Action</th>
+      <th>Delete Action</th>
+    </tr>
+          <?php 
+=======
     
               <div class="card-heading">
                 <div class="card-inside">
@@ -85,31 +100,31 @@ $result = $con->query($query);
 
 <div class ="review">
         <?php 
-        while($row = mysqli_fetch_assoc($result))
+            while($row = mysqli_fetch_assoc($result))
 
         { ?>
               <div class="card">
                 <div class="card-inside">
-    <p><?php echo $row["product_ID"]; ?></p>
+                    <p><?php echo $row["product_ID"]; ?></p>
 
-    <?php
-    $productID = $row["product_ID"];
-    $sqlone = "SELECT product_Name FROM product WHERE product_ID = $productID";
-    $result_one = mysqli_query($con, $sqlone);
-    $product = mysqli_fetch_assoc($result_one);
-    $productName = $product["product_Name"];
-    ?>
-    <p><?php echo $productName; ?></p>
-    <p><?php echo $row["stars"]; ?></p>
-    <p><?php echo $row["comment"]; ?></p>
-    <div><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></div>
-    <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></div>
-
-    <script> 
-    function message(){
-        alert("Your Review was deleted!");
-     }
-    </script>
+                    <?php
+                        $productID = $row["product_ID"];
+                        $sqlone = "SELECT product_Name FROM product WHERE product_ID = $productID";
+                        $result_one = mysqli_query($con, $sqlone);
+                        $product = mysqli_fetch_assoc($result_one);
+                        $productName = $product["product_Name"];
+                    ?>
+                        <p><?php echo $productName; ?></p>
+                        <p><?php echo $row["stars"]; ?></p>
+                        <p><?php echo $row["comment"]; ?></p>
+                        <div><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></div>
+                        <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></div>
+                            <<!--alret message -->
+                            <script> 
+                                function message(){
+                                    alert("Your Review was deleted!");
+                                }
+                            </script>
 
 </div>
 
@@ -120,7 +135,24 @@ $result = $con->query($query);
               
 
 
+>>>>>>> 786b2f4b42ea5bd7731ecd63c4407508e9719be6
 
+          while($row = mysqli_fetch_assoc($result) ){ 
+            ?>
+          <tr>
+            <td><?php echo $row["product_ID"]; ?></td>
+            <td><?php echo  $row["product_Name"]; ?></td>
+            <td><?php echo $row["stars"]; ?></td>
+            <td><p><?php echo $row["comment"]; ?></p></td>
+            <td><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></td>
+            <td><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Delete Review</a></td>
+          </tr>
+          <?php   } ?>
+  </table>
+</div> 
 
+    <!-- Footer -->
+    <?php include './footer.php'; ?> 
+       
 </body>
 </html>

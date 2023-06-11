@@ -59,7 +59,13 @@ while($row = mysqli_fetch_array($result))
                         <label>Comment</label>
                         <input type="text" name="comment" class="form-control" value="<?php echo $comment; ?>">
                     </div>
-                    <input type="submit" value="Update Review" class="btn btn-primary btn-block" name="update">
+                    <input type="submit" value="Update Review" class="btn btn-primary btn-block" name="update" onclick="message1()">
+
+                    <script> 
+                        function message1(){
+                            alert("Your Review was edited!");
+                        }
+                    </script>
                 </form>
             </div>
         </div>

@@ -13,7 +13,7 @@
 	 		$name = $_POST['name'];
 	 		$price = $_POST['price'];
 			$brand = $_POST['brand'];
-			$desc = $_POST['description'];
+			$desc = $_POST['Description'];
 			$c_ID = $_POST['category'];
 			 
 			$fname = $_FILES["image"] ["name"];
