@@ -6,7 +6,7 @@
 	
 			$name = $_POST['name'];
 			$brand = $_POST['brand'];
-			$desc = $_POST['description'];
+			$desc = $_POST['Description'];
 			$price = $_POST['price'];
 			$category = $_POST['category'];
 			 

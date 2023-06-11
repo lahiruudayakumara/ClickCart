@@ -64,7 +64,7 @@
 					<input type="text" name="brand" placeholder="Brand Name" required/><br/>
 					<textarea rows="4" name="Description" placeholder="Discription"></textarea>
 					<input type="text" name="price" placeholder="Price" required/><br/>
-					<input id="image" type="file" name="image" onchange="preview()" />
+					<input id="image" type="file" name="image" onchange="preview()" required/>
 					<img id="img" src="#">
 				<input class="submit" name="submit"  type="submit" value="Submit"/>
 				<button class="cancel" type="button"  onclick="hidePopup()">Cancel</button>
@@ -377,6 +377,6 @@
 	} else {
 		header("Location: login.php");
 	}
-	
+
 	$con->close();
 ?>
