@@ -277,7 +277,6 @@
 		    		$result7 = $con->query($query7);
 
 		    		if($result7) {
-
 		    			while($row = $result7->fetch_assoc()) {
 		    				?>
 			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 45); ?></p>
@@ -378,5 +377,6 @@
 	} else {
 		header("Location: login.php");
 	}
+	
 	$con->close();
 ?>
