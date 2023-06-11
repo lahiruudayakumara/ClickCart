@@ -41,7 +41,7 @@
 		exit();
 	}
 
-	 $con->close(); 
+	 $con->close();
 
 ?>
 

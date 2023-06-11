@@ -91,7 +91,7 @@
         <div id="name" style="width:80%; padding: 5px 2px;">
             <button onclick="show()">New</button>
 
-            <form class="example" action="Message.php" style="margin:auto;max-width:300px display: inline-block;" >
+            <form class="example" action="Message.php" style="margin:auto;max-width:300px; display: inline-block;" >
                     <input type="text" placeholder="Search.." name="search2" style="display: inline-block;">
                     <button type="submit" style="display: inline; border-radius: 5px; margin-left: 2px; height:42px; width:10%;"><i class="fa fa-search"></i></button>
             </form>
