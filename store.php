@@ -133,57 +133,32 @@ if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
         </div>
     </nav>
     <!-- Product card -->
-    <div class="content">
-        <div class="row">
+    
+        <div class="mainContent">
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
-                if ($counter % $productsPerColumn == 4) {
-                    // Start a new column
-                    echo '<div class="column">';
-                    $columnCounter++;
-                }
+ 
             ?>
-                <div class="product-card">
-                    <div class="image-style">
+                    <div class="sProduct">
                         <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
-                        <p><?php echo $row["product_Name"]; ?></p>
+                        <p><?php echo substr($row["product_Name"], 0, 20); ?></p>
                         <p><?php echo $row["seller_Name"]; ?></p>
                         <p>$<?php echo $row["product_Price"]; ?></p>
-                        <div><a href="product_view_page.php" class="button">View Product</a></div>
-                        <div><a href="add_to_cart.php" class="button">Add to cart</a></div>
-                        <div><a href="addreview.php?id=<?php echo $row['product_ID']; ?>" class="button">Add Review</a></div>
-
-                        <?php
-                        $id = $row["product_ID"];
-                        $queryone = "SELECT * FROM rating WHERE product_ID = $id";
-                        $resultone = mysqli_query($con, $queryone);
-                        while ($reviewRow = mysqli_fetch_assoc($resultone)) {
-                            ?>
-                            <div class="rating-list">
-                                <p>Rating: <?php echo $reviewRow["stars"]; ?></p>
-                                <p>Comment: <?php echo $reviewRow["comment"]; ?></p>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                        <a href="product_view_page.php?id=<?php echo $row['product_ID']; ?>" ><button class="btn" type="button">View Product</button></a>
+                        <a href="add_to_cart.php" ><button class="btn" type="button">Add to cart</button></a>
+                        <a  href="addreview.php?id=<?php echo $row['product_ID']; ?>" ><button class="btn" type="button">Add Review</button></a>
                     </div>
-                </div>
             <?php
-                $counter++;
-                if ($counter % $productsPerColumn == 0 || $counter == $rowCount || $columnCounter == $columnSize) {
-                    // End the column if the counter is a multiple of products per column, it is the last product, or the column counter matches the desired number of columns
-                    echo '</div>';
-                    $columnCounter = 4;
-                }
+
             }
             ?>
-        </div>
+            
+        
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <?php include './footer.php'; ?>
-    </footer>
+    <?php include './footer.php'; ?>
+
 
 </body>
 

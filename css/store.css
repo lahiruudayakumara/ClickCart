@@ -75,7 +75,8 @@ color: orange;
     justify-content: space-between;
 }
 
-.product-card {
+.image-style {
+    display: flex;
     width: calc(50% - 20px);  /*Adjust the width as per your requirement*/
     margin-bottom: 20px;
     padding: 20px;
@@ -85,13 +86,9 @@ color: orange;
 
 .image-style img {
     width: 100%;
+    height: 150px;
     height: auto;
     margin-bottom: 10px;
-}
-.image-style .img1 img{
-     display:flex;
-     margin-bottom: 10px;
-   
 }
 
     
@@ -99,6 +96,7 @@ color: orange;
 .button {
     display: block;
     width: 100%;
+    
     padding: 10px;
     text-align: center;
     background-color: #333;
@@ -106,4 +104,38 @@ color: orange;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+.mainContent {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 5%;
+}
+
+.sProduct {
+    width: 210px;
+    height: 350px;
+    background-color: white;
+    margin: 5px 5px 5px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sProduct .btn {
+    width: 100%;
+    color: #fff;
+    background-color: black;
+    padding: 5px;
+    margin-bottom: 2px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: orange;
 }
