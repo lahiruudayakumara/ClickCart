@@ -45,3 +45,5 @@
 </body>
 </html>
 <?php $con->close(); ?>
+
+<!--reference: W3Schools-->
