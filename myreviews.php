@@ -103,7 +103,14 @@ $result = $con->query($query);
     <p><?php echo $row["stars"]; ?></p>
     <p><?php echo $row["comment"]; ?></p>
     <div><a href="edit_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Edit Review</a></div>
-    <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn">Delete Review</a></div>
+    <div><a href="delete_review.php?id=<?php echo $row['rating_ID']; ?>" class="btn" onclick="message()">Delete Review</a></div>
+
+    <script> 
+    function message(){
+        alert("Your Review was deleted!");
+     }
+    </script>
+
 </div>
 
               </div>
