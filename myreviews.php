@@ -83,7 +83,6 @@ $result = $con->query($query);
       <th>Delete Action</th>
     </tr>
           <?php 
-
           while($row = mysqli_fetch_assoc($result) ){ 
             ?>
           <tr>
