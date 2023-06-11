@@ -12,6 +12,7 @@
         <div class="container-top-bar">
             <a href="#"><i>Contact Us</i></a>
             <a href="./helpcenter.php"><i>Help Center</i></a>
+            <a href="./myreviews.php"><i>My Review</i></a>
             <?php 
                 if(isset($_SESSION['user_role'])) {
                     ?>

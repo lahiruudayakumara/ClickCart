@@ -23,12 +23,6 @@
 			$_SESSION['user_role'] = 'seller';
 			$_SESSION['seller_ID'] = $sellerID;
 			
-			$sellerID = $row['seller_ID'];
-
-			echo "<script>alert('$rowCount')</script>";
-
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: seller_dashboard.php"); // Redirect to seller dashboard page
 			exit();
 			
@@ -36,30 +30,26 @@
 
 			$row = $result2->fetch_assoc();
 
-			$sellerID = $row['buyer_ID'];
+			$buyerID = $row['buyer_ID'];
 
 			$_SESSION['user_role'] = 'buyer';
 			$_SESSION['buyer_ID'] = $buyerID;
-			
-			$sellerID = $row['buyer_ID'];
 
-			$_SESSION['user_role'] = 'seller';
-			$_SESSION['seller_ID'] = $sellerID;
 			header("Location: index.php"); // Redirect to seller dashboard page
 			exit();
 		} else {
 			$error = "invalid email or password!";
 		}
 	} 
-	?>
-	
+?>
+
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Login Page</title>
+		<title>Review page</title>
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/header.css">
 		<link rel="stylesheet" href="./css/review_page.css">
@@ -75,7 +65,7 @@
 	
 		<!-- review section Start -->
 	<section class ="review-container">
-		<div class="heading"> <h1> user's reviews </h1> <a href="create_review.php? get_id=<?= $get_id; ?>" class="inline-btn" style="margin-top: 0;"> add review</a> </div>
+		<div class="heading"> <h1> user's reviews </h1> <a href="display_review.php? get_id=<?= $get_id; ?>" class="inline-btn" style="margin-top: 0;"> add review</a> </div>
 
 		<div class="box-container">
 			<?php 
@@ -85,14 +75,14 @@
 			if($select_reviews->rowCount() > 0)
 			{
 				while($fetch_review = $select_reviews-> fetch(POD::FETCH_ASSOC)){
-				?>
+			?>
 				<div class = "box"  <?php if($fetch_review['user_id']== $user_id){
 					echo'style ="order": -1;"';};?>>
 				
 				<?php
 					$select_user = $conn->prepare("SELECT * FROM 'users' WHERE id = ? ");
 					$select_user->execute([$fetch_review['user_id']]);
-					while($fetch_user= $select_user-> fetch(PDO::FETCH_ASSOC)){
+						while($fetch_user= $select_user-> fetch(PDO::FETCH_ASSOC)){
 				?>
 <div class ="user">
 	<?php if($fetch_user['image'] !=''){ ?>
@@ -107,30 +97,30 @@
 	</div>
 	<?php };  ?>
 	<div class= "ratings">
-		<?php if($fetch_review['rating'] == 1){?>
+		<?php if($fetch_review['rating'] == 1){ ?>
 			<p style="background:var(--red);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];.?> </span></p>
+			<span> <?= $fetch_review['rating']; ?> </span></p>
 		<?php }; ?> 
-		<?php if($fetch_review['rating'] == 2){?>
+		<?php if($fetch_review['rating'] == 2){ ?>
 			<p style="background:var(--orange);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];.?> </span></p>
+			<span> <?= $fetch_review['rating'];?> </span></p>
 		<?php }; ?> 
-		<?php if($fetch_review['rating'] == 3){?>
+		<?php if($fetch_review['rating'] == 3){ ?>
 			<p style="background:var(--red);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];.?> </span></p>
+			<span> <?= $fetch_review['rating'];?> </span></p>
 		<?php }; ?> 
-		<?php if($fetch_review['rating'] == 4){?>
+		<?php if($fetch_review['rating'] == 4){ ?>
 			<p style="background:var(--main-color);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];.?> </span></p>
+			<span> <?= $fetch_review['rating'];?> </span></p>
 		<?php }; ?>
-		<?php if($fetch_review['rating'] == 5){?>
+		<?php if($fetch_review['rating'] == 5){ ?>
 			<p style="background:var(--main-color);" ><i class="fas fa-star"></i>
-			<span> <?= $fetch_review['rating'];.?> </span></p>
+			<span> <?= $fetch_review['rating'];?> </span></p>
 		<?php }; ?>
 	</div>
-		<h3 class="title"><? fetch_review['title'] ?></h3>
+		<h3 class="title"> <? fetch_review['title'] ?> </h3>
 		<?php if($fetch_review['description']!=  ''){ ?>
-			<p class="description"><?= $fetch_review['description']; ?></p>
+			<p class="description"> <?= $fetch_review['description']; ?> </p>
 		<?php }; ?>
 		<?php if($fetch_review['user_id'] == $user_id){	?>
 			<form action ="" method= "POST" class ="felx-btn">
