@@ -85,7 +85,9 @@
             </div>
                 <!-- See All Button -->
          <div class="btn-box">
-            <button class="seeall-btn">See all</button>
+            <a href="./popular_product.php">
+              <button class="seeall-btn">See all</button>
+            </a>
          </div>
         </main>  
             
