@@ -95,18 +95,6 @@
     <!-- Header -->
 <?php include './header.php'; ?>
 
-
-<?php 
-include_once("conn.php"); //connection establishement 
-
-$query = "SELECT * FROM seller";
-$sellerquery = "SELECT p.*, s.seller_Name FROM seller s JOIN product p ON s.seller_ID = p.seller_ID ";
-$result = mysqli_query($con,$sellerquery);
-
-while($row = mysqli_fetch_assoc($result))
-
-{
-?>
     <header>
         <h1>Store Details</h1>
     </header>
@@ -117,14 +105,23 @@ while($row = mysqli_fetch_assoc($result))
             <li><a href="#">Store Details</a></li>
         </ul>
     </nav>
+<?php 
 
-    
+
+$query = "SELECT * FROM seller";
+$sellerquery = "SELECT product.*, seller.* FROM seller JOIN product ON seller.seller_ID = product.seller_ID ";
+$result = $con->query($sellerquery);
+
+while($row = $result->fetch_assoc())
+
+{
+?>    
     <div class="store-container">
-        <h2><?php echo $row["seller_Name"]; ?></h2>
+        <h2><?php echo $row['seller_Name']; ?></h2>
 
         <div class="store-details">
-            <p><?php echo $row["location"]; ?></p>
-            <p><?php echo $row["email"]; ?></p>
+            <p><?php echo $row['location']; ?></p>
+            <p><?php echo $row['email']; ?></p>
             
         </div>
     </div>

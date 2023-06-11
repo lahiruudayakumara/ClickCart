@@ -88,6 +88,13 @@ color: orange;
     height: auto;
     margin-bottom: 10px;
 }
+.image-style .img1 img{
+     display:flex;
+     margin-bottom: 10px;
+   
+}
+
+    
 
 .button {
     display: block;
