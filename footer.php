@@ -38,7 +38,6 @@
                         <a href="./privacy.php"><p>Privacy Policy</p></a>
                         <a href="./termsofservice.php"><p>Term of Service</p></a>
                         <a href="./mobileapp.php"><p>Mobile App</p></a>
-                        <a href="#"><p>Customer Care</p></a>
                     </div>
                 </div>
             </div>
