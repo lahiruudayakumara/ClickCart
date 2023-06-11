@@ -44,6 +44,22 @@ a:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.p-image{
+    width: 250px;
+    height: 250px;
+    float: left;
+}
+
+h2,h4{
+    text-align: justify;
+}
+
+.img-des{
+    text-align: justify;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
 .right-container {
     width: 38%;
     padding: 10px;
@@ -59,9 +75,28 @@ a:hover {
     text-align: left;
 }
 
-.bla{
+.input-group{
     display: flex;
     padding-bottom: 10px;
+}
+
+label{
+    display: inline-block;
+    width: 200px;
+    margin-top: 2px;
+}
+
+.input-group input{
+    justify-content: center;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 50%;
+    border: solid #ddd 1px;
+    border-radius: 3px;
+    outline: 0;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
 }
 
 .descripton{
@@ -84,6 +119,8 @@ a:hover {
 
 .item {
     margin-left: 5px;
+    width: 50px;
+    height: 50px;
 }
 
 .item i {

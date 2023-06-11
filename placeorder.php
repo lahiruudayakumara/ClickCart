@@ -61,29 +61,35 @@
             <div class="details">
                 <form method="POST" action="process_order.php?pId=<?php echo  $productID; ?>" >
                     
+                    
+                    <img class="p-image" src="./images/product/<?php echo $productImage; ?>" alt="Product Image">
                     <h2>Product Name: <?php echo $productName; ?></h2>
                     <h4><?php echo $brandName; ?></h4>
-                    <p><?php echo $desc; ?></p>
-                    <img style="width:100px;height:100px;" src="./images/product/<?php echo $productImage; ?>" alt="Product Image">
                     <br>
-
-                    <div class="bla">
-                        <label for="des">Delivery Address:</label>
+                    <p class="img-des"><?php echo $desc; ?></p>
+                    <br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <div class="input-group">
+                        <label>Delivery Address:</label>
                         <input type="text" name="delivery_address" id="delivery_address" value="<?php echo $row1['address']; ?>" required><br>
                     </div>
 
-                    <div class="bla">
-                        <label for="des">Quantity:</label>
+                    <div class="input-group">
+                        <label>Quantity:</label>
                         <input type="text" name="qty" id="qty" value="<?php echo $q; ?>" required><br>
                     </div>
                     
-                        <label for="des">Billing address:</label>
+                    <div class="input-group">
+                        <label>Billing address:</label>
                         <input type="text" name="billing_address" id="billing_address" value="<?php echo $row1['address']; ?>" required><br><br>
                     </div>
 
-                    <div class="bla">
-                        <label for="des">Email:</label>
+                    <div class="input-group">
+                        <label>Email:</label>
                         <input type="email" name="buyer_email" id="buyer_email" value="<?php echo $row1['email']; ?>" required><br>
+                    </div>
                     </div>
 
                     <div class="details4"> Select Payment Method: </div>
