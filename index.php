@@ -29,7 +29,7 @@
     <?php include "./header.php" ?>
 
     <!-- SLIDER -->
-    <!-- Reference - W3Schools -->
+    <!-- Reference - W3School -->
     <div class="slider-container">
       <div class="slider">
         <div class="slider-item">
@@ -63,10 +63,6 @@
                 </div>
             <?php } ?>
             </div>
-                <!-- See All Button -->
-          <div class="btn-box">
-            <button class="seeall-btn">See all</button>
-          </div>
         </main>
 
 
