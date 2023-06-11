@@ -127,8 +127,7 @@ if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
     <nav>
         <div class="heading">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
+                <li><a href="store.php">Home</a></li>
                 <li><a href="store_details.php">Store Details</a></li>
             </ul>
         </div>

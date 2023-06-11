@@ -29,4 +29,7 @@ function hidePopup() {
     document.getElementById("add-product").style.display = "none";
 }
 
+function navShow() {
+	console.log("hello");
+}
 

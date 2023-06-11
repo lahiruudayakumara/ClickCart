@@ -26,17 +26,14 @@
 		                <img src="./images/logo.png" alt="place-holder"/>
 		            </a>
 		        </div>
-	            <ul>
-					<li class="li"><a href="#">My Business</a></li>
-					<li class="li"><a href="./helpcenter.php">Help Center</a></li>
-					<li class="li"><a href="#">Contact Us</a></li>
-	            	<li class="li-dropdown">
-						Seller
-						<ul id="child-ul" class="child-ul" > 
-							<li ><a href="./seller_account_manage.php">Manage Account</a></li>
-							<li><a href="./logout.php">Logout</a></li>
-						</ul>
-					</li>
+				<div id="icon">
+					<a href="#" onclick="navShow()"><i id="toggleicon" class="fa fa-bars"></i></a>
+				</div>
+	            <ul id="ul">
+					<li id="li" class="li"><a href="./helpcenter.php">Help Center</a></li>
+					<li id="li" class="li"><a href="./contactus.php">Contact Us</a></li>
+					<li id="li" class="li"><a href="./seller_account_manage.php">Manage Account</a></li>
+					<li id="li" class="li"><a href="./logout.php">Logout</a></li>
 	            </ul>
 				<label>
     				<i class="fa fa-bars"></i>
@@ -170,7 +167,45 @@
 		    			<p>Your Earn<span style="float: right;">$<?php echo $Earn; ?></span></p>
 		    		</div>
 
+					<div class="chat">
+		    			<table>
+			    			<tr>
+			    			<th><p class="inline" style="float:left;">Chat - Inbox Message</p><p class="a_inline_right">View All</p></th>
+			    			</tr>
+							<?php
+								$messages_query = "SELECT message.*, buyer.*
+													FROM message
+													JOIN buyer ON buyer.buyer_ID = message.buyer_ID
+													WHERE message.sender_role = 'buyer' AND message.seller_ID = $sellerID LIMIT 3";
 
+								$messages_result = $con->query($messages_query);
+
+								if($messages_result ) {
+
+									while($row = $messages_result->fetch_assoc()) {
+										$message = $row['message'];
+										$buyer = $row['fName'];
+										$timestamp = $row['timestamp']
+										?>
+										<tr>
+											<td>
+												<img style="
+												position: absolute;" src="./images/avatar.jpg" alt="avatar" width="40px" height="40px">
+												<div style="margin-left: 50px;"> 
+												<p class="inline"><?php echo $buyer; ?></p><br/>
+												<p class="inline"><?php echo  $message; ?></p>
+												<span style="font-size:12px; margin-right: 5px;"  class="p_right" align="center">
+													<?php echo $timestamp ?>
+												</span>
+											</div>
+											</td>
+										</tr>
+										<?php
+									}
+								}
+							?>
+						</table>
+			    	</div>
 
 		    	</div>
 		    	<hr>
@@ -242,7 +277,6 @@
 		    		$result7 = $con->query($query7);
 
 		    		if($result7) {
-
 		    			while($row = $result7->fetch_assoc()) {
 		    				?>
 			    			<p class="inline"><?php echo substr($row['product_Name'], 0, 45); ?></p>
@@ -321,6 +355,21 @@
 	<script src="./js/imgPreview.js"></script>
 	<script src="./js/check_online.js"></script>
 	<script src="./js/sellerDashboard.js"></script>
+	<script>
+		function navShow() {
+			var a  =document.getElementById("ul");
+			var b = document.getElementById("toggleicon");
+
+			if(b.className === "fa fa-bars") {
+				a.style.display = "block";
+				b.className =  "fa fa-close";
+			} else {
+				a.style.display = "none";
+				b.className =  "fa fa-bars";
+			}	
+			
+		}
+	</script>
 
 	</body>
 	</html>
@@ -328,5 +377,6 @@
 	} else {
 		header("Location: login.php");
 	}
+	
 	$con->close();
 ?>

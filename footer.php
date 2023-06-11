@@ -28,7 +28,7 @@
                 </div>
                 <div class="col">
                     <p><b>Customer Care</b></p>
-                    <a href="#"><p>Contact Us</p></a>
+                    <a href="./contactus.php"><p>Contact Us</p></a>
                     <a href="./helpcenter.php"><p>Help Center</p></a>
                 </div>
                 <div class="col">

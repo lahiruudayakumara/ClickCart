@@ -44,7 +44,7 @@ a:hover {
     float: right;
     list-style: none;
     display: inline;
-    margin-right: 100px;
+    margin-right: 10px;
     padding: 15px;
 }
 
@@ -345,6 +345,10 @@ hr {
     color: orange;
 }
 
+#icon {
+    display: none;
+}
+
 @media only screen and (max-width: 1080px) {
     .bottomBar {
         width: 90%;
@@ -366,23 +370,53 @@ hr {
     #seller_header {
         width: 100%;
     }
-
-    .seller_nav {
+    #icon {
+        display: block;
     }
 
     .seller_nav  .logo {
         position: absolute;
-        padding: 10px;
+        padding: 5px;
     }
     .seller_nav  .logo img {
-        width:  130px;
+        width:  60px;
         height: auto;
     }
 
-    .seller_nav ul {
+
+    .seller_nav .li, .li-dropdown {
         display: none;
 
     }
+
+    #icon {
+        float: right;
+        right: 0;
+        font-size: 2em;
+        padding: 10px;
+    }
+
+    .seller_nav #ul {
+        display: none;
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        left: 0;
+        right: 0;
+        text-align: center;
+        background-color: white;
+        margin-top: 50px;
+        z-index: 1;
+    }
+
+    .seller_nav #li {
+        border-radius: 5px;
+        list-style: none;
+        display: block;
+        right: 5px;
+
+    }
+
 
     .main_section {
         width: 90%;

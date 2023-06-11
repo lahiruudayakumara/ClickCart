@@ -90,65 +90,43 @@
 </head>
 
 
-
 <body> 
 
     <!-- Header -->
 <?php include './header.php'; ?>
 
-
-<?php 
-include_once("conn.php"); //connection establishement 
-
-$query = "SELECT * FROM product";
-$sellerquery = "SELECT p.*, s.seller_Name FROM seller s JOIN product p ON s.seller_ID = p.seller_ID ";
-$result = mysqli_query($con,$sellerquery);
-
-while($row = mysqli_fetch_assoc($result))
-
-{
-?>
     <header>
-        <h1>Online Shopping Store</h1>
+        <h1>Store Details</h1>
     </header>
 
     <nav>
         <ul>
             <li><a href="store.php">Home</a></li>
-            <li><a href="#">Products</a></li>
             <li><a href="#">Store Details</a></li>
         </ul>
     </nav>
+<?php 
 
-    
+
+$query = "SELECT * FROM seller";
+$sellerquery = "SELECT product.*, seller.* FROM seller JOIN product ON seller.seller_ID = product.seller_ID ";
+$result = $con->query($sellerquery);
+
+while($row = $result->fetch_assoc())
+
+{
+?>    
     <div class="store-container">
-        <h2>Store Name</h2>
+        <h2><?php echo $row['seller_Name']; ?></h2>
 
         <div class="store-details">
-            <p>Address: 123 Main Street, City, Country</p>
-            <p>Contact Number: +1 234 567 890</p>
-            <p>Star Rating: 4.5</p>
-        </div>
-
-        <h3>User Reviews</h3>
-
-        <div class="reviews-container">
-            <div class="review">
-                <h4>John Doe</h4>
-                <p>Rating: 4.5</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium efficitur nisi, id interdum quam accumsan eu. Nam bibendum vestibulum bibendum.</p>
-            </div>
-            <div class="review">
-                <h4>Jane Smith</h4>
-                <p>Rating: 5.0</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim aliquet nunc id viverra.</p>
-            </div>
-            <!-- Add more reviews here -->
+            <p><?php echo $row['location']; ?></p>
+            <p><?php echo $row['email']; ?></p>
+            
         </div>
     </div>
 
 </body>
-
 
 <?php   } ?>
 

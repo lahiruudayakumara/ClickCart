@@ -22,8 +22,9 @@
         $sqlDeleteSeller = "DELETE FROM seller WHERE seller_ID = '$sellerId' LIMIT 1";
         $con->query($sqlDeleteSeller);
 
-        echo "<script>alert('Account deleted successfully.'); window.location = 'seller_dashboard.php';</script>";
+        echo "<script>alert('Account deleted successfully.'); window.location = 'logout.php';</script>";
     }
+    
     $con->close();
 
 ?>

@@ -91,24 +91,25 @@ if(isset($_POST["Submit"]))
 
 <!-- Add review section Start -->
 
-  <div class="add-review-box">
+<div class="add-review-box">
     <h3>Add Review</h3>
         <form action ="" method="post" name="form1" >
-          <div class="form-group">
-				    <label>Stars rating<span>*</span></label>
-				    <input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
+          	<div class="form-group">
+				<label>Stars rating<span>*</span></label>
+				<input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
    			   
-		      </div>
-		      <div class="form-group">
+		    </div>
+		    <div class="form-group">
 
-				    <label>Comment</label>
-				    <input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10" required> 
+				<label>Comment</label>
+				<input type="text" name="comment" class="form-control" placeholder="Enter comment" maxlength="1000" cols="30" rows="10" required> 
       
-          </div>
-            <input type="submit" name="Submit" value="Submit" class="button1">
+          	</div>
+            	<input type="submit" name="Submit" value="Submit" class="button1">
+
 			<closeform></closeform>
         </form>
-  </div> 
+</div> 
 
 <!-- Add review section ends -->
 

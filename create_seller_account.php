@@ -26,7 +26,7 @@
 
 		}else  {
 
-			$query3 = "INSERT INTO seller VALUES ('', '{$uName}', '{$location}', '', '{$email}', '{$password}')";
+			$query3 = "INSERT INTO seller VALUES ('', '{$uName}', '{$location}', '{$email}', '{$password}')";
 
 			$result3 = $con->query($query3);
 

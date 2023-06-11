@@ -12,13 +12,13 @@
             $sub = $_POST['subject'];
             $msg = $_POST['message'];
 
-            $query = "INSERT INTO message VALUES('', 1, '{$bID}', '{$sub}', '{$msg}', 'current_timestamp()', 'buyer') ";
+            $query = "INSERT INTO message VALUES('', '{$rec}', '{$bID}', '{$sub}', '{$msg}', current_timestamp(), 'buyer') ";
 
             if($con->query($query)) {
-                echo  "<script>alert('Message created sucessfully'); window.location = 'Message.php';</script>";
+                echo  "<script>alert('Message send sucessfully'); window.location = 'Message.php';</script>";
             }
             else {
-                echo  '<script>alert("Message Delete Failed"); window.location = "message.php"; </script>';
+                echo  '<script>alert("Message send Failed"); window.location = "message.php"; </script>';
             }
         
             
@@ -59,7 +59,16 @@
         <h2>New Message</h2>
         <!-- Message Creation Form -->
         <form method="POST" action="Message.php">
-            <input type="text" name="recipient" placeholder="Recipient">
+            <select name="recipient" id="reciver" class="reciver">
+                <option value="">-- Select Seller --</option>
+                <?php
+                    $querySeller = "SELECT * FROM seller";
+                    $resultSeller = $con->query($querySeller);
+                    while($row = $resultSeller->fetch_assoc()) {
+                 ?>
+                <option value="<?php echo $row['seller_ID'] ?>"><?php echo $row['seller_Name'] ?></option>
+                <?php } ?>
+            </select>
             <input type="text" name="subject" placeholder="Subject">
             <textarea name="message" placeholder="Message"></textarea>
             <button  type="submit" name="submit">Create Message</button>

@@ -1,37 +1,37 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  /* Create three equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: 400px; 
-  }
+  box-sizing: border-box;
+}
 
-  .column fieldset {
-    padding: 5px;
-    min-height: 280px; 
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 400px; 
+}
+
+.column fieldset {
+  padding: 5px;
+  min-height: 280px; 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .column .btn{
-  color: #fff;
-  background-color: orange;
-  width: 100px;
-  height: 25px;
-  cursor: pointer;
-  outline: none;
-  border: none;
+color: #fff;
+background-color: orange;
+width: 100px;
+height: 25px;
+cursor: pointer;
+outline: none;
+border: none;
 }
 
 .column .btn:hover {
-  background-color: black;
+background-color: black;
 }
