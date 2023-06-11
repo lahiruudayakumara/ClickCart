@@ -76,7 +76,7 @@ $result = mysqli_query($con,$sellerquery);
     <div class="heading">
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
+            
             <li><a href="store_details.php">Store Details</a></li>
         </ul>
     </div>
@@ -91,7 +91,7 @@ $result = mysqli_query($con,$sellerquery);
         { ?>
         
               <div class="image-style">
-                    <img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras">
+                    <div class="img1"><img class="img-style" src="./images/product/<?php echo $row["product_Image"]; ?>" alt="Cameras"></div>
                     <p><?php echo $row["product_Name"]; ?></p>
                     <p><?php echo $row["seller_Name"]; ?></p>
                     <p>$<?php echo $row["product_Price"];?></p>   
@@ -100,12 +100,13 @@ $result = mysqli_query($con,$sellerquery);
               </div> 
               <?php   } ?>
               
+    </div>
+    </div>
 </div>
-</div>
-</div>
-<div>
-             <?php
 
+<!--<div>
+      <?php
+       
               $id = $row["product_ID"];
               $queryone = "SELECT * FROM rating WHERE product_ID = $id";
               $resultone = mysqli_query($con,$queryone);
@@ -119,7 +120,7 @@ $result = mysqli_query($con,$sellerquery);
 
                <?php  } ?>
               </div>
-
+              -->
 
 
     <!-- Footer -->
