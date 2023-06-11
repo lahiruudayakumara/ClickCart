@@ -117,3 +117,4 @@ $result = $con->query($query);
     exit();
   }
 ?>
+<!--reference: W3Schools-->
