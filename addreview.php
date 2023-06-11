@@ -86,6 +86,11 @@ if(isset($_POST["Submit"]))
         $id = $_GET['id']; //product ID from store page
     	$query = "INSERT INTO rating (rating_ID, seller_ID, buyer_ID,  product_ID, stars, comment) VALUES ('', '1', '{$bID}', '{$id}', '{$stars}', '{$comment}')";
 		$result = $con->query($query);
+		if($result) {
+			echo "<script>alert('Review Added'); window.location = 'myreviews.php';</script>";
+		} else {
+			echo "<script>alert('Review Added'); window.location = 'store.php';</script>";
+		}
 
     }
 
@@ -96,7 +101,7 @@ if(isset($_POST["Submit"]))
 <div class="add-review-box">
     <h3>Add Review</h3>
         <form action ="" method="post" name="form1" >
-          	<div class="form-group">
+          	<div id="" class="form-group">
 				<label>Stars rating<span>*</span></label>
 				<input type="text" name="stars" class="form-control" placeholder="Enter Stars Count" required> 	 
    			   
