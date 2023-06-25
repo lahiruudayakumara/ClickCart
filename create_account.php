@@ -37,7 +37,7 @@
     <div class="chooseContainer">
         <h2>Create an Account</h2>
         <label>
-            <input type="radio" name="radioButton" onclick="showBuyerContainer()" checked>Personal Account
+            <input type="radio" name="radioButton" onclick="showBuyerContainer()" checked>Buyer Account
         </label>
   
         <label>
@@ -62,6 +62,9 @@
         <button id="button" type="submit" class="apple" onclick="alertmessage()"><i class="fa-brands fa-apple" aria-hidden="true"></i> Twitter</button>
     </div>
 
+
+
+    <!-- Creating a seller account -->
     <div id="seller" class="seller">
         <form action="create_seller_account.php" method="post">
             <input class="userName" type="text" name="userName" placeholder="Seller Name or Business Name" required/>

@@ -31,7 +31,7 @@
 			$result3 = $con->query($query3);
 
 			if ($result3) {
-				echo "<script>alert('Your seller account created Now you can loginn email and password'); window.location = 'login.php';</script>";
+				echo "<script>alert('Your seller account created Now you can login email and password'); window.location = 'login.php';</script>";
 			} else {
 				echo "<script>alert('Your account not created please try again'); window.location = 'create_account.php';</script>";
 			}

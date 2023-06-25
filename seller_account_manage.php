@@ -89,7 +89,7 @@
                     <!-- ----------------------Account delete process------------------- -->
                     <form class="account-delete" action="delete_account.php" method="POST">
                         <a href="./delete_account.php?sId=<?php echo $seller_ID; ?>">
-                    <input type="button" name="delete" value="Delete Account?">
+                    <input style="background-color:red; color:white; cursor:pointer;" type="button" name="delete" value="Delete Account?">
                     </a>
 
 
