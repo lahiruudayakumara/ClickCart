@@ -23,6 +23,7 @@
     <?php include "./header.php" ?>
 
     <?php
+        //this code import from lahiru's seller dashboard page
         $query = "SELECT *FROM product WHERE product_ID = $pID";
         $result = $con->query($query);
         $row = $result->fetch_assoc();

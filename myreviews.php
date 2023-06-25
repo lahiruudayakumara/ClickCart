@@ -116,5 +116,6 @@ $result = $con->query($query);
     header('Location: login.php');
     exit();
   }
+  $con->close();
 ?>
 <!--reference: W3Schools-->
