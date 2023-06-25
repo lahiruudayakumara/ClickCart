@@ -1,3 +1,6 @@
+
+//Reference - W3School
+
 const slider = document.querySelector('.slider');
 const sliderItems = Array.from(document.querySelectorAll('.slider-item'));
 const sliderButtonsContainer = document.querySelector('.slider-buttons');
