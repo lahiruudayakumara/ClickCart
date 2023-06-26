@@ -39,6 +39,7 @@
 	        </nav>
 	    </header> 
 
+		<!-- popup window-->
 		<div id="add-product" class="add-product">
 	    	<h2>Add Product</h2>
 			<form method="POST" action="product_add.php" enctype="multipart/form-data">
@@ -68,6 +69,7 @@
 				<button class="cancel" type="button"  onclick="hidePopup()">Cancel</button>
 			</form>
 		</div>
+		<!-- close popup window-->
 
 	    <div class="main_section">
 	    	<div class="sideBar">
