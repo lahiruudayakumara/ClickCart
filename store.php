@@ -35,7 +35,7 @@ if (isset($_POST['submit']) && $_POST['email'] && $_POST['password']) {
         $_SESSION['user_role'] = 'buyer';
         $_SESSION['buyer_ID'] = $buyerID;
 
-        header("Location: index.php"); // Redirect to seller dashboard page
+        header("Location: index.php"); // Redirect to home page
         exit();
     } else {
         $error = "Invalid email or password!";
